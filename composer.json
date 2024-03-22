@@ -1,0 +1,23 @@
+{
+    "name": "encoredigitalgroup/stdlib",
+    "description": "A collection of standard library classes and functions for PHP.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "~8.2.0|~8.3.0",
+        "brick/std": "0.4.0",
+        "illuminate/collections": "^10|^11",
+        "illuminate/support": "^10|^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "EncoreDigitalGroup\\StdLib\\": ""
+        },
+        "files": [
+            "str_helpers.php",
+            "val_helpers.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "extra": {}
+}
