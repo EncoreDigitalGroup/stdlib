@@ -35,6 +35,6 @@ if (! function_exists('str_concat_space')) {
 if (! function_exists('stringify')) {
     function stringify(mixed $str): string
     {
-        return (string)$str;
+        return (string) $str;
     }
 }

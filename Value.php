@@ -12,4 +12,9 @@ class Value
 
         return true;
     }
+
+    public static function transformBool(mixed $value): bool
+    {
+        return filter_var($value, FILTER_VALIDATE_BOOLEAN);
+    }
 }

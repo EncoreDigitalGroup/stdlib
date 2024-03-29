@@ -15,3 +15,10 @@ if (! function_exists('val_not_null')) {
         return Value::notNull($value);
     }
 }
+
+if (! function_exists('val_transform_bool')) {
+    function val_transform_bool(mixed $value): bool
+    {
+        return Value::transformBool($value);
+    }
+}

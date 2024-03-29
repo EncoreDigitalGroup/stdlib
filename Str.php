@@ -4,17 +4,18 @@ namespace EncoreDigitalGroup\StdLib;
 
 use Illuminate\Support\Str as StringSupport;
 
+/**
+ * @api
+ */
 class Str extends StringSupport
 {
     /**@param array<string, string> ...$str */
-
     public static function concat(mixed ...$str): string
     {
         return implode('', $str);
     }
 
     /**@param array<string, string> ...$str */
-
     public static function concatSpace(mixed ...$str): string
     {
         return implode(' ', $str);
