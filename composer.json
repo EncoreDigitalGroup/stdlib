@@ -2,10 +2,10 @@
     "name": "encoredigitalgroup/stdlib",
     "description": "A collection of standard library classes and functions for PHP.",
     "type": "library",
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
-        "php": "~8.2.0|~8.3.0",
         "brick/std": "0.4.0",
+        "encoredigitalgroup/foundation": "self.version",
         "illuminate/collections": "^10|^11",
         "illuminate/support": "^10|^11"
     },
