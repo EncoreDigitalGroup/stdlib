@@ -16,6 +16,7 @@
         "files": [
             "num_helpers.php",
             "str_helpers.php",
+            "url_helpers.php",
             "val_helpers.php"
         ]
     },
