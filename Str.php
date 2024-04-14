@@ -28,6 +28,11 @@ class Str extends StringSupport
 
     public static function toString(mixed $value): string
     {
-        return (string) $value;
+        return (string)$value;
+    }
+
+    public static function maxLength(string $value, int $length = 100): string
+    {
+        return Str::limit($value, $length);
     }
 }
