@@ -31,7 +31,7 @@ class Str extends StringSupport
         return (string)$value;
     }
 
-    public static function maxLength(string $value, int $length = 100): string
+    public static function maxLength(string $value, ?int $length = 100): string
     {
         return Str::limit($value, $length);
     }

@@ -40,7 +40,7 @@ if (!function_exists('stringify')) {
 }
 
 if (!function_exists('str_max_length')) {
-    function str_max_length(string $str, int $length = null): string
+    function str_max_length(string $str, ?int $length = null): string
     {
         return Str::maxLength($str, $length);
     }
