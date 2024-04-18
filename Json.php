@@ -30,5 +30,4 @@ class Json
 
         return $result;
     }
-
 }
