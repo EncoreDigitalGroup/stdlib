@@ -11,13 +11,14 @@
     },
     "autoload": {
         "psr-4": {
-            "EncoreDigitalGroup\\StdLib\\": ""
+            "EncoreDigitalGroup\\StdLib\\": "src/"
         },
         "files": [
-            "num_helpers.php",
-            "str_helpers.php",
-            "url_helpers.php",
-            "val_helpers.php"
+            "src/ObjectHelpers/num_helpers.php",
+            "src/ObjectHelpers/php_helpers.php",
+            "src/ObjectHelpers/str_helpers.php",
+            "src/ObjectHelpers/url_helpers.php",
+            "src/ObjectHelpers/val_helpers.php"
         ]
     },
     "minimum-stability": "stable",

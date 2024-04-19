@@ -1,6 +1,6 @@
 <?php
 
-use EncoreDigitalGroup\StdLib\Str;
+use EncoreDigitalGroup\StdLib\Objects\Str;
 
 if (!function_exists('guid')) {
     function guid(): string

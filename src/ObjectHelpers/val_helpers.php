@@ -1,6 +1,6 @@
 <?php
 
-use EncoreDigitalGroup\StdLib\Value;
+use EncoreDigitalGroup\StdLib\Objects\Value;
 
 if (!function_exists('not_null')) {
     function not_null(mixed $value): bool

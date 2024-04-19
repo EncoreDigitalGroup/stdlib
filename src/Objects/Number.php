@@ -1,6 +1,6 @@
 <?php
 
-namespace EncoreDigitalGroup\StdLib;
+namespace EncoreDigitalGroup\StdLib\Objects;
 
 use Illuminate\Support\Number as NumberSupport;
 
