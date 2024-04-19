@@ -17,14 +17,14 @@ if (!function_exists('php_version_at_most')) {
 }
 
 if (!function_exists('php_version_greater_than')) {
-    function php_version_at_most(string $version): bool
+    function php_version_greater_than(string $version): bool
     {
         return Php::versionGreaterThan($version);
     }
 }
 
 if (!function_exists('php_version_less_than')) {
-    function php_version_at_most(string $version): bool
+    function php_version_less_than(string $version): bool
     {
         return Php::versionLessThan($version);
     }
