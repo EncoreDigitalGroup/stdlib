@@ -2,8 +2,19 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
+/**
+ * @api
+ * @internal
+ */
 class Json
 {
+    /**
+     * JSON Encode Only Not Null Properties
+     *
+     * @param object $object
+     * @return string
+     * @internal
+     */
     public static function encodeOnlyNotNullProperties(object $object): string
     {
         $jsonString = json_encode($object);

@@ -2,6 +2,10 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
+/**
+ * @api
+ * @internal
+ */
 class Value
 {
     public static function notNull(mixed $value): bool
