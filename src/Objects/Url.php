@@ -9,7 +9,7 @@ class Url
         return urlencode($data);
     }
 
-    public static function decode(mixed $data): string
+    public static function decode(mixed $data): ?string
     {
         if(not_null($data)){
             return urldecode($data);
