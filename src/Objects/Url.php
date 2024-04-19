@@ -9,8 +9,12 @@ class Url
         return urlencode($data);
     }
 
-    public static function decode(string $data): string
+    public static function decode(mixed $data): string
     {
-        return urldecode($data);
+        if(not_null($data)){
+            return urldecode($data);
+        }
+
+        return $data;
     }
 }

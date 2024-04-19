@@ -10,7 +10,7 @@ if (!function_exists('url_encode')) {
 }
 
 if (!function_exists('url_decode')) {
-    function url_decode(string $value): string
+    function url_decode(mixed $value): string
     {
         return Url::decode($value);
     }
