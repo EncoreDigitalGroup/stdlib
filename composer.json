@@ -14,6 +14,7 @@
             "EncoreDigitalGroup\\StdLib\\": "src/"
         },
         "files": [
+            "src/ObjectHelpers/dir_helpers.php",
             "src/ObjectHelpers/num_helpers.php",
             "src/ObjectHelpers/php_helpers.php",
             "src/ObjectHelpers/str_helpers.php",
