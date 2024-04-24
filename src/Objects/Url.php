@@ -4,6 +4,7 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 /**
  * @api
+ *
  * @internal
  */
 class Url
@@ -15,7 +16,7 @@ class Url
 
     public static function decode(mixed $data): ?string
     {
-        if(not_null($data)){
+        if (not_null($data)) {
             return urldecode($data);
         }
 

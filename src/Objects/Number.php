@@ -6,6 +6,7 @@ use Illuminate\Support\Number as NumberSupport;
 
 /**
  * @api
+ *
  * @internal
  */
 class Number extends NumberSupport
@@ -13,8 +14,7 @@ class Number extends NumberSupport
     /**
      * Convert a value to an integer.
      *
-     * @param mixed $value
-     * @return int
+     * @param  mixed  $value
      */
     public static function toInt($value): int
     {

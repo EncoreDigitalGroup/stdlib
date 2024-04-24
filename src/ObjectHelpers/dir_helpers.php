@@ -8,3 +8,10 @@ if (!function_exists('dir_current')) {
         return Directory::current();
     }
 }
+
+if (!function_exists('dir_here')) {
+    function dir_here(): string
+    {
+        return Directory::here();
+    }
+}

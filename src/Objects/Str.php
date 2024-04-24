@@ -4,6 +4,7 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 /**
  * @api
+ *
  * @internal
  */
 use Illuminate\Support\Str as StringSupport;

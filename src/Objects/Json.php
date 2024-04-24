@@ -4,6 +4,7 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 /**
  * @api
+ *
  * @internal
  */
 class Json
@@ -11,8 +12,6 @@ class Json
     /**
      * JSON Encode Only Not Null Properties
      *
-     * @param object $object
-     * @return string
      * @internal
      */
     public static function encodeOnlyNotNullProperties(object $object): string
