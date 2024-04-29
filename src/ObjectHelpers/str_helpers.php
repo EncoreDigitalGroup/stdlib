@@ -47,6 +47,13 @@ if (!function_exists('stringify')) {
     }
 }
 
+if (!function_exists('str_lower')) {
+    function str_lower(mixed $str): string
+    {
+        return Str::lower($str);
+    }
+}
+
 if (!function_exists('str_max_length')) {
     function str_max_length(string $str, ?int $length = null): string
     {

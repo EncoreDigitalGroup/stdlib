@@ -11,11 +11,7 @@ class Value
 {
     public static function notNull(mixed $value): bool
     {
-        if ($value === null) {
-            return false;
-        }
-
-        return true;
+        return $value !== null;
     }
 
     public static function transformBool(mixed $value): bool
