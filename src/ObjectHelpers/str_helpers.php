@@ -28,7 +28,7 @@ if (!function_exists('str_concat_space')) {
     /**@param array<string, string> ...$str */
     function str_concat_space(mixed ...$str): string
     {
-        return Str::concat($str);
+        return Str::concatSpace($str);
     }
 }
 
@@ -43,7 +43,7 @@ if (!function_exists('str_enum_val')) {
 if (!function_exists('stringify')) {
     function stringify(mixed $str): string
     {
-        return (string) $str;
+        return (string)$str;
     }
 }
 
