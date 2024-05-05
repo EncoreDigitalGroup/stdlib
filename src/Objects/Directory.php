@@ -19,4 +19,33 @@ class Directory
     {
         return __DIR__;
     }
+
+    /**
+     * Get the MD5 hash of a directory
+     * @param string $dir
+     * @return string
+     */
+    public static function hash(string $dir): string
+    {
+        if (!is_dir($dir)) {
+            return false;
+        }
+
+        $files = scandir($dir);
+        $hashes = array();
+
+        foreach ($files as $file) {
+            if ($file != '.' && $file != '..') {
+                $filePath = $dir . '/' . $file;
+
+                if (is_dir($filePath)) {
+                    $hashes[] = self::hash($filePath);
+                } else {
+                    $hashes[] = md5_file($filePath);
+                }
+            }
+        }
+
+        return md5(implode('', $hashes));
+    }
 }

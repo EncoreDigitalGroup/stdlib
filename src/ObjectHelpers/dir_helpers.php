@@ -9,9 +9,10 @@ if (!function_exists('dir_current')) {
     }
 }
 
-if (!function_exists('dir_here')) {
-    function dir_here(): string
+if (!function_exists('dir_hash')) {
+    /** @experimental */
+    function dir_hash(string $dir): string
     {
-        return Directory::here();
+        return Directory::hash($dir);
     }
 }
