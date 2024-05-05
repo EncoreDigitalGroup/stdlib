@@ -7,6 +7,7 @@ namespace EncoreDigitalGroup\StdLib\Objects;
  *
  * @internal
  */
+
 use Illuminate\Support\Str as StringSupport;
 
 /**
@@ -17,6 +18,7 @@ class Str extends StringSupport
     /**@param array<string, string> ...$str */
     public static function concat(mixed ...$str): string
     {
+        $str = array_merge(...$str);
         return implode('', $str);
     }
 
@@ -33,7 +35,7 @@ class Str extends StringSupport
 
     public static function toString(mixed $value): string
     {
-        return (string) $value;
+        return (string)$value;
     }
 
     public static function maxLength(string $value, ?int $length = null): string
