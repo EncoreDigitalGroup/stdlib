@@ -15,6 +15,7 @@
         },
         "files": [
             "src/ObjectHelpers/dir_helpers.php",
+            "src/ObjectHelpers/file_helpers.php",
             "src/ObjectHelpers/num_helpers.php",
             "src/ObjectHelpers/php_function_helpers.php",
             "src/ObjectHelpers/php_helpers.php",
