@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -53,10 +50,6 @@
       </profile-state>
     </entry>
   </component>
-  <component name="SharedFileColors">
-    <fileColor scope="Tests" color="Green" />
-    <fileColor scope="Non-Project Files" color="Yellow" />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <created>1701568442857</created>
@@ -65,8 +58,5 @@
       <updated>1701568442857</updated>
     </task>
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

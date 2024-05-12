@@ -41,12 +41,14 @@ class Directory
                 $filePath = $dir . '/' . $file;
 
                 if (is_dir($filePath)) {
-                    $hashes[] = self::hash($filePath);
+                    $hashes = self::hash($filePath);
                 } else {
                     $hashes[] = md5_file($filePath);
                 }
             }
         }
+
+        $hashes = Arr::flatten($hashes);
 
         return md5(implode('', $hashes));
     }
