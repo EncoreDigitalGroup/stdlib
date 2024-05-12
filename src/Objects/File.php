@@ -10,10 +10,19 @@ class File
     {
         $file = file_get_contents($path);
 
-        if(!$file) {
+        if (!$file) {
             throw new FileNotFoundException($path);
         }
 
         return $file;
+    }
+
+    public static function delete(string $path): void
+    {
+        if (!file_exists($path)) {
+            throw new FileNotFoundException($path);
+        }
+
+        unlink($path);
     }
 }
