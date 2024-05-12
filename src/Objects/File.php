@@ -4,13 +4,14 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 use EncoreDigitalGroup\StdLib\Exceptions\FileNotFoundException;
 
+/** @api */
 class File
 {
     public static function getContent(string $path): string
     {
         $file = file_get_contents($path);
 
-        if (!$file) {
+        if ($file === '' || $file === '0' || $file === false) {
             throw new FileNotFoundException($path);
         }
 

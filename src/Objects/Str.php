@@ -19,6 +19,7 @@ class Str extends StringSupport
     public static function concat(mixed ...$str): string
     {
         $str = array_merge(...$str);
+
         return implode('', $str);
     }
 
@@ -35,7 +36,7 @@ class Str extends StringSupport
 
     public static function toString(mixed $value): string
     {
-        return (string)$value;
+        return (string) $value;
     }
 
     public static function maxLength(string $value, ?int $length = null): string

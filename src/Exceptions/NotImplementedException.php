@@ -3,7 +3,6 @@
 namespace EncoreDigitalGroup\StdLib\Exceptions;
 
 use EncoreDigitalGroup\StdLib\Objects\ExitCode;
-use Exception;
 
 class NotImplementedException extends BaseException
 {

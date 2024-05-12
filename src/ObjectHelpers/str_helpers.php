@@ -43,7 +43,7 @@ if (!function_exists('str_enum_val')) {
 if (!function_exists('stringify')) {
     function stringify(mixed $str): string
     {
-        return (string)$str;
+        return (string) $str;
     }
 }
 

@@ -2,6 +2,10 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
+use EncoreDigitalGroup\StdLib\Exceptions\DirectoryNotFoundException;
+use EncoreDigitalGroup\StdLib\Exceptions\ImproperBooleanReturnedException;
+
+/** @api */
 class Directory
 {
     /**
@@ -9,31 +13,29 @@ class Directory
      */
     public static function current(): string
     {
+        if (!getcwd()) {
+            throw new ImproperBooleanReturnedException();
+        }
+
         return getcwd();
     }
 
     /**
-     * Get the directory of the current file.
-     */
-    public static function here(): string
-    {
-        return __DIR__;
-    }
-
-    /**
      * Get the MD5 hash of a directory
-     * @param string $dir
-     * @return string
      */
     public static function hash(string $dir): string
     {
         if (!is_dir($dir)) {
-            return false;
+            throw new DirectoryNotFoundException();
         }
 
         $files = scandir($dir);
-        $hashes = array();
 
+        if (!$files) {
+            throw new ImproperBooleanReturnedException();
+        }
+
+        $hashes = [];
         foreach ($files as $file) {
             if ($file != '.' && $file != '..') {
                 $filePath = $dir . '/' . $file;
