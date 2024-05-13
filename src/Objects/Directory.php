@@ -7,6 +7,7 @@ use EncoreDigitalGroup\StdLib\Exceptions\ImproperBooleanReturnedException;
 
 /**
  * @api
+ *
  * @internal
  */
 class Directory
@@ -49,7 +50,7 @@ class Directory
 
     }
 
-    public static function scan($dir, &$results = array()): array
+    public static function scan($dir, &$results = []): array
     {
         $files = scandir($dir);
 
@@ -57,7 +58,7 @@ class Directory
             $dir = realpath($dir . DIRECTORY_SEPARATOR . $value);
             if (!is_dir($dir)) {
                 $results[] = $dir;
-            } else if ($value != "." && $value != "..") {
+            } elseif ($value != '.' && $value != '..') {
                 self::scan($dir, $results);
                 $results[] = $dir;
             }

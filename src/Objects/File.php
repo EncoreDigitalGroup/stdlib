@@ -6,12 +6,14 @@ use EncoreDigitalGroup\StdLib\Exceptions\FileNotFoundException;
 
 /**
  * @api
+ *
  * @internal
  */
 class File
 {
     /**
      * @experimental
+     *
      * @codeCoverageIgnore
      */
     public static function getContent(string $path): string
