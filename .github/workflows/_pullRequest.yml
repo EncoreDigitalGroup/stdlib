@@ -26,6 +26,9 @@ jobs:
         needs: StaticAnalysis
         name: Test
         uses: EncoreDigitalGroup/.github/.github/workflows/pest.yml@v1
+        with:
+            phpVersion: '8.3'
+            branch: ${{ github.head_ref }}
     AutoMerge:
         needs: StaticAnalysis
         name: AutoMerge
