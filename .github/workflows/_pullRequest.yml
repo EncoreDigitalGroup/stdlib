@@ -22,10 +22,10 @@ jobs:
             composer_auth_json: ${{ vars.COMPOSER_AUTH_JSON }}
             phpVersion: '8.3'
             branch: ${{ github.head_ref }}
-    # Test:
-    #   needs: Duster
-    #   name: Run Tests
-    #   uses: EncoreDigitalGroup/.github/.github/workflows/pest.yml@master
+    Test:
+        needs: StaticAnalysis
+        name: Test
+        uses: EncoreDigitalGroup/.github/.github/workflows/pest.yml@v1
     AutoMerge:
         needs: StaticAnalysis
         name: AutoMerge
