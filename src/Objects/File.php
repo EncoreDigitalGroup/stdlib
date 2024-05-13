@@ -4,9 +4,18 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 use EncoreDigitalGroup\StdLib\Exceptions\FileNotFoundException;
 
-/** @api */
+/**
+ * @api
+ *
+ * @internal
+ */
 class File
 {
+    /**
+     * @experimental
+     *
+     * @codeCoverageIgnore
+     */
     public static function getContent(string $path): string
     {
         $file = file_get_contents($path);

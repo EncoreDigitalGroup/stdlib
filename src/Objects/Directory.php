@@ -5,11 +5,17 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 use EncoreDigitalGroup\StdLib\Exceptions\DirectoryNotFoundException;
 use EncoreDigitalGroup\StdLib\Exceptions\ImproperBooleanReturnedException;
 
-/** @api */
+/**
+ * @api
+ *
+ * @internal
+ */
 class Directory
 {
     /**
      * Get the current working directory.
+     *
+     * @codeCoverageIgnore
      */
     public static function current(): string
     {
@@ -26,28 +32,51 @@ class Directory
     public static function hash(string $dir): string
     {
         if (!is_dir($dir)) {
-            throw new DirectoryNotFoundException();
+            throw new DirectoryNotFoundException(); //@codeCoverageIgnore
         }
 
-        $files = scandir($dir);
-
-        if (!$files) {
-            throw new ImproperBooleanReturnedException();
-        }
+        $files = self::scan($dir);
+        $files = Arr::flatten($files);
 
         $hashes = [];
         foreach ($files as $file) {
             if ($file != '.' && $file != '..') {
                 $filePath = $dir . '/' . $file;
-
-                if (is_dir($filePath)) {
-                    $hashes[] = self::hash($filePath);
-                } else {
+                if (!is_dir($filePath)) {
                     $hashes[] = md5_file($filePath);
                 }
             }
         }
 
         return md5(implode('', $hashes));
+
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public static function scan(string $dir, array &$results = []): array
+    {
+        $files = scandir($dir);
+
+        if (!$files) {
+            throw new ImproperBooleanReturnedException();
+        }
+
+        foreach ($files as $file) {
+            $dir = realpath($dir . DIRECTORY_SEPARATOR . $file);
+
+            if ($dir) {
+                if (!is_dir($dir)) {
+                    $results[] = $dir;
+                } elseif ($file != '.' && $file != '..') {
+                    self::scan($dir, $results);
+                    $results[] = $dir;
+
+                }
+            }
+        }
+
+        return $results;
     }
 }

@@ -12,6 +12,8 @@ use Illuminate\Support\Str as StringSupport;
 
 /**
  * @api
+ *
+ * @internal
  */
 class Str extends StringSupport
 {
