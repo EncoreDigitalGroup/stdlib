@@ -50,15 +50,24 @@ class Directory
 
     }
 
-    public static function scan($dir, &$results = []): array
+    public static function scan(string $dir, array &$results = []): array
     {
         $files = scandir($dir);
 
-        foreach ($files as $key => $value) {
-            $dir = realpath($dir . DIRECTORY_SEPARATOR . $value);
+        if (!$files) {
+            throw new ImproperBooleanReturnedException();
+        }
+
+        foreach ($files as $file) {
+            $dir = realpath($dir . DIRECTORY_SEPARATOR . $file);
+
+            if (!$dir) {
+                throw new ImproperBooleanReturnedException();
+            }
+
             if (!is_dir($dir)) {
                 $results[] = $dir;
-            } elseif ($value != '.' && $value != '..') {
+            } elseif ($file != '.' && $file != '..') {
                 self::scan($dir, $results);
                 $results[] = $dir;
             }
