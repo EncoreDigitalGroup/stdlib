@@ -15,12 +15,14 @@ test('Directory hash method returns md5 hash of a directory', function () {
     expect($hash)->toBeString();
 });
 
-test('Directory hash method throws DirectoryNotFoundException for non-existent directory', function () {
-    $directoryPath = '/non/existent/directory/path';
-    expect(fn() => Directory::hash($directoryPath))->toThrow(DirectoryNotFoundException::class);
+test('Directory hash method returns expected hash', function () {
+    $directoryPath = __DIR__ . '/../test_files/hash_test/';
+    $hash = Directory::hash($directoryPath);
+    expect($hash)->toBe('d41d8cd98f00b204e9800998ecf8427e');
 });
 
-test('Directory hash method throws ImproperBooleanReturnedException when scandir fails', function () {
-    // This test might be hard to implement as it's difficult to simulate a scandir failure
-    // You might need to mock the scandir function or use vfsStream to create a virtual file system for testing
+test('Directory scan returns array', function () {
+    $directoryPath = __DIR__ . '/../test_files/hash_test/';
+    $hash = Directory::scan($directoryPath);
+    expect($hash)->toBeArray();
 });

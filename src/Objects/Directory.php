@@ -29,27 +29,37 @@ class Directory
             throw new DirectoryNotFoundException();
         }
 
-        $files = scandir($dir);
-
-        if (!$files) {
-            throw new ImproperBooleanReturnedException();
-        }
+        $files = self::scan($dir);
+        $files = Arr::flatten($files);
 
         $hashes = [];
         foreach ($files as $file) {
             if ($file != '.' && $file != '..') {
                 $filePath = $dir . '/' . $file;
-
-                if (is_dir($filePath)) {
-                    $hashes = self::hash($filePath);
-                } else {
+                if (!is_dir($filePath)) {
                     $hashes[] = md5_file($filePath);
                 }
             }
         }
 
-        $hashes = Arr::flatten($hashes);
-
         return md5(implode('', $hashes));
+
+    }
+
+    public static function scan($dir, &$results = array()): array
+    {
+        $files = scandir($dir);
+
+        foreach ($files as $key => $value) {
+            $dir = realpath($dir . DIRECTORY_SEPARATOR . $value);
+            if (!is_dir($dir)) {
+                $results[] = $dir;
+            } else if ($value != "." && $value != "..") {
+                self::scan($dir, $results);
+                $results[] = $dir;
+            }
+        }
+
+        return $results;
     }
 }
