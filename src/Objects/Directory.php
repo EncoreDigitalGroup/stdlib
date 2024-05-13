@@ -14,6 +14,7 @@ class Directory
 {
     /**
      * Get the current working directory.
+     *
      * @codeCoverageIgnore
      */
     public static function current(): string
