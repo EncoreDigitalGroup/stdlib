@@ -30,6 +30,6 @@ jobs:
             phpVersion: '8.3'
             branch: ${{ github.head_ref }}
     AutoMerge:
-        needs: StaticAnalysis
+        needs: Test
         name: AutoMerge
         uses: EncoreDigitalGroup/.github/.github/workflows/dependabotAutoMerge.yml@v1
