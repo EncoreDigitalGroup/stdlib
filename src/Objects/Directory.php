@@ -61,15 +61,15 @@ class Directory
         foreach ($files as $file) {
             $dir = realpath($dir . DIRECTORY_SEPARATOR . $file);
 
-            if (!$dir) {
-                throw new ImproperBooleanReturnedException();
-            }
+            if ($dir) {
+                if (!is_dir($dir)) {
+                    $results[] = $dir;
+                } elseif ($file != '.' && $file != '..') {
+                    self::scan($dir, $results);
+                    $results[] = $dir;
 
-            if (!is_dir($dir)) {
-                $results[] = $dir;
-            } elseif ($file != '.' && $file != '..') {
-                self::scan($dir, $results);
-                $results[] = $dir;
+
+                }
             }
         }
 
