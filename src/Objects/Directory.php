@@ -5,7 +5,10 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 use EncoreDigitalGroup\StdLib\Exceptions\DirectoryNotFoundException;
 use EncoreDigitalGroup\StdLib\Exceptions\ImproperBooleanReturnedException;
 
-/** @api */
+/**
+ * @api
+ * @internal
+ */
 class Directory
 {
     /**
