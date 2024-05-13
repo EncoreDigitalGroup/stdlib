@@ -68,7 +68,6 @@ class Directory
                     self::scan($dir, $results);
                     $results[] = $dir;
 
-
                 }
             }
         }
