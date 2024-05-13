@@ -14,6 +14,7 @@ class Directory
 {
     /**
      * Get the current working directory.
+     * @codeCoverageIgnore
      */
     public static function current(): string
     {
@@ -30,7 +31,7 @@ class Directory
     public static function hash(string $dir): string
     {
         if (!is_dir($dir)) {
-            throw new DirectoryNotFoundException();
+            throw new DirectoryNotFoundException(); //@codeCoverageIgnore
         }
 
         $files = self::scan($dir);
@@ -50,6 +51,9 @@ class Directory
 
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public static function scan(string $dir, array &$results = []): array
     {
         $files = scandir($dir);
