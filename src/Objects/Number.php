@@ -14,10 +14,10 @@ class Number extends NumberSupport
     /**
      * Convert a value to an integer.
      *
-     * @param  mixed  $value
+     * @param mixed $value
      */
     public static function toInt($value): int
     {
-        return (int) $value;
+        return (int)$value;
     }
 }

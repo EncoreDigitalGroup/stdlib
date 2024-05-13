@@ -2,7 +2,10 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-/** @api */
+/**
+ * @api
+ * @codeCoverageIgnore
+ */
 class ExitCode
 {
     const SUCCESS = 0;

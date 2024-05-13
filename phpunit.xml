@@ -11,8 +11,11 @@
     </testsuites>
     <source>
         <include>
-            <directory suffix=".php">./app</directory>
             <directory suffix=".php">./src</directory>
         </include>
+        <exclude>
+            <directory suffix=".php">./src/ObjectHelpers</directory>
+            <directory suffix=".php">./src/Exceptions</directory>
+        </exclude>
     </source>
 </phpunit>

@@ -14,6 +14,7 @@ class Json
      *
      * @internal
      * @experimental
+     * @codeCoverageIgnore
      */
     public static function encodeOnlyNotNullProperties(object $object): string
     {
