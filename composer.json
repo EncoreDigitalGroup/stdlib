@@ -34,6 +34,7 @@
             "EncoreDigitalGroup\\StdLib\\": "src/"
         },
         "files": [
+            "src/ObjectHelpers/arr_helpers.php",
             "src/ObjectHelpers/dir_helpers.php",
             "src/ObjectHelpers/file_helpers.php",
             "src/ObjectHelpers/num_helpers.php",
