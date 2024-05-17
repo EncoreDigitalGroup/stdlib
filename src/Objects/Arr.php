@@ -10,8 +10,6 @@ use TypeError;
  * @api
  *
  * @internal
- *
- * @codeCoverageIgnore
  */
 class Arr extends ArraySupport
 {
