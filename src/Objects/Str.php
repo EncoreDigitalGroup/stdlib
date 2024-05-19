@@ -28,6 +28,8 @@ class Str extends StringSupport
     /**@param array<string, string> ...$str */
     public static function concatSpace(mixed ...$str): string
     {
+        $str = array_merge(...$str);
+        
         return implode(' ', $str);
     }
 
