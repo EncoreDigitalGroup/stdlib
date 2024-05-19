@@ -35,4 +35,13 @@ class File
 
         unlink($path);
     }
+
+    public static function copy(string $source, string $destination): void
+    {
+        if (!file_exists($source)) {
+            throw new FileNotFoundException($source);
+        }
+
+        copy($source, $destination);
+    }
 }
