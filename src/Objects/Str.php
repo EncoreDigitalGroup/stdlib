@@ -29,7 +29,7 @@ class Str extends StringSupport
     public static function concatSpace(mixed ...$str): string
     {
         $str = array_merge(...$str);
-        
+
         return implode(' ', $str);
     }
 
