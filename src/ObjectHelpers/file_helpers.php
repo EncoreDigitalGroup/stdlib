@@ -56,8 +56,38 @@ if (!function_exists('file_size')) {
 }
 
 if (!function_exists('file_type')) {
+    /**
+     * @since 1.0.0 - Returns the type of the file. Possible values are fifo, char, dir, block, link, file, socket and unknown.
+     * @since 2.0.0 - Returns the extension of the file.
+     */
     function file_type(string $path): false|string
     {
         return filetype($path);
+    }
+}
+
+if (!function_exists('file_system_type')) {
+    /**
+     * @since 1.5.1 - Returns the type of the file. Possible values are fifo, char, dir, block, link, file, socket and unknown.
+     */
+    function file_system_type(string $path): false|string
+    {
+        return filetype($path);
+    }
+}
+
+if (!function_exists('file_get_type')) {
+    /**
+     * Get the file type based on the extension
+     *
+     * @since 1.5.1 - Returns the file type based on the extension.
+     */
+    function file_get_type(string $path): false|string
+    {
+        if (is_file($path)) {
+            return pathinfo($path, PATHINFO_EXTENSION);
+        }
+
+        return false;
     }
 }
