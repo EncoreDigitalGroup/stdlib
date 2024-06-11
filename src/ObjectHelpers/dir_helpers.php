@@ -16,3 +16,11 @@ if (!function_exists('dir_hash')) {
         return Directory::hash($dir);
     }
 }
+
+if (!function_exists('dir_scan')) {
+    /** @experimental */
+    function dir_scan(string $dir): array
+    {
+        return Directory::scan($dir);
+    }
+}
