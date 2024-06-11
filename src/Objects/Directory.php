@@ -84,8 +84,7 @@ class Directory
 
     /**
      * List all files in a directory recursively
-     * @param string $path
-     * @return array
+     *
      * @codeCoverageIgnore
      */
     public static function scanRecursive(string $path): array
