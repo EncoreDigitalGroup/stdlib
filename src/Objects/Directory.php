@@ -4,6 +4,8 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 use EncoreDigitalGroup\StdLib\Exceptions\DirectoryNotFoundException;
 use EncoreDigitalGroup\StdLib\Exceptions\ImproperBooleanReturnedException;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
 /**
  * @api
@@ -78,5 +80,27 @@ class Directory
         }
 
         return $results;
+    }
+
+    /**
+     * List all files in a directory recursively
+     *
+     * @codeCoverageIgnore
+     */
+    public static function scanRecursive(string $path): array
+    {
+        $directoryFiles = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($path),
+            RecursiveIteratorIterator::SELF_FIRST
+        );
+
+        $files = [];
+        foreach ($directoryFiles as $file) {
+            if ($file->isFile()) {
+                $files[] = $file->getRealpath();
+            }
+        }
+
+        return $files;
     }
 }
