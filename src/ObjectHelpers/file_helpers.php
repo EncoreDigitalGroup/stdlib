@@ -79,8 +79,7 @@ if (!function_exists('file_system_type')) {
 if (!function_exists('file_get_type')) {
     /**
      * Get the file type based on the extension
-     * @param string $path
-     * @return false|string
+     *
      * @since 1.5.1 - Returns the file type based on the extension.
      */
     function file_get_type(string $path): false|string
