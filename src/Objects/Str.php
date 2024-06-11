@@ -25,12 +25,18 @@ class Str extends StringSupport
         return implode('', $str);
     }
 
-    /**@param array<string, string> ...$str */
+    /**
+     * @param  array<string, string>  ...$str
+     *
+     * @deprecated No replacement.
+     *
+     * @codeCoverageIgnore deprecated
+     */
     public static function concatSpace(mixed ...$str): string
     {
-        $str = array_merge(...$str);
+        $str = array_merge($str);
 
-        return implode(' ', $str);
+        return implode(' ', $str); //@phpstan-ignore-line
     }
 
     public static function guid(): string
