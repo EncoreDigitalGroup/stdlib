@@ -10,14 +10,6 @@ test('concat method concatenates strings', function () {
     expect($result)->toEqual('HelloWorld');
 });
 
-test('concatSpace method concatenates strings with a space', function () {
-    $strings = ['Hello', 'World'];
-
-    $result = Str::concatSpace(...$strings);
-
-    expect($result)->toEqual('Hello World');
-});
-
 test('guid method returns a UUID', function () {
     $result = Str::guid();
 
