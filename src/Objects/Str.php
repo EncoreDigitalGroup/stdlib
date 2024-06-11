@@ -26,8 +26,10 @@ class Str extends StringSupport
     }
 
     /**
-     * @param array<string, string> ...$str
+     * @param  array<string, string>  ...$str
+     *
      * @deprecated No replacement.
+     *
      * @codeCoverageIgnore deprecated
      */
     public static function concatSpace(mixed ...$str): string
