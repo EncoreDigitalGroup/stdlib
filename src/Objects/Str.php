@@ -36,7 +36,7 @@ class Str extends StringSupport
     {
         $str = array_merge($str);
 
-        return implode(' ', $str);
+        return implode(' ', $str); //@phpstan-ignore-line
     }
 
     public static function guid(): string

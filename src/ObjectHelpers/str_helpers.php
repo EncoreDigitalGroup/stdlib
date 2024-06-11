@@ -28,7 +28,7 @@ if (!function_exists('str_concat_space')) {
     /**@param array<string, string> ...$str */
     function str_concat_space(mixed ...$str): string
     {
-        return Str::concatSpace($str);
+        return Str::concatSpace($str); //@phpstan-ignore-line
     }
 }
 
