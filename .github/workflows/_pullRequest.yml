@@ -23,13 +23,13 @@ jobs:
             branch: ${{ github.head_ref }}
             path: 'src/'
     Test:
-        needs: StaticAnalysis
+        needs: Duster
         name: Test
         uses: EncoreDigitalGroup/.github/.github/workflows/pest.yml@v1
         with:
             phpVersion: '8.3'
             branch: ${{ github.head_ref }}
     AutoMerge:
-        needs: Test
+        needs: [ StaticAnalysis, Test ]
         name: AutoMerge
         uses: EncoreDigitalGroup/.github/.github/workflows/dependabotAutoMerge.yml@v1
