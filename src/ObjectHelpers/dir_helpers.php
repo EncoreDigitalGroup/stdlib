@@ -24,3 +24,11 @@ if (!function_exists('dir_scan')) {
         return Directory::scan($dir);
     }
 }
+
+if (!function_exists('dir_scan_recursive')) {
+    /** @experimental */
+    function dir_scan_recursive(string $path): array
+    {
+        return Directory::scanRecursive($path);
+    }
+}
