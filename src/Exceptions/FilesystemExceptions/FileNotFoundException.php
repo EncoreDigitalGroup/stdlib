@@ -1,7 +1,8 @@
 <?php
 
-namespace EncoreDigitalGroup\StdLib\Exceptions;
+namespace EncoreDigitalGroup\StdLib\Exceptions\FilesystemExceptions;
 
+use EncoreDigitalGroup\StdLib\Exceptions\BaseException;
 use EncoreDigitalGroup\StdLib\Objects\ExitCode;
 
 class FileNotFoundException extends BaseException
