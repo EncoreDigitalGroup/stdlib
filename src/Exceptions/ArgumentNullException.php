@@ -2,14 +2,13 @@
 
 namespace EncoreDigitalGroup\StdLib\Exceptions;
 
-use EncoreDigitalGroup\StdLib\Objects\ExitCode;
+use EncoreDigitalGroup\StdLib\Exceptions\NullExceptions\ArgumentNullException as BaseArgumentNullException;
 
-class ArgumentNullException extends BaseException
+/** @deprecated use EncoreDigitalGroup\StdLib\Exceptions\NullExceptions\ArgumentNullException instead */
+class ArgumentNullException extends BaseArgumentNullException
 {
     public function __construct(string $argumentName = 'Argument')
     {
-        $msg = "{$argumentName} is null on {$this->line}, in {$this->file}";
-
-        parent::__construct($msg, ExitCode::RESOURCE_UNAVAILABLE, $this->getPrevious());
+        parent::__construct($argumentName);
     }
 }
