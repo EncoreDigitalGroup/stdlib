@@ -33,7 +33,6 @@ if (!function_exists('str_concat_space')) {
 }
 
 if (!function_exists('str_enum_val')) {
-    /**@param mixed $enum */
     function str_enum_val(mixed $enum): string
     {
         return Str::toString($enum->value);
@@ -47,8 +46,15 @@ if (!function_exists('stringify')) {
     }
 }
 
+if (!function_exists('str_limit')) {
+    function str_limit(string $str, int $limit = 100): string
+    {
+        return Str::limit($str, $limit);
+    }
+}
+
 if (!function_exists('str_lower')) {
-    function str_lower(mixed $str): string
+    function str_lower(string $str): string
     {
         return Str::lower($str);
     }
