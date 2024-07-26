@@ -33,7 +33,6 @@ if (!function_exists('str_concat_space')) {
 }
 
 if (!function_exists('str_enum_val')) {
-    /** @param mixed $enum */
     function str_enum_val(mixed $enum): string
     {
         return Str::toString($enum->value);
@@ -43,7 +42,7 @@ if (!function_exists('str_enum_val')) {
 if (!function_exists('stringify')) {
     function stringify(mixed $str): string
     {
-        return (string)$str;
+        return (string) $str;
     }
 }
 
