@@ -58,8 +58,12 @@ if (!function_exists('str_limit')) {
 }
 
 if (!function_exists('str_lower')) {
-    function str_lower(string $str): string
+    function str_lower(?string $str = null): ?string
     {
+        if ($str == null) {
+            return null;
+        }
+
         return Str::lower($str);
     }
 }
