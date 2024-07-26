@@ -47,8 +47,12 @@ if (!function_exists('stringify')) {
 }
 
 if (!function_exists('str_limit')) {
-    function str_limit(string $str, int $limit = 100): string
+    function str_limit(?string $str = null, int $limit = 100): ?string
     {
+        if ($str == null) {
+            return null;
+        }
+
         return Str::limit($str, $limit);
     }
 }
