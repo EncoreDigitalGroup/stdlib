@@ -12,9 +12,9 @@ if (!function_exists('enum')) {
 }
 
 if (!function_exists('enum_string')) {
-    function enum_string(UnitEnum $enum): string
+    function enum_string(BackedEnum $enum): string
     {
-        if ($enum instanceof IntBackedEnum) {
+        if (is_int($enum->value)) {
             throw new InvalidArgumentException("IntBackedEnum Prohibited.");
         }
 
@@ -23,9 +23,9 @@ if (!function_exists('enum_string')) {
 }
 
 if (!function_exists('enum_int')) {
-    function enum_int(UnitEnum $enum): string
+    function enum_int(BackedEnum $enum): string
     {
-        if ($enum instanceof StringBackedEnum) {
+        if (is_string($enum->value)) {
             throw new InvalidArgumentException("StringBackEnum Prohibited.");
         }
 
