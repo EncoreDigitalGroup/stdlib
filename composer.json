@@ -34,6 +34,7 @@
         "files": [
             "src/ObjectHelpers/arr_helpers.php",
             "src/ObjectHelpers/dir_helpers.php",
+            "src/ObjectHelpers/enum_helpers.php",
             "src/ObjectHelpers/file_helpers.php",
             "src/ObjectHelpers/num_helpers.php",
             "src/ObjectHelpers/php_function_helpers.php",
