@@ -18,7 +18,7 @@ if (!function_exists('enum_string')) {
             throw new InvalidArgumentException('IntBackedEnum Prohibited.');
         }
 
-        return $enum->name;
+        return $enum->value;
     }
 }
 
@@ -29,6 +29,6 @@ if (!function_exists('enum_int')) {
             throw new InvalidArgumentException('StringBackEnum Prohibited.');
         }
 
-        return $enum->name;
+        return $enum->value;
     }
 }
