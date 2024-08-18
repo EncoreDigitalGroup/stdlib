@@ -23,7 +23,7 @@ if (!function_exists('enum_string')) {
 }
 
 if (!function_exists('enum_int')) {
-    function enum_int(BackedEnum $enum): string
+    function enum_int(BackedEnum $enum): int
     {
         if (is_string($enum->value)) {
             throw new InvalidArgumentException('StringBackEnum Prohibited.');
