@@ -18,17 +18,17 @@ if (!function_exists('enum_string')) {
             throw new InvalidArgumentException('IntBackedEnum Prohibited.');
         }
 
-        return $enum->name;
+        return $enum->value;
     }
 }
 
 if (!function_exists('enum_int')) {
-    function enum_int(BackedEnum $enum): string
+    function enum_int(BackedEnum $enum): int
     {
         if (is_string($enum->value)) {
             throw new InvalidArgumentException('StringBackEnum Prohibited.');
         }
 
-        return $enum->name;
+        return $enum->value;
     }
 }
