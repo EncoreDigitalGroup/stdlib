@@ -4,7 +4,7 @@
     "type": "library",
     "license": "proprietary",
     "config": {
-        "optimize-autoloader": true,
+        "optimize-autoloader": false,
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
@@ -19,6 +19,7 @@
         "ramsey/uuid": "^4.7"
     },
     "require-dev": {
+        "mockery/mockery": "^1.6",
         "pestphp/pest": "^2.34 || ^3.0",
         "phpstan/extension-installer": "^1.3",
         "phpstan/phpstan": "^1.10",
@@ -45,5 +46,11 @@
         ]
     },
     "minimum-stability": "stable",
-    "extra": {}
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "src/Support/PHPStan/extension.neon"
+            ]
+        }
+    }
 }
