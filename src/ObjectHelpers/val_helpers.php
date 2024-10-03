@@ -1,24 +1,31 @@
 <?php
 
-use EncoreDigitalGroup\StdLib\Objects\Value;
-
 if (!function_exists('not_null')) {
     function not_null(mixed $value): bool
     {
-        return Value::notNull($value);
+        return !is_null($value);
     }
 }
 
 if (!function_exists('val_not_null')) {
+    /** @deprecated Use not_null() instead. */
     function val_not_null(mixed $value): bool
     {
-        return Value::notNull($value);
+        return not_null($value);
     }
 }
 
 if (!function_exists('val_transform_bool')) {
+    /** @deprecated Use validate_bool() instead. */
     function val_transform_bool(mixed $value): bool
     {
-        return Value::transformBool($value);
+        return validate_bool($value);
+    }
+}
+
+if (!function_exists('validate_bool')) {
+    function validate_bool(mixed $value): bool
+    {
+        return filter_var($value, FILTER_VALIDATE_BOOLEAN);
     }
 }

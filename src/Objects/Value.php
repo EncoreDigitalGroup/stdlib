@@ -2,11 +2,14 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
+use EncoreDigitalGroup\StdLib\Attributes\Deprecated;
+
 /**
  * @api
- *
+ * @deprecated
  * @internal
  */
+#[Deprecated]
 class Value
 {
     public static function notNull(mixed $value): bool
