@@ -44,12 +44,5 @@
             "src/ObjectHelpers/val_helpers.php"
         ]
     },
-    "minimum-stability": "stable",
-    "extra": {
-        "phpstan": {
-            "includes": [
-                "extension.neon"
-            ]
-        }
-    }
+    "minimum-stability": "stable"
 }

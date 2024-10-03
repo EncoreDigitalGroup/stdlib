@@ -1,5 +1,5 @@
 services:
     -
-        class: EncoreDigitalGroup\StdLib\Support\PHPStan\Rules\Functions\NotNull
+        class: EncoreDigitalGroup\StdLib\Support\PHPStan\NotNullTypeSpecifyingExtension
         tags:
-            - phpstan.broker.dynamicFunctionReturnTypeExtension
+            - phpstan.typeSpecifier.extension
