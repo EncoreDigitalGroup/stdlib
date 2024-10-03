@@ -4,15 +4,15 @@ namespace EncoreDigitalGroup\StdLib\Support\PHPStan\Type;
 
 use PhpParser\Node\Expr\FuncCall;
 use PHPStan\Analyser\Scope;
+use PHPStan\Analyser\TypeSpecifierContext;
 use PHPStan\Reflection\FunctionReflection;
 use PHPStan\Type\TypeCombinator;
 use PHPStan\Type\TypeSpecifier;
 use PHPStan\Type\TypeSpecifierAwareExtension;
 use PHPStan\Type\TypeSpecifyingExtension;
-use PHPStan\Analyser\TypeSpecifierContext;
 
 /** @experimental */
-class NotNullTypeSpecifyingExtension implements TypeSpecifyingExtension, TypeSpecifierAwareExtension
+class NotNullTypeSpecifyingExtension implements TypeSpecifierAwareExtension, TypeSpecifyingExtension
 {
     private TypeSpecifier $typeSpecifier;
 
@@ -23,21 +23,19 @@ class NotNullTypeSpecifyingExtension implements TypeSpecifyingExtension, TypeSpe
 
     public function isFunctionSupported(
         FunctionReflection $functionReflection,
-        FuncCall           $funcCall,
-        Scope              $scope
-    ): bool
-    {
+        FuncCall $funcCall,
+        Scope $scope
+    ): bool {
         // Support the "not_null" function
         return $functionReflection->getName() === 'not_null';
     }
 
     public function specifyTypes(
-        FunctionReflection   $functionReflection,
-        FuncCall             $funcCall,
-        Scope                $scope,
+        FunctionReflection $functionReflection,
+        FuncCall $funcCall,
+        Scope $scope,
         TypeSpecifierContext $context
-    ): \PHPStan\Type\Specifier\TypeSpecifierResult
-    {
+    ): \PHPStan\Type\Specifier\TypeSpecifierResult {
         // Get the type of the argument passed to "not_null"
         $argExpr = $funcCall->getArgs()[0]->value;
         $argType = $scope->getType($argExpr);
