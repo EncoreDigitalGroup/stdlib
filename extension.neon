@@ -1,5 +1,0 @@
-services:
-    -
-        class: EncoreDigitalGroup\StdLib\Support\PHPStan\NotNullTypeSpecifyingExtension
-        tags:
-            - phpstan.typeSpecifier.extension
