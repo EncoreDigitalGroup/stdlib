@@ -2,11 +2,7 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-/**
- * @api
- *
- * @internal
- */
+/** @api */
 class Url
 {
     public static function encode(mixed $data): string
