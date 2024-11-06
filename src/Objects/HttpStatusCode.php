@@ -4,7 +4,6 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 /**
  * @api
- *
  * @codeCoverageIgnore
  */
 class HttpStatusCode
