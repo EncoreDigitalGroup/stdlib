@@ -10,11 +10,7 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 use Illuminate\Support\Str as StringSupport;
 
-/**
- * @api
- *
- * @internal
- */
+/** @api */
 class Str extends StringSupport
 {
     /**@param array<string, string> ...$str */
@@ -26,10 +22,8 @@ class Str extends StringSupport
     }
 
     /**
-     * @param  array<string, string>  ...$str
-     *
+     * @param array<string, string> ...$str
      * @deprecated No replacement.
-     *
      * @codeCoverageIgnore deprecated
      */
     public static function concatSpace(mixed ...$str): string
@@ -46,7 +40,7 @@ class Str extends StringSupport
 
     public static function toString(mixed $value): string
     {
-        return (string) $value;
+        return (string)$value;
     }
 
     public static function maxLength(string $value, ?int $length = null): string
