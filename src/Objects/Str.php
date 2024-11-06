@@ -10,11 +10,7 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 use Illuminate\Support\Str as StringSupport;
 
-/**
- * @api
- *
- * @internal
- */
+/** @api */
 class Str extends StringSupport
 {
     /**@param array<string, string> ...$str */

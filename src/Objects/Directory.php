@@ -7,11 +7,7 @@ use EncoreDigitalGroup\StdLib\Exceptions\ImproperBooleanReturnedException;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
-/**
- * @api
- *
- * @internal
- */
+/** @api */
 class Directory
 {
     /**

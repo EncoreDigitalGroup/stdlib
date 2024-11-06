@@ -8,8 +8,6 @@ use EncoreDigitalGroup\StdLib\Attributes\Deprecated;
  * @api
  *
  * @deprecated
- *
- * @internal
  */
 #[Deprecated]
 class Value

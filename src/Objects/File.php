@@ -4,11 +4,7 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 use EncoreDigitalGroup\StdLib\Exceptions\FileNotFoundException;
 
-/**
- * @api
- *
- * @internal
- */
+/** @api */
 class File
 {
     /**

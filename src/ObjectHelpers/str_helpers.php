@@ -17,7 +17,11 @@ if (!function_exists('str_camel')) {
 }
 
 if (!function_exists('str_concat')) {
-    /**@param array<string, string> ...$str */
+    /**
+     * @param  array<string, string>  ...$str
+     *
+     * @deprecated
+     */
     function str_concat(mixed ...$str): string
     {
         return Str::concat($str);
@@ -25,7 +29,11 @@ if (!function_exists('str_concat')) {
 }
 
 if (!function_exists('str_concat_space')) {
-    /**@param array<string, string> ...$str */
+    /**
+     * @param  array<string, string>  ...$str
+     *
+     * @deprecated
+     */
     function str_concat_space(mixed ...$str): string
     {
         return Str::concatSpace($str); //@phpstan-ignore-line
@@ -70,6 +78,7 @@ if (!function_exists('str_lower')) {
 }
 
 if (!function_exists('str_max_length')) {
+    /** @deprecated use str_limit() instead. */
     function str_max_length(string $str, ?int $length = null): string
     {
         return Str::maxLength($str, $length);

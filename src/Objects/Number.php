@@ -4,11 +4,7 @@ namespace EncoreDigitalGroup\StdLib\Objects;
 
 use Illuminate\Support\Number as NumberSupport;
 
-/**
- * @api
- *
- * @internal
- */
+/** @api */
 class Number extends NumberSupport
 {
     /**
