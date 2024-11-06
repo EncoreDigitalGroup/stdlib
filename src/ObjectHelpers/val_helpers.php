@@ -1,6 +1,7 @@
 <?php
 
 if (!function_exists('not_null')) {
+    /** @deprecated */
     function not_null(mixed $value): bool
     {
         return !is_null($value);
@@ -8,7 +9,7 @@ if (!function_exists('not_null')) {
 }
 
 if (!function_exists('val_not_null')) {
-    /** @deprecated Use not_null() instead. */
+    /** @deprecated */
     function val_not_null(mixed $value): bool
     {
         return not_null($value);
