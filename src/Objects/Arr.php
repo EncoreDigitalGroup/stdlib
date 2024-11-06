@@ -31,7 +31,8 @@ class Arr extends ArraySupport
             $convertedInnerArray = preg_replace('/\n\s*/', ' ', $convertedInnerArray);
 
             if (!is_string($convertedInnerArray)) {
-                throw new TypeError(str_concat_space('Expected string, got ', get_type($convertedInnerArray)));
+                $type = get_type($convertedInnerArray);
+                throw new TypeError("Expected string, got {$type}");
             }
 
             return "[\n    " . $convertedInnerArray . "\n]";

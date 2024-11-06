@@ -16,7 +16,7 @@ class ImproperBooleanReturnedException extends BaseException
             $actual = 'true';
         }
 
-        $msg = str_concat_space('Improper boolean returned. Expected', $expect, 'but got', $actual);
+        $msg = "Improper boolean returned. Expected {$expect} but got {$actual}";
 
         parent::__construct($msg, ExitCode::DATA_ERROR, $this->getPrevious());
     }
