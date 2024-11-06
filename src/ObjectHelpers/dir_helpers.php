@@ -13,6 +13,7 @@ if (!function_exists('dir_current')) {
 if (!function_exists('dir_hash')) {
     /**
      * @experimental
+     *
      * @deprecated
      * */
     function dir_hash(string $dir): string
@@ -24,6 +25,7 @@ if (!function_exists('dir_hash')) {
 if (!function_exists('dir_scan')) {
     /**
      * @experimental
+     *
      * @deprecated
      */
     function dir_scan(string $dir): array
@@ -35,6 +37,7 @@ if (!function_exists('dir_scan')) {
 if (!function_exists('dir_scan_recursive')) {
     /**
      * @experimental
+     *
      * @deprecated
      */
     function dir_scan_recursive(string $path): array

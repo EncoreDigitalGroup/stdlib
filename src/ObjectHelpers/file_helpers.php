@@ -14,6 +14,7 @@ if (!function_exists('file_save_contents')) {
 if (!function_exists('file_copy')) {
     /**
      * @throws FileNotFoundException
+     *
      * @deprecated
      */
     function file_copy(string $source, string $destination): void
@@ -25,6 +26,7 @@ if (!function_exists('file_copy')) {
 if (!function_exists('file_delete')) {
     /**
      * @throws FileNotFoundException
+     *
      * @deprecated
      */
     function file_delete(string $path): void

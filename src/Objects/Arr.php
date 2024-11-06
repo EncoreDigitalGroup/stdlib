@@ -9,7 +9,6 @@ use TypeError;
 /** @api */
 class Arr extends ArraySupport
 {
-
     /** @deprecated use Arr::toShort() instead. */
     public static function convertToShortSyntax(array|string $code): array|string
     {

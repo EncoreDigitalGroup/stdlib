@@ -6,6 +6,7 @@ use EncoreDigitalGroup\StdLib\Attributes\Deprecated;
 
 /**
  * @api
+ *
  * @deprecated
  */
 #[Deprecated]

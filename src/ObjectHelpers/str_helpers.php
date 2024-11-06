@@ -18,7 +18,8 @@ if (!function_exists('str_camel')) {
 
 if (!function_exists('str_concat')) {
     /**
-     * @param array<string, string> ...$str
+     * @param  array<string, string>  ...$str
+     *
      * @deprecated
      */
     function str_concat(mixed ...$str): string
@@ -29,7 +30,8 @@ if (!function_exists('str_concat')) {
 
 if (!function_exists('str_concat_space')) {
     /**
-     * @param array<string, string> ...$str
+     * @param  array<string, string>  ...$str
+     *
      * @deprecated
      */
     function str_concat_space(mixed ...$str): string
@@ -49,7 +51,7 @@ if (!function_exists('str_enum_val')) {
 if (!function_exists('stringify')) {
     function stringify(mixed $str): string
     {
-        return (string)$str;
+        return (string) $str;
     }
 }
 

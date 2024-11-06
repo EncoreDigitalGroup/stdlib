@@ -9,6 +9,7 @@ class File
 {
     /**
      * @experimental
+     *
      * @codeCoverageIgnore
      */
     public static function getContent(string $path): string
