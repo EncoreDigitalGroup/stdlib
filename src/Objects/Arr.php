@@ -2,18 +2,21 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-use EncoreDigitalGroup\StdLib\Exceptions\ArgumentNullException;
+use EncoreDigitalGroup\StdLib\Exceptions\NullExceptions\ArgumentNullException;
 use Illuminate\Support\Arr as ArraySupport;
 use TypeError;
 
-/**
- * @api
- *
- * @internal
- */
+/** @api */
 class Arr extends ArraySupport
 {
+
+    /** @deprecated use Arr::toShort() instead. */
     public static function convertToShortSyntax(array|string $code): array|string
+    {
+        return static::toShort($code);
+    }
+
+    public static function toShort(array|string $code): array|string
     {
         // Regular expression to match long array syntax
         $pattern = '/array\s*\(([^()]*(?:(?R)[^()]*)*)\)/m';
@@ -22,7 +25,7 @@ class Arr extends ArraySupport
         $callback = function ($matches): string {
             // Recursively convert nested arrays
             $innerArray = $matches[1];
-            $convertedInnerArray = self::convertToShortSyntax($innerArray);
+            $convertedInnerArray = self::toShort($innerArray);
 
             // Handle proper formatting of nested arrays
             $convertedInnerArray = preg_replace('/\n\s*/', ' ', $convertedInnerArray);
