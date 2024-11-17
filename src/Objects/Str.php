@@ -40,6 +40,11 @@ class Str extends StringSupport
         return Str::uuid()->toString();
     }
 
+    public static function empty(): string
+    {
+        return '';
+    }
+
     public static function toString(mixed $value): string
     {
         return (string) $value;
