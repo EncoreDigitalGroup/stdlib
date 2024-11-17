@@ -11,11 +11,11 @@ permissions: write-all
 jobs:
     CreateRelease:
         name: Create Release
-        uses: EncoreDigitalGroup/.github/.github/workflows/createRelease.yml@v1
+        uses: EncoreDigitalGroup/ci-workflows/.github/workflows/createRelease.yml@v1
         permissions:
             contents: write
         with:
-            generate_release_notes: true
-            is_draft: false
+            generateReleaseNotes: true
+            isDraft: false
         secrets:
             token: ${{ secrets.GITHUB_TOKEN }}
