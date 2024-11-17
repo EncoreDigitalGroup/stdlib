@@ -25,6 +25,14 @@ test('toString method converts a value to a string', function () {
         ->and(is_string($result))->toBeTrue();
 });
 
+test('empty method returns an empty string', function () {
+    $value = 123;
+
+    $result = Str::empty();
+
+    expect($result)->toEqual('');
+});
+
 test('maxLength method limits the length of a string', function () {
     $value = 'Hello World';
 
