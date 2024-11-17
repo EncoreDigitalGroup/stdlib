@@ -22,7 +22,7 @@ class Str extends StringSupport
     }
 
     /**
-     * @param  array<string, string>  ...$str
+     * @param array<string, string> ...$str
      *
      * @deprecated No replacement.
      *
@@ -40,9 +40,14 @@ class Str extends StringSupport
         return Str::uuid()->toString();
     }
 
+    public static function empty(): string
+    {
+        return '';
+    }
+
     public static function toString(mixed $value): string
     {
-        return (string) $value;
+        return (string)$value;
     }
 
     public static function maxLength(string $value, ?int $length = null): string
