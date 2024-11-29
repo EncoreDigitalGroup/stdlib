@@ -44,5 +44,10 @@
             "src/ObjectHelpers/val_helpers.php"
         ]
     },
+    "scripts": {
+        "post-autoload-dump": [
+            "PHPGenesis\\Common\\Composer\\Scripts::postAutoloadDump"
+        ]
+    },
     "minimum-stability": "stable"
 }

@@ -11,7 +11,7 @@ permissions: write-all
 jobs:
     CreateRelease:
         name: Create Release
-        uses: EncoreDigitalGroup/ci-workflows/.github/workflows/createRelease.yml@v1
+        uses: EncoreDigitalGroup/ci-workflows/.github/workflows/github_createRelease.yml@v2
         permissions:
             contents: write
         with:

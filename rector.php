@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Rector\CodeQuality\Rector\Array_\CallableThisArrayToAnonymousFunctionRector;
 use Rector\CodeQuality\Rector\Equal\UseIdenticalOverEqualWithSameTypeRector;
 use Rector\CodeQuality\Rector\FuncCall\CompactToVariablesRector;
 use Rector\CodeQuality\Rector\If_\SimplifyIfElseToTernaryRector;
@@ -15,7 +14,6 @@ use Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector;
 use Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector;
 use Rector\CodingStyle\Rector\Use_\SeparateMultiUseImportsRector;
 use Rector\Config\RectorConfig;
-use Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector;
 use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use Rector\Naming\Rector\Foreach_\RenameForeachValueVariableToMatchExprVariableRector;
@@ -33,7 +31,6 @@ return RectorConfig::configure()
         AddVoidReturnTypeWhereNoReturnRector::class,
     ])
     ->withSkip([
-        CallableThisArrayToAnonymousFunctionRector::class,
         CompactToVariablesRector::class,
         UseIdenticalOverEqualWithSameTypeRector::class,
         LogicalToBooleanRector::class,
@@ -45,7 +42,6 @@ return RectorConfig::configure()
         RenameForeachValueVariableToMatchExprVariableRector::class,
         RenameParamToMatchTypeRector::class,
         RenameVariableToMatchMethodCallReturnTypeRector::class,
-        ChangeAndIfToEarlyReturnRector::class,
         SeparateMultiUseImportsRector::class,
         RemoveExtraParametersRector::class,
         NewlineAfterStatementRector::class,
