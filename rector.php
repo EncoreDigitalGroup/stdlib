@@ -33,7 +33,6 @@ return RectorConfig::configure()
         AddVoidReturnTypeWhereNoReturnRector::class,
     ])
     ->withSkip([
-        CallableThisArrayToAnonymousFunctionRector::class,
         CompactToVariablesRector::class,
         UseIdenticalOverEqualWithSameTypeRector::class,
         LogicalToBooleanRector::class,
@@ -45,7 +44,6 @@ return RectorConfig::configure()
         RenameForeachValueVariableToMatchExprVariableRector::class,
         RenameParamToMatchTypeRector::class,
         RenameVariableToMatchMethodCallReturnTypeRector::class,
-        ChangeAndIfToEarlyReturnRector::class,
         SeparateMultiUseImportsRector::class,
         RemoveExtraParametersRector::class,
         NewlineAfterStatementRector::class,

@@ -94,6 +94,11 @@
       <path value="$PROJECT_DIR$/vendor/pestphp/pest-plugin-arch" />
       <path value="$PROJECT_DIR$/vendor/fidry/cpu-core-counter" />
       <path value="$PROJECT_DIR$/vendor/pestphp/pest" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/encoredigitalgroup/foundation" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/pestphp/pest-plugin-mutate" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
