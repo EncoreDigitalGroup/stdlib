@@ -3,7 +3,7 @@
 use EncoreDigitalGroup\StdLib\Exceptions\ArgumentNullException;
 use EncoreDigitalGroup\StdLib\Objects\Arr;
 
-if (!function_exists('arr_to_short_syntax')) {
+if (!function_exists("arr_to_short_syntax")) {
     /**
      * @throws ArgumentNullException
      *

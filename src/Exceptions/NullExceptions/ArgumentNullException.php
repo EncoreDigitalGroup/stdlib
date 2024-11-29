@@ -7,7 +7,7 @@ use EncoreDigitalGroup\StdLib\Objects\ExitCode;
 
 class ArgumentNullException extends BaseException
 {
-    public function __construct(string $argumentName = 'Argument')
+    public function __construct(string $argumentName = "Argument")
     {
         $msg = "{$argumentName} is null on {$this->line}, in {$this->file}";
 

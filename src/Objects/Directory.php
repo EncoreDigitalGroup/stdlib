@@ -18,7 +18,7 @@ class Directory
     public static function current(): string
     {
         if (!getcwd()) {
-            throw new ImproperBooleanReturnedException();
+            throw new ImproperBooleanReturnedException;
         }
 
         return getcwd();
@@ -30,7 +30,7 @@ class Directory
     public static function hash(string $dir): string
     {
         if (!is_dir($dir)) {
-            throw new DirectoryNotFoundException(); //@codeCoverageIgnore
+            throw new DirectoryNotFoundException; //@codeCoverageIgnore
         }
 
         $files = self::scan($dir);
@@ -38,15 +38,15 @@ class Directory
 
         $hashes = [];
         foreach ($files as $file) {
-            if ($file != '.' && $file != '..') {
-                $filePath = $dir . '/' . $file;
+            if ($file != "." && $file != "..") {
+                $filePath = $dir . "/" . $file;
                 if (!is_dir($filePath)) {
                     $hashes[] = md5_file($filePath);
                 }
             }
         }
 
-        return md5(implode('', $hashes));
+        return md5(implode("", $hashes));
 
     }
 
@@ -58,7 +58,7 @@ class Directory
         $files = scandir($dir);
 
         if (!$files) {
-            throw new ImproperBooleanReturnedException();
+            throw new ImproperBooleanReturnedException;
         }
 
         foreach ($files as $file) {
@@ -67,7 +67,7 @@ class Directory
             if ($dir) {
                 if (!is_dir($dir)) {
                     $results[] = $dir;
-                } elseif ($file != '.' && $file != '..') {
+                } elseif ($file != "." && $file != "..") {
                     self::scan($dir, $results);
                     $results[] = $dir;
 

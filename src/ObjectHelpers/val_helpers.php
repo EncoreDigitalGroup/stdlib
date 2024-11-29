@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('not_null')) {
+if (!function_exists("not_null")) {
     /** @deprecated */
     function not_null(mixed $value): bool
     {
@@ -8,7 +8,7 @@ if (!function_exists('not_null')) {
     }
 }
 
-if (!function_exists('val_not_null')) {
+if (!function_exists("val_not_null")) {
     /** @deprecated */
     function val_not_null(mixed $value): bool
     {
@@ -16,7 +16,7 @@ if (!function_exists('val_not_null')) {
     }
 }
 
-if (!function_exists('val_transform_bool')) {
+if (!function_exists("val_transform_bool")) {
     /** @deprecated Use validate_bool() instead. */
     function val_transform_bool(mixed $value): bool
     {
@@ -24,7 +24,7 @@ if (!function_exists('val_transform_bool')) {
     }
 }
 
-if (!function_exists('validate_bool')) {
+if (!function_exists("validate_bool")) {
     function validate_bool(mixed $value): bool
     {
         return filter_var($value, FILTER_VALIDATE_BOOLEAN);

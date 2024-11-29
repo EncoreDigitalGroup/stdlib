@@ -2,21 +2,21 @@
 
 use EncoreDigitalGroup\StdLib\Objects\Str;
 
-if (!function_exists('guid')) {
+if (!function_exists("guid")) {
     function guid(): string
     {
         return Str::guid();
     }
 }
 
-if (!function_exists('str_camel')) {
+if (!function_exists("str_camel")) {
     function str_camel(string $string): string
     {
         return Str::camel($string);
     }
 }
 
-if (!function_exists('str_concat')) {
+if (!function_exists("str_concat")) {
     /**
      * @param  array<string, string>  ...$str
      *
@@ -28,7 +28,7 @@ if (!function_exists('str_concat')) {
     }
 }
 
-if (!function_exists('str_concat_space')) {
+if (!function_exists("str_concat_space")) {
     /**
      * @param  array<string, string>  ...$str
      *
@@ -40,7 +40,7 @@ if (!function_exists('str_concat_space')) {
     }
 }
 
-if (!function_exists('str_enum_val')) {
+if (!function_exists("str_enum_val")) {
     /** @deprecated use enum() instead */
     function str_enum_val(mixed $enum): string
     {
@@ -48,14 +48,14 @@ if (!function_exists('str_enum_val')) {
     }
 }
 
-if (!function_exists('stringify')) {
+if (!function_exists("stringify")) {
     function stringify(mixed $str): string
     {
         return (string) $str;
     }
 }
 
-if (!function_exists('str_limit')) {
+if (!function_exists("str_limit")) {
     function str_limit(?string $str = null, int $limit = 100): ?string
     {
         if ($str == null) {
@@ -66,7 +66,7 @@ if (!function_exists('str_limit')) {
     }
 }
 
-if (!function_exists('str_lower')) {
+if (!function_exists("str_lower")) {
     function str_lower(?string $str = null): ?string
     {
         if ($str == null) {
@@ -77,7 +77,7 @@ if (!function_exists('str_lower')) {
     }
 }
 
-if (!function_exists('str_max_length')) {
+if (!function_exists("str_max_length")) {
     /** @deprecated use str_limit() instead. */
     function str_max_length(string $str, ?int $length = null): string
     {

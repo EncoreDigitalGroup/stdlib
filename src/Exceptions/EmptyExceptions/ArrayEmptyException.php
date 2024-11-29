@@ -7,7 +7,7 @@ use EncoreDigitalGroup\StdLib\Objects\ExitCode;
 
 class ArrayEmptyException extends BaseException
 {
-    public function __construct(string $arrayName = 'Array')
+    public function __construct(string $arrayName = "Array")
     {
         $msg = "{$arrayName} cannot be an empty array.";
 

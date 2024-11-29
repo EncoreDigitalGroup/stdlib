@@ -12,7 +12,7 @@ class Php
      */
     public static function versionGreaterThanOrEqual(string $version): bool
     {
-        return version_compare(PHP_VERSION, $version, '>=');
+        return version_compare(PHP_VERSION, $version, ">=");
     }
 
     /**
@@ -22,7 +22,7 @@ class Php
      */
     public static function versionLessThanOrEqual(string $version): bool
     {
-        return version_compare(PHP_VERSION, $version, '<=');
+        return version_compare(PHP_VERSION, $version, "<=");
     }
 
     /**
@@ -32,7 +32,7 @@ class Php
      */
     public static function versionGreaterThan(string $version): bool
     {
-        return version_compare(PHP_VERSION, $version, '>');
+        return version_compare(PHP_VERSION, $version, ">");
     }
 
     /**
@@ -42,7 +42,7 @@ class Php
      */
     public static function versionLessThan(string $version): bool
     {
-        return version_compare(PHP_VERSION, $version, '<');
+        return version_compare(PHP_VERSION, $version, "<");
     }
 
     /**
@@ -52,6 +52,6 @@ class Php
      */
     public static function versionEqualTo(string $version): bool
     {
-        return version_compare(PHP_VERSION, $version, '==');
+        return version_compare(PHP_VERSION, $version, "==");
     }
 }

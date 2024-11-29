@@ -7,7 +7,7 @@ use EncoreDigitalGroup\StdLib\Objects\ExitCode;
 
 class ClassPropertyNullException extends BaseException
 {
-    public function __construct(string $propertyName = 'Property')
+    public function __construct(string $propertyName = "Property")
     {
         $msg = "{$propertyName} cannot be null.";
 

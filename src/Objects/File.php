@@ -16,7 +16,7 @@ class File
     {
         $file = file_get_contents($path);
 
-        if ($file === '' || $file === '0' || $file === false) {
+        if ($file === "" || $file === "0" || $file === false) {
             throw new FileNotFoundException($path);
         }
 

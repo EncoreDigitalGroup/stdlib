@@ -3,7 +3,7 @@
 use EncoreDigitalGroup\StdLib\Exceptions\FileNotFoundException;
 use EncoreDigitalGroup\StdLib\Objects\File;
 
-if (!function_exists('file_save_contents')) {
+if (!function_exists("file_save_contents")) {
     /** @deprecated use file_put_contents() instead */
     function file_save_contents(string $path, mixed $data): void
     {
@@ -11,7 +11,7 @@ if (!function_exists('file_save_contents')) {
     }
 }
 
-if (!function_exists('file_copy')) {
+if (!function_exists("file_copy")) {
     /**
      * @throws FileNotFoundException
      *
@@ -23,7 +23,7 @@ if (!function_exists('file_copy')) {
     }
 }
 
-if (!function_exists('file_delete')) {
+if (!function_exists("file_delete")) {
     /**
      * @throws FileNotFoundException
      *
@@ -35,35 +35,35 @@ if (!function_exists('file_delete')) {
     }
 }
 
-if (!function_exists('file_last_accessed')) {
+if (!function_exists("file_last_accessed")) {
     function file_last_accessed(string $path): false|int
     {
         return fileatime($path);
     }
 }
 
-if (!function_exists('file_last_changed')) {
+if (!function_exists("file_last_changed")) {
     function file_last_changed(string $path): false|int
     {
         return filectime($path);
     }
 }
 
-if (!function_exists('file_last_modified')) {
+if (!function_exists("file_last_modified")) {
     function file_last_modified(string $path): false|int
     {
         return filemtime($path);
     }
 }
 
-if (!function_exists('file_size')) {
+if (!function_exists("file_size")) {
     function file_size(string $path): false|int
     {
         return filesize($path);
     }
 }
 
-if (!function_exists('file_type')) {
+if (!function_exists("file_type")) {
     /**
      * @since 1.0.0 - Returns the type of the file. Possible values are fifo, char, dir, block, link, file, socket and unknown.
      * @since 2.0.0 - Returns the extension of the file.
@@ -74,7 +74,7 @@ if (!function_exists('file_type')) {
     }
 }
 
-if (!function_exists('file_system_type')) {
+if (!function_exists("file_system_type")) {
     /**
      * @since 1.5.1 - Returns the type of the file. Possible values are fifo, char, dir, block, link, file, socket and unknown.
      */
@@ -84,7 +84,7 @@ if (!function_exists('file_system_type')) {
     }
 }
 
-if (!function_exists('file_get_type')) {
+if (!function_exists("file_get_type")) {
     /**
      * Get the file type based on the extension
      *

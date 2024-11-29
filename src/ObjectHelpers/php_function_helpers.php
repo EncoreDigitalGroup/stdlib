@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('get_type')) {
+if (!function_exists("get_type")) {
     /**
      * @phpstan-ignore-next-line
      */
