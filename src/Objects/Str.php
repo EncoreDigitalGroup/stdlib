@@ -18,7 +18,7 @@ class Str extends StringSupport
     {
         $str = array_merge(...$str);
 
-        return implode('', $str);
+        return implode("", $str);
     }
 
     /**
@@ -32,7 +32,7 @@ class Str extends StringSupport
     {
         $str = array_merge($str);
 
-        return implode(' ', $str); //@phpstan-ignore-line
+        return implode(" ", $str); //@phpstan-ignore-line
     }
 
     public static function guid(): string
@@ -42,7 +42,7 @@ class Str extends StringSupport
 
     public static function empty(): string
     {
-        return '';
+        return "";
     }
 
     public static function toString(mixed $value): string

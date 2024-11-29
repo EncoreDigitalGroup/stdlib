@@ -19,13 +19,13 @@ class Json
         $jsonString = json_encode($object);
 
         if ($jsonString === false) {
-            return '';
+            return "";
         }
 
         $array = json_decode($jsonString, true);
 
         if ($array === null) {
-            return '';
+            return "";
         }
 
         $array = array_filter($array, function ($value): bool {
@@ -35,7 +35,7 @@ class Json
         $result = json_encode($array);
 
         if ($result === false) {
-            return '';
+            return "";
         }
 
         return $result;

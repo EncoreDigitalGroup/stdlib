@@ -7,7 +7,7 @@ use EncoreDigitalGroup\StdLib\Objects\ExitCode;
 
 class VariableNullException extends BaseException
 {
-    public function __construct(string $variableName = 'Variable')
+    public function __construct(string $variableName = "Variable")
     {
         $msg = "{$variableName} cannot be null.";
 

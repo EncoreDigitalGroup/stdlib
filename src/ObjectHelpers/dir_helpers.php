@@ -2,7 +2,7 @@
 
 use EncoreDigitalGroup\StdLib\Objects\Directory;
 
-if (!function_exists('dir_current')) {
+if (!function_exists("dir_current")) {
     /** @deprecated */
     function dir_current(): string
     {
@@ -10,7 +10,7 @@ if (!function_exists('dir_current')) {
     }
 }
 
-if (!function_exists('dir_hash')) {
+if (!function_exists("dir_hash")) {
     /**
      * @experimental
      *
@@ -22,7 +22,7 @@ if (!function_exists('dir_hash')) {
     }
 }
 
-if (!function_exists('dir_scan')) {
+if (!function_exists("dir_scan")) {
     /**
      * @experimental
      *
@@ -34,7 +34,7 @@ if (!function_exists('dir_scan')) {
     }
 }
 
-if (!function_exists('dir_scan_recursive')) {
+if (!function_exists("dir_scan_recursive")) {
     /**
      * @experimental
      *

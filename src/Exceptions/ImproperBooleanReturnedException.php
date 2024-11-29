@@ -8,12 +8,12 @@ class ImproperBooleanReturnedException extends BaseException
 {
     public function __construct(bool $expected = true)
     {
-        $expect = 'true';
-        $actual = 'false';
+        $expect = "true";
+        $actual = "false";
 
         if (!$expected) {
-            $expect = 'false';
-            $actual = 'true';
+            $expect = "false";
+            $actual = "true";
         }
 
         $msg = "Improper boolean returned. Expected {$expect} but got {$actual}";

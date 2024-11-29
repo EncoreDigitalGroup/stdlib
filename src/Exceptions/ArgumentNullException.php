@@ -7,7 +7,7 @@ use EncoreDigitalGroup\StdLib\Exceptions\NullExceptions\ArgumentNullException as
 /** @deprecated use EncoreDigitalGroup\StdLib\Exceptions\NullExceptions\ArgumentNullException instead */
 class ArgumentNullException extends BaseArgumentNullException
 {
-    public function __construct(string $argumentName = 'Argument')
+    public function __construct(string $argumentName = "Argument")
     {
         parent::__construct($argumentName);
     }
