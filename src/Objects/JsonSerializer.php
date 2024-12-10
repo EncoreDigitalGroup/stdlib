@@ -28,7 +28,7 @@ class JsonSerializer
 
     public static function serialize(object $object): string
     {
-        $serializer = new Serializer(static::normalizers()->all(), [(new JsonEncoder())]);
+        $serializer = new Serializer(static::normalizers()->all(), [(new JsonEncoder)]);
         $normalized = $serializer->normalize($object);
 
         return $serializer->serialize($normalized, "json");
@@ -36,7 +36,7 @@ class JsonSerializer
 
     public static function deserialize(string $class, string $data): mixed
     {
-        $serializer = new Serializer(static::normalizers()->all(), [(new JsonEncoder())]);
+        $serializer = new Serializer(static::normalizers()->all(), [(new JsonEncoder)]);
         $json = $serializer->deserialize($data, $class, "json");
 
         return $serializer->denormalize($json, $class);
