@@ -16,7 +16,8 @@
         "php": "^8.2",
         "illuminate/collections": "^10|^11",
         "illuminate/support": "^10|^11",
-        "ramsey/uuid": "^4.7"
+        "ramsey/uuid": "^4.7",
+        "symfony/serializer": "^7.2"
     },
     "require-dev": {
         "mockery/mockery": "^1.6",
