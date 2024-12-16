@@ -7,7 +7,6 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
-/** @experimental */
 class JsonSerializer
 {
     protected static Collection $normalizers;
@@ -16,7 +15,7 @@ class JsonSerializer
     public static function normalizers(): Collection
     {
         $defaultNormalizers = [
-            ObjectNormalizer::class,
+            new ObjectNormalizer,
         ];
 
         if (!isset(static::$normalizers)) {
