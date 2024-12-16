@@ -15,7 +15,7 @@ class JsonSerializer
     public static function normalizers(): Collection
     {
         $defaultNormalizers = [
-            new ObjectNormalizer(),
+            new ObjectNormalizer,
         ];
 
         if (!isset(static::$normalizers)) {
