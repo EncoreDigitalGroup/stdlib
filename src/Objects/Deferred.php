@@ -2,8 +2,9 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-use Illuminate\Support\Defer\DeferredCallback;
 use function Illuminate\Support\defer;
+
+use Illuminate\Support\Defer\DeferredCallback;
 
 class Deferred
 {
