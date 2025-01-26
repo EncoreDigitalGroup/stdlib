@@ -29,7 +29,7 @@ class HttpStatusName
     const METHOD_NOT_ALLOWED = "Method Not Allowed";
     const NOT_ACCEPTABLE = "Not Acceptable";
     const REQUEST_TIMEOUT = "Request Timeout";
-    const CONFLICT = 'Conflict';
+    const CONFLICT = "Conflict";
     const GONE = "Gone";
     const PRECONDITION_FAILED = "Precondition Failed";
     const PAYLOAD_TOO_LARGE = "Payload Too Large";
