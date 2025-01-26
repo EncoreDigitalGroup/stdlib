@@ -2,7 +2,6 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects\Filesystem;
 
-
 use EncoreDigitalGroup\StdLib\Exceptions\FilesystemExceptions\FileNotFoundException;
 
 /** @api */
@@ -10,6 +9,7 @@ class File
 {
     /**
      * @deprecated use File::content() instead.
+     *
      * @codeCoverageIgnore
      */
     public static function getContent(string $path): string
@@ -19,6 +19,7 @@ class File
 
     /**
      * @experimental
+     *
      * @codeCoverageIgnore
      */
     public static function content(string $path): string
