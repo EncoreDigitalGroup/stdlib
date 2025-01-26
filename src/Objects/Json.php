@@ -2,7 +2,11 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-/** @api */
+/**
+ * @api
+ *
+ * @deprecated No replacement.
+ */
 class Json
 {
     /**

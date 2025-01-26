@@ -1,11 +1,17 @@
 <?php
 
-namespace EncoreDigitalGroup\StdLib\Objects;
+namespace EncoreDigitalGroup\StdLib\Support\Types;
 
-use EncoreDigitalGroup\StdLib\Support\Types\Str as BaseString;
+/**
+ * @api
+ *
+ * @internal
+ */
 
-/** @deprecated Use EncoreDigitalGroup\StdLib\Objects\Support\Types\Str instead. */
-class Str extends BaseString
+use Illuminate\Support\Str as StringSupport;
+
+/** @api */
+class Str extends StringSupport
 {
     /**@param array<string, string> ...$str */
     public static function concat(mixed ...$str): string
