@@ -67,6 +67,6 @@ jobs:
             runParallel: true
 
     AutoMerge:
-        needs: [ StaticAnalysis ]
+        needs: [ StaticAnalysis, Test ]
         name: Auto-Merge
         uses: EncoreDigitalGroup/ci-workflows/.github/workflows/github_dependabotAutoMerge.yml@v2

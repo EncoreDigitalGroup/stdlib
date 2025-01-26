@@ -2,5 +2,7 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-/** @api */
-class Arr extends \EncoreDigitalGroup\StdLib\Support\Types\Arr {}
+use EncoreDigitalGroup\StdLib\Support\Types\Arr as BaseArray;
+
+/** @deprecated Use EncoreDigitalGroup\StdLib\Support\Types\Arr instead. */
+class Arr extends BaseArray {}
