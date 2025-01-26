@@ -14,6 +14,7 @@
     },
     "require": {
         "php": "^8.2",
+        "composer-runtime-api": "^2.0",
         "illuminate/collections": "^10|^11",
         "illuminate/support": "^10|^11",
         "ramsey/uuid": "^4.7",
@@ -33,6 +34,7 @@
             "EncoreDigitalGroup\\StdLib\\": "src/"
         },
         "files": [
+            "src/stdlib_internal_helpers.php",
             "src/ObjectHelpers/arr_helpers.php",
             "src/ObjectHelpers/dir_helpers.php",
             "src/ObjectHelpers/enum_helpers.php",
@@ -47,7 +49,7 @@
     },
     "scripts": {
         "post-autoload-dump": [
-            "PHPGenesis\\Common\\Composer\\Scripts::postAutoloadDump"
+            "EncoreDigitalGroup\\StdLib\\Support\\Internal\\Composer\\Scripts::postAutoloadDump"
         ]
     },
     "minimum-stability": "stable"
