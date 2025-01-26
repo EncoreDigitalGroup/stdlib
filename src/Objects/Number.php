@@ -2,18 +2,10 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-use Illuminate\Support\Number as NumberSupport;
 
-/** @api */
-class Number extends NumberSupport
+use EncoreDigitalGroup\StdLib\Support\Types\Number as BaseNumber;
+
+/** @deprecated Use EncoreDigitalGroup\StdLib\Objects\Support\Types\Number instead. */
+class Number extends BaseNumber
 {
-    /**
-     * Convert a value to an integer.
-     *
-     * @param  mixed  $value
-     */
-    public static function toInt($value): int
-    {
-        return (int) $value;
-    }
 }

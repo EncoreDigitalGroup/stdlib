@@ -14,7 +14,8 @@
     },
     "require": {
         "php": "^8.2",
-        "composer-runtime-api": "^2.0",
+        "composer-runtime-api": "*",
+        "composer/composer": "^2.8",
         "illuminate/collections": "^10|^11",
         "illuminate/support": "^10|^11",
         "ramsey/uuid": "^4.7",

@@ -2,16 +2,17 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-/** @api */
+/**
+ * @api
+ * @deprecated No replacement.
+ */
 class Json
 {
     /**
      * JSON Encode Only Not Null Properties
      *
      * @internal
-     *
      * @experimental
-     *
      * @codeCoverageIgnore
      */
     public static function encodeOnlyNotNullProperties(object $object): string

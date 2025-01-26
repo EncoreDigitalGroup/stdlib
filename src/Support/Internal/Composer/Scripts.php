@@ -15,7 +15,7 @@ class Scripts
 {
     public static function postAutoloadDump(Event $event): void
     {
-        require_once $event->getComposer()->getConfig()->get('vendor-dir') . '/autoload.php';
+        require_once $event->getComposer()->getConfig()->get("vendor-dir") . "/autoload.php";
 
         IdeHelper::updateEditorConfig();
         IdeHelper::updatePint();
