@@ -16,7 +16,7 @@ class Str extends BaseString
     }
 
     /**
-     * @param array<string, string> ...$str
+     * @param  array<string, string>  ...$str
      *
      * @deprecated No replacement.
      *
@@ -41,7 +41,7 @@ class Str extends BaseString
 
     public static function toString(mixed $value): string
     {
-        return (string)$value;
+        return (string) $value;
     }
 
     public static function maxLength(string $value, ?int $length = null): string
