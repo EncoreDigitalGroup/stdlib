@@ -1,6 +1,6 @@
 <?php
 
-namespace EncoreDigitalGroup\StdLib\Support\Types;
+namespace EncoreDigitalGroup\StdLib\Objects\Support\Types;
 
 /**
  * @api
@@ -22,7 +22,7 @@ class Str extends StringSupport
     }
 
     /**
-     * @param  array<string, string>  ...$str
+     * @param array<string, string> ...$str
      *
      * @deprecated No replacement.
      *
@@ -47,7 +47,7 @@ class Str extends StringSupport
 
     public static function toString(mixed $value): string
     {
-        return (string) $value;
+        return (string)$value;
     }
 
     public static function maxLength(string $value, ?int $length = null): string

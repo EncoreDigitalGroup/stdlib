@@ -1,6 +1,6 @@
 <?php
 
-namespace EncoreDigitalGroup\StdLib\Support\Types;
+namespace EncoreDigitalGroup\StdLib\Objects\Support\Types;
 
 use EncoreDigitalGroup\StdLib\Exceptions\NullExceptions\ArgumentNullException;
 use Illuminate\Support\Arr as ArraySupport;
