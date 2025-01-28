@@ -2,7 +2,7 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-use EncoreDigitalGroup\StdLib\Support\Types\Str as BaseString;
+use EncoreDigitalGroup\StdLib\Objects\Support\Types\Str as BaseString;
 
 /** @deprecated Use EncoreDigitalGroup\StdLib\Objects\Support\Types\Str instead. */
 class Str extends BaseString

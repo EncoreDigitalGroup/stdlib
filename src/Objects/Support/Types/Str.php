@@ -1,6 +1,6 @@
 <?php
 
-namespace EncoreDigitalGroup\StdLib\Support\Types;
+namespace EncoreDigitalGroup\StdLib\Objects\Support\Types;
 
 /**
  * @api

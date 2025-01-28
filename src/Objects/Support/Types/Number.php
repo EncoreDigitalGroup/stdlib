@@ -1,6 +1,6 @@
 <?php
 
-namespace EncoreDigitalGroup\StdLib\Support\Types;
+namespace EncoreDigitalGroup\StdLib\Objects\Support\Types;
 
 use Illuminate\Support\Number as NumberSupport;
 
@@ -15,5 +15,10 @@ class Number extends NumberSupport
     public static function toInt($value): int
     {
         return (int) $value;
+    }
+
+    public static function validate(mixed $value): bool
+    {
+        return filter_var($value, FILTER_VALIDATE_INT) !== false;
     }
 }
