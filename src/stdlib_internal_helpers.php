@@ -6,6 +6,7 @@
  */
 
 if (!function_exists("stdlib_vendor_dir")) {
+    /** @codeCoverageIgnore */
     function stdlib_vendor_dir(?string $path = null): string
     {
         if ($path == null) {
@@ -17,6 +18,7 @@ if (!function_exists("stdlib_vendor_dir")) {
 }
 
 if (!function_exists("stdlib_src")) {
+    /** @codeCoverageIgnore */
     function stdlib_src(?string $path = null): string
     {
         if ($path == null) {
@@ -28,6 +30,7 @@ if (!function_exists("stdlib_src")) {
 }
 
 if (!function_exists("stdlib_internal_resources")) {
+    /** @codeCoverageIgnore */
     function stdlib_internal_resources(?string $path = null): string
     {
         if ($path == null) {
