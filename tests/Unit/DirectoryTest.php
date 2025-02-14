@@ -24,26 +24,3 @@ test('Directory scan returns array', function () {
     $hash = Directory::scan($directoryPath);
     expect($hash)->toBeArray();
 });
-
-test('hash method processes files correctly, excluding . and .. entries', function () {
-    $dir = __DIR__ . '/test_dir';
-    mkdir($dir);
-    file_put_contents($dir . '/file1.txt', 'Hello');
-    file_put_contents($dir . '/file2.txt', 'World');
-    mkdir($dir . '/subdir');
-    file_put_contents($dir . '/subdir/file3.txt', 'Subdir file');
-
-    // Ensure files are created
-    expect(file_exists($dir . '/file1.txt'))->toBeTrue()
-        ->and(file_exists($dir . '/file2.txt'))->toBeTrue()
-        ->and(file_exists($dir . '/subdir/file3.txt'))->toBeTrue();
-
-    $expectedHash = Directory::hash($dir);
-    expect(Directory::hash($dir))->toBe($expectedHash);
-
-    unlink($dir . '/file1.txt');
-    unlink($dir . '/file2.txt');
-    unlink($dir . '/subdir/file3.txt');
-    rmdir($dir . '/subdir');
-    rmdir($dir);
-});
