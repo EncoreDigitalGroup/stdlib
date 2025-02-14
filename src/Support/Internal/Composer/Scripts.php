@@ -12,6 +12,7 @@ use EncoreDigitalGroup\StdLib\Support\Internal\IdeHelper;
 
 /**
  * @internal
+ *
  * @codeCoverageIgnore
  */
 class Scripts
