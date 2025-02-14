@@ -1,14 +1,6 @@
 <?php
 
-use EncoreDigitalGroup\StdLib\Objects\Str;
-
-test('concat method concatenates strings', function () {
-    $strings = ['Hello', 'World'];
-
-    $result = Str::concat($strings);
-
-    expect($result)->toEqual('HelloWorld');
-});
+use EncoreDigitalGroup\StdLib\Objects\Support\Types\Str;
 
 test('guid method returns a UUID', function () {
     $result = Str::guid();
@@ -26,8 +18,6 @@ test('toString method converts a value to a string', function () {
 });
 
 test('empty method returns an empty string', function () {
-    $value = 123;
-
     $result = Str::empty();
 
     expect($result)->toEqual('');

@@ -1,6 +1,6 @@
 <?php
 
-use EncoreDigitalGroup\StdLib\Objects\File;
+use EncoreDigitalGroup\StdLib\Objects\Filesystem\File;
 
 test('delete method removes a file', function () {
     // Create a temporary file

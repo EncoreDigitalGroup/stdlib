@@ -1,6 +1,6 @@
 <?php
 
-use EncoreDigitalGroup\StdLib\Objects\Url;
+use EncoreDigitalGroup\StdLib\Objects\Http\Url;
 
 test('encode method encodes data', function () {
     $data = 'Hello World';

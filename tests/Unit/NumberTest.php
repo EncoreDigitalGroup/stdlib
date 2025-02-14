@@ -1,6 +1,6 @@
 <?php
 
-use EncoreDigitalGroup\StdLib\Objects\Number;
+use EncoreDigitalGroup\StdLib\Objects\Support\Types\Number;
 
 test('toInt method converts a value to an integer', function () {
     $floatNumber = 3.14;
