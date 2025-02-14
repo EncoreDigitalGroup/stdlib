@@ -10,10 +10,6 @@ class Number extends NumberSupport
     /** Cast value to integer */
     public static function toInt(mixed $value): int
     {
-        if (!Number::validate($value)) {
-            throw new TypeError("value cannot be cast to integer.");
-        }
-
         return (int)$value;
     }
 
