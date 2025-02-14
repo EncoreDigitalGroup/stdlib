@@ -4,6 +4,7 @@ namespace EncoreDigitalGroup\StdLib\Exceptions;
 
 use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;
 
+/** @codeCoverageIgnore */
 class NotImplementedException extends BaseException
 {
     public function __construct()
