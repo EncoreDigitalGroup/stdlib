@@ -4,24 +4,9 @@ namespace EncoreDigitalGroup\StdLib\Objects\Filesystem;
 
 use EncoreDigitalGroup\StdLib\Exceptions\FilesystemExceptions\FileNotFoundException;
 
-/** @api */
 class File
 {
-    /**
-     * @deprecated use File::content() instead.
-     *
-     * @codeCoverageIgnore
-     */
-    public static function getContent(string $path): string
-    {
-        return self::content($path);
-    }
-
-    /**
-     * @experimental
-     *
-     * @codeCoverageIgnore
-     */
+    /** @codeCoverageIgnore */
     public static function content(string $path): string
     {
         $file = file_get_contents($path);

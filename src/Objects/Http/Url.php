@@ -2,7 +2,6 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects\Http;
 
-/** @api */
 class Url
 {
     public static function encode(mixed $data): string
@@ -12,7 +11,7 @@ class Url
 
     public static function decode(mixed $data): ?string
     {
-        if (not_null($data)) {
+        if (!is_null($data)) {
             return urldecode($data);
         }
 
