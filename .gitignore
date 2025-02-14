@@ -61,6 +61,7 @@ yarn-error.log
 /--cache-directory/*
 tests/test_files/array_short_syntax_test/*
 tests/test_files/hash_test/*
+/test_output/*
 
 ##################################
 ########  Legacy Laravel  ########
