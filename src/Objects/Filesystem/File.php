@@ -9,7 +9,7 @@ class File
     /** @codeCoverageIgnore */
     public static function content(string $path): string
     {
-        $file = file_get_contents($path);
+        $file = @file_get_contents($path);
 
         if ($file === "" || $file === "0" || $file === false) {
             throw new FileNotFoundException($path);

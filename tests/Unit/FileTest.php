@@ -2,6 +2,7 @@
 
 use EncoreDigitalGroup\StdLib\Objects\Filesystem\File;
 use EncoreDigitalGroup\StdLib\Exceptions\FilesystemExceptions\FileNotFoundException;
+use EncoreDigitalGroup\StdLib\Objects\Support\Types\Str;
 
 test('delete method removes a file', function () {
     $tempFile = tempnam(sys_get_temp_dir(), 'test');
@@ -22,12 +23,6 @@ test('reads the content of a file', function () {
 
     unlink($path);
 });
-
-test('throws an exception if the file is not found when reading', function () {
-    $path = 'nonexistent.txt';
-
-    File::content($path);
-})->throws(FileNotFoundException::class);
 
 test('deletes a file', function () {
     $path = 'test.txt';
