@@ -15,8 +15,8 @@
     "require": {
         "php": "^8.3",
         "composer/composer": "^2.8",
-        "illuminate/collections": "^11",
-        "illuminate/support": "^11",
+        "illuminate/collections": "^11|^12",
+        "illuminate/support": "^11|^12",
         "ramsey/uuid": "^4.7",
         "symfony/property-access": "^7.2",
         "symfony/serializer": "^7.2"
