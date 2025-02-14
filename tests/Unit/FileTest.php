@@ -1,15 +1,66 @@
 <?php
 
 use EncoreDigitalGroup\StdLib\Objects\Filesystem\File;
+use EncoreDigitalGroup\StdLib\Exceptions\FilesystemExceptions\FileNotFoundException;
 
 test('delete method removes a file', function () {
-    // Create a temporary file
     $tempFile = tempnam(sys_get_temp_dir(), 'test');
     expect(file_exists($tempFile))->toBeTrue();
 
-    // Use the delete method to remove the file
     File::delete($tempFile);
 
-    // Assert the file no longer exists
     expect(file_exists($tempFile))->toBeFalse();
 });
+
+test('reads the content of a file', function () {
+    $path = 'test.txt';
+    file_put_contents($path, 'Hello, World!');
+
+    $content = File::content($path);
+
+    expect($content)->toBe('Hello, World!');
+
+    unlink($path);
+});
+
+test('throws an exception if the file is not found when reading', function () {
+    $path = 'nonexistent.txt';
+
+    File::content($path);
+})->throws(FileNotFoundException::class);
+
+test('deletes a file', function () {
+    $path = 'test.txt';
+    file_put_contents($path, 'Hello, World!');
+
+    File::delete($path);
+
+    expect(file_exists($path))->toBeFalse();
+});
+
+test('throws an exception if the file is not found when deleting', function () {
+    $path = 'nonexistent.txt';
+
+    File::delete($path);
+})->throws(FileNotFoundException::class);
+
+test('copies a file', function () {
+    $source = 'source.txt';
+    $destination = 'destination.txt';
+    file_put_contents($source, 'Hello, World!');
+
+    File::copy($source, $destination);
+
+    expect(file_exists($destination))->toBeTrue()
+        ->and(file_get_contents($destination))->toBe('Hello, World!');
+
+    unlink($source);
+    unlink($destination);
+});
+
+test('throws an exception if the source file is not found when copying', function () {
+    $source = 'nonexistent.txt';
+    $destination = 'destination.txt';
+
+    File::copy($source, $destination);
+})->throws(FileNotFoundException::class);
