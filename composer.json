@@ -13,8 +13,7 @@
         }
     },
     "require": {
-        "php": "^8.2",
-        "composer-runtime-api": "*",
+        "php": "^8.3",
         "composer/composer": "^2.8",
         "illuminate/collections": "^10|^11",
         "illuminate/support": "^10|^11",
