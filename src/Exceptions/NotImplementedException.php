@@ -2,7 +2,7 @@
 
 namespace EncoreDigitalGroup\StdLib\Exceptions;
 
-use EncoreDigitalGroup\StdLib\Objects\ExitCode;
+use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;
 
 class NotImplementedException extends BaseException
 {

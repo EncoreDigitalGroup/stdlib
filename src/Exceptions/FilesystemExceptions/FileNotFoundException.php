@@ -3,7 +3,7 @@
 namespace EncoreDigitalGroup\StdLib\Exceptions\FilesystemExceptions;
 
 use EncoreDigitalGroup\StdLib\Exceptions\BaseException;
-use EncoreDigitalGroup\StdLib\Objects\ExitCode;
+use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;
 
 class FileNotFoundException extends BaseException
 {

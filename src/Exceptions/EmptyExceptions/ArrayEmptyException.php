@@ -3,7 +3,7 @@
 namespace EncoreDigitalGroup\StdLib\Exceptions\EmptyExceptions;
 
 use EncoreDigitalGroup\StdLib\Exceptions\BaseException;
-use EncoreDigitalGroup\StdLib\Objects\ExitCode;
+use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;
 
 class ArrayEmptyException extends BaseException
 {

@@ -3,7 +3,7 @@
 namespace EncoreDigitalGroup\StdLib\Exceptions\NullExceptions;
 
 use EncoreDigitalGroup\StdLib\Exceptions\BaseException;
-use EncoreDigitalGroup\StdLib\Objects\ExitCode;
+use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;
 
 class VariableNullException extends BaseException
 {
