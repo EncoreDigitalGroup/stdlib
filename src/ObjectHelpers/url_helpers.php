@@ -1,6 +1,6 @@
 <?php
 
-use EncoreDigitalGroup\StdLib\Objects\Url;
+use EncoreDigitalGroup\StdLib\Objects\Http\Url;
 
 if (!function_exists("url_encode")) {
     function url_encode(mixed $value): string
