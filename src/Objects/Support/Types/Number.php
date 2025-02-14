@@ -3,14 +3,13 @@
 namespace EncoreDigitalGroup\StdLib\Objects\Support\Types;
 
 use Illuminate\Support\Number as NumberSupport;
-use TypeError;
 
 class Number extends NumberSupport
 {
     /** Cast value to integer */
     public static function toInt(mixed $value): int
     {
-        return (int)$value;
+        return (int) $value;
     }
 
     /** Validated a value can be cast to an integer. */
