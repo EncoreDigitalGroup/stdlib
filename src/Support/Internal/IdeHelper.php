@@ -9,6 +9,7 @@ namespace EncoreDigitalGroup\StdLib\Support\Internal;
 
 use EncoreDigitalGroup\StdLib\Objects\Filesystem\File;
 
+/** @codeCoverageIgnore */
 class IdeHelper
 {
     private const EDITOR_CONFIG_PATH = ".editorconfig";

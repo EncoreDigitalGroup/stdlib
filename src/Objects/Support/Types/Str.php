@@ -2,39 +2,10 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects\Support\Types;
 
-/**
- * @api
- *
- * @internal
- */
-
 use Illuminate\Support\Str as StringSupport;
 
-/** @api */
 class Str extends StringSupport
 {
-    /**@param array<string, string> ...$str */
-    public static function concat(mixed ...$str): string
-    {
-        $str = array_merge(...$str);
-
-        return implode("", $str);
-    }
-
-    /**
-     * @param  array<string, string>  ...$str
-     *
-     * @deprecated No replacement.
-     *
-     * @codeCoverageIgnore deprecated
-     */
-    public static function concatSpace(mixed ...$str): string
-    {
-        $str = array_merge($str);
-
-        return implode(" ", $str); //@phpstan-ignore-line
-    }
-
     public static function guid(): string
     {
         return Str::uuid()->toString();

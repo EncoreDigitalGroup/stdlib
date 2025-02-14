@@ -4,11 +4,7 @@ namespace EncoreDigitalGroup\StdLib\Objects\Filesystem;
 
 use EncoreDigitalGroup\StdLib\Objects\Http\HttpStatusCode;
 
-/**
- * @api
- *
- * @codeCoverageIgnore
- */
+/** @codeCoverageIgnore */
 class ExitCode
 {
     const SUCCESS = 0;

@@ -3,8 +3,9 @@
 namespace EncoreDigitalGroup\StdLib\Exceptions\FilesystemExceptions;
 
 use EncoreDigitalGroup\StdLib\Exceptions\BaseException;
-use EncoreDigitalGroup\StdLib\Objects\ExitCode;
+use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;
 
+/** @codeCoverageIgnore */
 class FileNotFoundException extends BaseException
 {
     public function __construct(?string $path = null)

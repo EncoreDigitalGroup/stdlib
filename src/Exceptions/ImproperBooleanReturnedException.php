@@ -2,8 +2,9 @@
 
 namespace EncoreDigitalGroup\StdLib\Exceptions;
 
-use EncoreDigitalGroup\StdLib\Objects\ExitCode;
+use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;
 
+/** @codeCoverageIgnore */
 class ImproperBooleanReturnedException extends BaseException
 {
     public function __construct(bool $expected = true)

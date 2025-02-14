@@ -10,7 +10,11 @@ namespace EncoreDigitalGroup\StdLib\Support\Internal\Composer;
 use Composer\Script\Event;
 use EncoreDigitalGroup\StdLib\Support\Internal\IdeHelper;
 
-/** @internal */
+/**
+ * @internal
+ *
+ * @codeCoverageIgnore
+ */
 class Scripts
 {
     public static function postAutoloadDump(Event $event): void

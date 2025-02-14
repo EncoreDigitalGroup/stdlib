@@ -2,9 +2,9 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects\Filesystem;
 
-use EncoreDigitalGroup\StdLib\Exceptions\DirectoryNotFoundException;
+use EncoreDigitalGroup\StdLib\Exceptions\FilesystemExceptions\DirectoryNotFoundException;
 use EncoreDigitalGroup\StdLib\Exceptions\ImproperBooleanReturnedException;
-use EncoreDigitalGroup\StdLib\Objects\Arr;
+use EncoreDigitalGroup\StdLib\Objects\Support\Types\Arr;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 

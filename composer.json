@@ -19,6 +19,7 @@
         "illuminate/collections": "^10|^11",
         "illuminate/support": "^10|^11",
         "ramsey/uuid": "^4.7",
+        "symfony/property-access": "^7.2",
         "symfony/serializer": "^7.2"
     },
     "require-dev": {
@@ -36,13 +37,9 @@
         },
         "files": [
             "src/stdlib_internal_helpers.php",
-            "src/ObjectHelpers/arr_helpers.php",
-            "src/ObjectHelpers/dir_helpers.php",
             "src/ObjectHelpers/enum_helpers.php",
             "src/ObjectHelpers/file_helpers.php",
-            "src/ObjectHelpers/num_helpers.php",
             "src/ObjectHelpers/php_function_helpers.php",
-            "src/ObjectHelpers/php_helpers.php",
             "src/ObjectHelpers/str_helpers.php",
             "src/ObjectHelpers/url_helpers.php",
             "src/ObjectHelpers/val_helpers.php"

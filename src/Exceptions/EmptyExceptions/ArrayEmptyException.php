@@ -3,8 +3,9 @@
 namespace EncoreDigitalGroup\StdLib\Exceptions\EmptyExceptions;
 
 use EncoreDigitalGroup\StdLib\Exceptions\BaseException;
-use EncoreDigitalGroup\StdLib\Objects\ExitCode;
+use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;
 
+/** @codeCoverageIgnore */
 class ArrayEmptyException extends BaseException
 {
     public function __construct(string $arrayName = "Array")

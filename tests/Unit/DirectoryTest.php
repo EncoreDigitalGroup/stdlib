@@ -1,8 +1,6 @@
 <?php
 
-use EncoreDigitalGroup\StdLib\Objects\Directory;
-use EncoreDigitalGroup\StdLib\Exceptions\DirectoryNotFoundException;
-use EncoreDigitalGroup\StdLib\Exceptions\ImproperBooleanReturnedException;
+use EncoreDigitalGroup\StdLib\Objects\Filesystem\Directory;
 
 test('Directory current method returns current directory', function () {
     $currentDirectory = Directory::current();

@@ -2,11 +2,7 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects\Http;
 
-/**
- * @api
- *
- * @codeCoverageIgnore
- */
+/** @codeCoverageIgnore */
 class HttpMethod
 {
     public const GET = "GET";

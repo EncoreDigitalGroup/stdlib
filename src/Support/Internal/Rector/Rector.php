@@ -223,6 +223,7 @@ use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictSetUpRector;
 use Rector\TypeDeclaration\Rector\While_\WhileNullableToInstanceofRector;
 use Rector\Visibility\Rector\ClassMethod\ExplicitPublicClassMethodRector;
 
+/** @codeCoverageIgnore */
 class Rector
 {
     public static function rules(array $rules = []): array
