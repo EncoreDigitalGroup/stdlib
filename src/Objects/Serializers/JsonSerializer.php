@@ -10,16 +10,22 @@ use Symfony\Component\Serializer\Serializer;
 class JsonSerializer
 {
     protected static Collection $normalizers;
-    protected static Serializer $serializer;
+
+    public static function setNormalizers(array $normalizers = []): void
+    {
+        if ($normalizers == []) {
+            $normalizers = [
+                new ObjectNormalizer,
+            ];
+        }
+
+        static::$normalizers = new Collection($normalizers);
+    }
 
     public static function normalizers(): Collection
     {
-        $defaultNormalizers = [
-            new ObjectNormalizer,
-        ];
-
         if (!isset(static::$normalizers)) {
-            static::$normalizers = new Collection($defaultNormalizers);
+            static::setNormalizers();
         }
 
         return static::$normalizers;
