@@ -10,10 +10,6 @@ abstract class AbstractSerializer
 {
     protected static Collection $normalizers;
 
-    abstract protected static function format(): string;
-
-    abstract protected static function encoders(): array;
-
     public static function setNormalizers(array $normalizers = []): void
     {
         if ($normalizers == []) {
@@ -49,4 +45,8 @@ abstract class AbstractSerializer
 
         return $serializer->denormalize($json, $class);
     }
+
+    abstract protected static function format(): string;
+
+    abstract protected static function encoders(): array;
 }
