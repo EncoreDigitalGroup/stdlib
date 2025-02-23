@@ -2,34 +2,40 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects\Serializers;
 
-use EncoreDigitalGroup\StdLib\Objects\Serializers\Normalizers\LaravelCollectionNormalizer;
 use Illuminate\Support\Collection;
+use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
 abstract class AbstractSerializer
 {
     protected static Collection $normalizers;
-    protected static bool $useLaravelCollectionNormalizer = false;
-
-    public static function useLaravelCollectionNormalizer(bool $enable = true): void
-    {
-        static::$useLaravelCollectionNormalizer = $enable;
-    }
 
     public static function setNormalizers(array $normalizers = []): void
     {
         if ($normalizers == []) {
-            $normalizers = [];
-
-            if (static::$useLaravelCollectionNormalizer) {
-                $normalizers[] = new LaravelCollectionNormalizer;
-            }
-
-            $normalizers[] = new ObjectNormalizer;
+            $normalizers = [
+                new ObjectNormalizer,
+            ];
         }
 
         static::$normalizers = new Collection($normalizers);
+    }
+
+    public static function addNormalizer(NormalizerInterface|DenormalizerInterface $normalizer): void
+    {
+        static::normalizers()->add($normalizer);
+    }
+
+    public static function prependNormalizer(NormalizerInterface|DenormalizerInterface $normalizer): void
+    {
+        static::normalizers()->prepend($normalizer);
+    }
+
+    public static function resetNormalizers(): void
+    {
+        static::setNormalizers();
     }
 
     public static function normalizers(): Collection
