@@ -9,7 +9,6 @@ describe("LaravelCollectionNormalizer Tests", function () {
         $this->normalizer = new LaravelCollectionNormalizer;
         $this->dataset = ['foo' => 'bar', 'baz' => 'qux'];
         $this->jsonDataset = json_encode($this->dataset);
-        JsonSerializer::useLaravelCollectionNormalizer();
     });
 
     test('it can normalize a Laravel collection', function () {
