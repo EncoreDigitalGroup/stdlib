@@ -10,17 +10,15 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /** @experimental */
 readonly class LaravelCollectionNormalizer implements DenormalizerInterface, NormalizerInterface
 {
-    public function __construct(private NormalizerInterface&DenormalizerInterface $normalizer)
-    {
-    }
+    public function __construct(private NormalizerInterface&DenormalizerInterface $normalizer) {}
 
     public function normalize(mixed $data, ?string $format = null, array $context = []): array
     {
         if (!$data instanceof Collection) {
-            throw new InvalidArgumentException('Data must be an instance of Collection to normalize.');
+            throw new InvalidArgumentException("Data must be an instance of Collection to normalize.");
         }
 
-        return array_map(fn($item) => $this->normalizer->normalize($item, $format, $context), $data->all());
+        return array_map(fn ($item): mixed => $this->normalizer->normalize($item, $format, $context), $data->all());
     }
 
     public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
@@ -31,7 +29,7 @@ readonly class LaravelCollectionNormalizer implements DenormalizerInterface, Nor
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): Collection
     {
         if (!is_iterable($data)) {
-            throw new InvalidArgumentException('Data must be iterable to denormalize into a Collection.');
+            throw new InvalidArgumentException("Data must be iterable to denormalize into a Collection.");
         }
 
         $items = array_map(function ($value) use ($format, $context) {
@@ -52,7 +50,7 @@ readonly class LaravelCollectionNormalizer implements DenormalizerInterface, Nor
     {
         return [
             Collection::class => true,
-            "Illuminate\Support\Collection::*" => true,
+            Collection::class . "::*" => true,
         ];
     }
 }
