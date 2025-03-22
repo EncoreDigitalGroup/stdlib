@@ -31,7 +31,7 @@ class Directory
     public static function hash(string $dir): string
     {
         if (!is_dir($dir)) {
-            throw new DirectoryNotFoundException; //@codeCoverageIgnore
+            throw new DirectoryNotFoundException; // @codeCoverageIgnore
         }
 
         $files = self::scan($dir);

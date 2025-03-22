@@ -34,7 +34,9 @@ trait HasEnumValue
         $cases = [];
         /** @var BackedEnum $case */
         foreach (static::cases() as $case) {
-            $cases[$case->value] = Str::title($case->value);
+            if (is_string($case->value)) {
+                $cases[$case->value] = Str::title($case->value);
+            }
         }
 
         return $cases;
