@@ -5,7 +5,6 @@ namespace EncoreDigitalGroup\StdLib\Objects\Support\Traits;
 use BackedEnum;
 use EncoreDigitalGroup\StdLib\Objects\Support\Types\Str;
 use LogicException;
-use StringBackedEnum;
 
 /**
  * Trait for PHP Enums that provides additional functionality.
