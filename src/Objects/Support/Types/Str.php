@@ -18,7 +18,7 @@ class Str extends StringSupport
 
     public static function toString(mixed $value): string
     {
-        return (string) $value;
+        return (string)$value;
     }
 
     public static function maxLength(string $value, ?int $length = null): string
@@ -28,5 +28,12 @@ class Str extends StringSupport
         }
 
         return Str::limit($value, $length);
+    }
+
+    public static function conjunctions(string $value): array|string
+    {
+        $andFormatted = Str::replace(" And ", " and ", $value);
+        $orFormatted = Str::replace(" Or ", " or ", $andFormatted);
+        return Str::replace(" Of ", " of ", $orFormatted);
     }
 }
