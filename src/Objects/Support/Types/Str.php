@@ -29,4 +29,12 @@ class Str extends StringSupport
 
         return Str::limit($value, $length);
     }
+
+    public static function conjunctions(string $value): array|string
+    {
+        $andFormatted = Str::replace(" And ", " and ", $value);
+        $orFormatted = Str::replace(" Or ", " or ", $andFormatted);
+
+        return Str::replace(" Of ", " of ", $orFormatted);
+    }
 }
