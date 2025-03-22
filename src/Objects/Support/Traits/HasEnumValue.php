@@ -5,6 +5,7 @@ namespace EncoreDigitalGroup\StdLib\Objects\Support\Traits;
 use BackedEnum;
 use EncoreDigitalGroup\StdLib\Objects\Support\Types\Str;
 use LogicException;
+use StringBackedEnum;
 
 /**
  * Trait for PHP Enums that provides additional functionality.
@@ -34,7 +35,9 @@ trait HasEnumValue
         $cases = [];
         /** @var BackedEnum $case */
         foreach (static::cases() as $case) {
-            $cases[$case->value] = Str::title($case->value);
+            if (is_string($case->value)) {
+                $cases[$case->value] = Str::title($case->value);
+            }
         }
 
         return $cases;
