@@ -55,6 +55,11 @@ trait HasEnumValue
     private static function convertTitleCase(string $case): array|string
     {
         $underScoresRemoved = Str::replace("_", " ", Str::title($case));
+
+        if (!is_string($underScoresRemoved)) {
+            return $underScoresRemoved;
+        }
+
         return Str::conjunctions($underScoresRemoved);
     }
 }
