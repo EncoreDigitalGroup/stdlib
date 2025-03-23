@@ -42,6 +42,19 @@ trait HasEnumValue
         return $cases;
     }
 
+    public static function from(int|string $value): ?static
+    {
+        static::enforceEnum();
+
+        foreach (static::cases() as $case) {
+            if ($case->value === $value) {
+                return $case;
+            }
+        }
+
+        return null;
+    }
+
     private static function enforceEnum(): void
     {
         if (!method_exists(static::class, "cases")) {
