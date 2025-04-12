@@ -37,4 +37,15 @@ class Str extends StringSupport
 
         return Str::replace(" Of ", " of ", $orFormatted);
     }
+
+    public static function formattedTitleCase(string $value): array|string
+    {
+        $underScoresRemoved = Str::replace("_", " ", Str::title($value));
+
+        if (!is_string($underScoresRemoved)) {
+            return $underScoresRemoved;
+        }
+
+        return Str::conjunctions($underScoresRemoved);
+    }
 }

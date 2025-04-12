@@ -35,7 +35,7 @@ trait HasEnumValue
         /** @var BackedEnum $case */
         foreach (static::cases() as $case) {
             if (is_string($case->value)) {
-                $cases[$case->value] = static::convertTitleCase($case->value);
+                $cases[$case->value] = Str::formattedTitleCase($case->value);
             }
         }
 
@@ -63,16 +63,5 @@ trait HasEnumValue
                 self::class
             ));
         }
-    }
-
-    private static function convertTitleCase(string $case): array|string
-    {
-        $underScoresRemoved = Str::replace("_", " ", Str::title($case));
-
-        if (!is_string($underScoresRemoved)) {
-            return $underScoresRemoved;
-        }
-
-        return Str::conjunctions($underScoresRemoved);
     }
 }
