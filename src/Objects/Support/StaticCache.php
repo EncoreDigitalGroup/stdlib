@@ -48,6 +48,7 @@ class StaticCache
     {
         if (is_null($partition)) {
             self::$cache = [];
+
             return;
         }
 
@@ -65,7 +66,7 @@ class StaticCache
         }
 
         if (!is_string($name)) {
-            return (string)$name;
+            return (string) $name;
         }
 
         return $name;
