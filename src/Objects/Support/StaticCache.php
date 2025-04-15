@@ -44,7 +44,7 @@ class StaticCache
         }
 
         if (!is_string($name)) {
-            $name = (string)$name;
+            return (string)$name;
         }
 
         return $name;
