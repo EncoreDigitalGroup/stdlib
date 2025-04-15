@@ -36,6 +36,29 @@ class StaticCache
         return null;
     }
 
+    public static function remove(BackedEnum|string $key, BackedEnum|string $partition = "default"): void
+    {
+        $key = self::enum($key);
+        $partition = self::enum($partition);
+
+        unset(self::$cache[$partition][$key]);
+    }
+
+    public static function flush(BackedEnum|string|null $partition = null): void
+    {
+        if (is_null($partition)) {
+            self::$cache = [];
+
+            return;
+        }
+
+        $partition = self::enum($partition);
+
+        if (isset(self::$cache[$partition])) {
+            self::$cache[$partition] = [];
+        }
+    }
+
     private static function enum(BackedEnum|string $name): string
     {
         if ($name instanceof BackedEnum) {
