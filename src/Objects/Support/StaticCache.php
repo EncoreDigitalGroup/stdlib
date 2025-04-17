@@ -6,7 +6,7 @@ use BackedEnum;
 
 class StaticCache
 {
-    private static array $cache = [];
+    protected static array $cache = [];
 
     public static function add(BackedEnum|string $key, mixed $value, BackedEnum|string $partition = "default"): void
     {
@@ -59,7 +59,7 @@ class StaticCache
         }
     }
 
-    private static function enum(BackedEnum|string $name): string
+    protected static function enum(BackedEnum|string $name): string
     {
         if ($name instanceof BackedEnum) {
             $name = $name->value;
