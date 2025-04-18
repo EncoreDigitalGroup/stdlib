@@ -13,7 +13,7 @@ class StaticCache
         $key = self::enum($key);
         $partition = self::enum($partition);
 
-        self::$cache[$partition][$key] = $value;
+        self::$cache[static::class][$partition][$key] = $value;
     }
 
     public static function contains(BackedEnum|string $key, BackedEnum|string $partition = "default"): bool
@@ -21,7 +21,7 @@ class StaticCache
         $key = self::enum($key);
         $partition = self::enum($partition);
 
-        return isset(self::$cache[$partition][$key]);
+        return isset(self::$cache[static::class][$partition][$key]);
     }
 
     public static function get(BackedEnum|string $key, BackedEnum|string $partition = "default"): mixed
@@ -30,7 +30,7 @@ class StaticCache
         $partition = self::enum($partition);
 
         if (self::contains($key, $partition)) {
-            return self::$cache[$partition][$key];
+            return self::$cache[static::class][$partition][$key];
         }
 
         return null;
@@ -41,13 +41,13 @@ class StaticCache
         $key = self::enum($key);
         $partition = self::enum($partition);
 
-        unset(self::$cache[$partition][$key]);
+        unset(self::$cache[static::class][$partition][$key]);
     }
 
     public static function flush(BackedEnum|string|null $partition = null): void
     {
         if (is_null($partition)) {
-            self::$cache = [];
+            self::$cache[static::class] = [];
 
             return;
         }
@@ -55,7 +55,7 @@ class StaticCache
         $partition = self::enum($partition);
 
         if (isset(self::$cache[$partition])) {
-            self::$cache[$partition] = [];
+            self::$cache[static::class][$partition] = [];
         }
     }
 
@@ -66,7 +66,7 @@ class StaticCache
         }
 
         if (!is_string($name)) {
-            return (string) $name;
+            return (string)$name;
         }
 
         return $name;
