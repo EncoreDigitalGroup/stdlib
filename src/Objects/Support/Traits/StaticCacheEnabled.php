@@ -5,9 +5,9 @@ namespace EncoreDigitalGroup\StdLib\Objects\Support\Traits;
 /** @internal */
 trait StaticCacheEnabled
 {
-    protected const string ENABLED = "enabled";
-
     protected static array $enabled = [];
+
+    protected const string ENABLED = "enabled";
 
     public static function enable(): void
     {
