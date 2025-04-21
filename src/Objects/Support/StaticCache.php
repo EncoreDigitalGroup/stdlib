@@ -3,13 +3,20 @@
 namespace EncoreDigitalGroup\StdLib\Objects\Support;
 
 use BackedEnum;
+use EncoreDigitalGroup\StdLib\Objects\Support\Traits\StaticCacheEnabled;
 
 class StaticCache
 {
+    use StaticCacheEnabled;
+
     protected static array $cache = [];
 
     public static function add(BackedEnum|string $key, mixed $value, BackedEnum|string $partition = "default"): void
     {
+        if (self::disabled()) {
+            return;
+        }
+
         $key = self::enum($key);
         $partition = self::enum($partition);
 
