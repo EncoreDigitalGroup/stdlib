@@ -16,9 +16,14 @@ class Str extends StringSupport
         return "";
     }
 
+    public static function space(): string
+    {
+        return " ";
+    }
+
     public static function toString(mixed $value): string
     {
-        return (string) $value;
+        return (string)$value;
     }
 
     public static function maxLength(string $value, ?int $length = null): string
