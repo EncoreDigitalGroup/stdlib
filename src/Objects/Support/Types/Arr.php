@@ -18,7 +18,7 @@ class Arr extends ArraySupport
         }
 
         $keys = array_keys($array);
-        $index = array_search($oldKey, $keys);
+        $index = array_search($oldKey, $keys, true);
 
         $keys[$index] = $newKey;
         $values = array_values($array);
