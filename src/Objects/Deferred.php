@@ -2,9 +2,9 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-use Composer\InstalledVersions;
 use EncoreDigitalGroup\StdLib\Exceptions\MissingMinimumDependencyException;
 use EncoreDigitalGroup\StdLib\Support\Internal\Composer\Composer;
+
 use function Illuminate\Support\defer;
 
 use Illuminate\Support\Defer\DeferredCallback;

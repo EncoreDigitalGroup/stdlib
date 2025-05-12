@@ -2,7 +2,6 @@
 
 namespace EncoreDigitalGroup\StdLib\Objects;
 
-use Composer\InstalledVersions;
 use EncoreDigitalGroup\StdLib\Exceptions\MissingMinimumDependencyException;
 use EncoreDigitalGroup\StdLib\Support\Internal\Composer\Composer;
 use Illuminate\Support\Once as BaseOnce;
