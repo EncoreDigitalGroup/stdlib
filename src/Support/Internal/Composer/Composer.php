@@ -28,7 +28,7 @@ class Composer
          * we force the version to be something that is generally considered to be invalid.
          */
         if (is_null($version)) {
-            $version = "0.0.0";
+            return "0.0.0";
         }
 
         return $version;
