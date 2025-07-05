@@ -55,6 +55,22 @@ trait HasEnumValue
         return null;
     }
 
+    public static function options(): array
+    {
+        $options = [];
+
+        foreach (self::cases() as $case) {
+            $options[$case->value] = self::name($case);
+        }
+
+        return $options;
+    }
+
+    public static function name(self $self): string
+    {
+        return $self->name;
+    }
+
     private static function enforceEnum(): void
     {
         if (!method_exists(static::class, "cases")) {
