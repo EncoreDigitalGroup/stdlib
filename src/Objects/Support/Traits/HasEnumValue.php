@@ -3,7 +3,6 @@
 namespace EncoreDigitalGroup\StdLib\Objects\Support\Traits;
 
 use BackedEnum;
-use EncoreDigitalGroup\StdLib\Objects\Support\Types\Arr;
 use EncoreDigitalGroup\StdLib\Objects\Support\Types\Str;
 use LogicException;
 use RuntimeException;
@@ -75,7 +74,6 @@ trait HasEnumValue
 
         return $options;
     }
-
 
     public static function name(self $self): string
     {
