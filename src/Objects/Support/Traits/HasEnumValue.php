@@ -3,8 +3,10 @@
 namespace EncoreDigitalGroup\StdLib\Objects\Support\Traits;
 
 use BackedEnum;
+use EncoreDigitalGroup\StdLib\Objects\Support\Types\Arr;
 use EncoreDigitalGroup\StdLib\Objects\Support\Types\Str;
 use LogicException;
+use RuntimeException;
 
 /**
  * Trait for PHP Enums that provides additional functionality.
@@ -55,8 +57,16 @@ trait HasEnumValue
         return null;
     }
 
-    public static function options(): array
+    public static function options(array $include = [], array $exclude = []): array
     {
+        if ($include != []) {
+            return self::optionsIncluding($include);
+        }
+
+        if ($exclude != []) {
+            return self::optionsExcluding($exclude);
+        }
+
         $options = [];
 
         foreach (self::cases() as $case) {
@@ -66,9 +76,16 @@ trait HasEnumValue
         return $options;
     }
 
+
     public static function name(self $self): string
     {
-        return $self->name;
+        $name = Str::formattedTitleCase($self->value);
+
+        if (is_array($name)) {
+            throw new RuntimeException("Name was provided as a string but returned as an array.");
+        }
+
+        return $name;
     }
 
     private static function enforceEnum(): void
@@ -79,5 +96,31 @@ trait HasEnumValue
                 self::class
             ));
         }
+    }
+
+    private static function optionsIncluding(array $include): array
+    {
+        $options = [];
+
+        foreach (self::cases() as $case) {
+            if (in_array($case, $include)) {
+                $options[$case->value] = self::name($case);
+            }
+        }
+
+        return $options;
+    }
+
+    private static function optionsExcluding(array $exclude): array
+    {
+        $options = [];
+
+        foreach (self::cases() as $case) {
+            if (!in_array($case, $exclude)) {
+                $options[$case->value] = self::name($case);
+            }
+        }
+
+        return $options;
     }
 }
