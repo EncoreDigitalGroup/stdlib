@@ -3,6 +3,7 @@
 namespace EncoreDigitalGroup\StdLib\Objects\Support;
 
 use BackedEnum;
+use Closure;
 use EncoreDigitalGroup\StdLib\Objects\Support\Traits\StaticCacheEnabled;
 
 class StaticCache
@@ -64,6 +65,24 @@ class StaticCache
         if (isset(self::$cache[$partition])) {
             self::$cache[static::class][$partition] = [];
         }
+    }
+
+    public static function remember(BackedEnum|string $key, Closure $value, BackedEnum|string $partition = "default"): mixed
+    {
+        if (self::disabled()) {
+            return $value();
+        }
+
+        $partition = self::enum($partition);
+
+        if (self::contains($key, $partition)) {
+            return self::get($key, $partition);
+        }
+
+        $result = $value();
+        self::add($key, $result, $partition);
+
+        return $result;
     }
 
     protected static function enum(BackedEnum|string $name): string
