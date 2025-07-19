@@ -14,8 +14,8 @@ class InvalidClassException extends BaseException
             $message = "Class does not exist";
         }
 
-        if (!is_null($message) && !class_exists($message)) {
-            $message = $message . " does not exist.";
+        if (!class_exists($message)) {
+            $message .= " does not exist.";
         }
 
         parent::__construct($message, $code, $previous);
