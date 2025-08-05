@@ -32,7 +32,12 @@ class CarbonNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
 
+        if ($type == IlluminateCarbon::class) {
+            return new IlluminateCarbon($data);
+        }
+
         return new Carbon($data);
+
     }
 
     public function supportsDenormalization(mixed $data, ?string $type, ?string $format = null, array $context = []): bool
@@ -43,8 +48,8 @@ class CarbonNormalizer implements DenormalizerInterface, NormalizerInterface
     public function getSupportedTypes(?string $format): array
     {
         return [
-            Carbon::class,
-            IlluminateCarbon::class,
+            Carbon::class => true,
+            IlluminateCarbon::class => true,
         ];
     }
 }
