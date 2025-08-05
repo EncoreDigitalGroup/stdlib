@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2025. Encore Digital Group.
  * All Rights Reserved.
@@ -14,7 +15,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /** @experimental */
 class CarbonNormalizer implements DenormalizerInterface, NormalizerInterface
 {
-    /** @var Carbon $data */
+    /** @var Carbon */
     public function normalize(mixed $data, ?string $format = null, array $context = []): string
     {
         return $data->toW3cString();
@@ -27,7 +28,7 @@ class CarbonNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): ?Carbon
     {
-        if (null === $data) {
+        if ($data === null) {
             return null;
         }
 
@@ -36,7 +37,7 @@ class CarbonNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization(mixed $data, ?string $type, ?string $format = null, array $context = []): bool
     {
-        return Carbon::class === $type && ($data === null || is_string($data));
+        return $type === Carbon::class && ($data === null || is_string($data));
     }
 
     public function getSupportedTypes(?string $format): array
