@@ -174,3 +174,4 @@ fabric.properties
 ########       MacOS      ########
 ##################################
 .DS_Store
+/.idea/copilotDiffState.xml
