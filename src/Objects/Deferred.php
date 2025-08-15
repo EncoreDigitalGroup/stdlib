@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2025. Encore Digital Group.
  * All Rights Reserved.
@@ -16,6 +17,7 @@ use Illuminate\Support\Defer\DeferredCallbackCollection;
 
 /**
  * @codeCoverageIgnore Ignored since this is a wrapper around an Illuminate class
+ *
  * @deprecated Use defer() function instead.
  */
 class Deferred
