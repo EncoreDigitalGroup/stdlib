@@ -11,6 +11,7 @@ use BadMethodCallException;
 use Closure;
 use Illuminate\Database\Eloquent\Model;
 use ReflectionClass;
+use ReflectionException;
 use ReflectionMethod;
 
 /** @experimental */
@@ -86,7 +87,13 @@ trait Macroable
         throw new BadMethodCallException(sprintf("Method %s::%s does not exist.", static::class, $method));
     }
 
-    public static function __callStatic(string $method, array $parameters): mixed
+    /**
+     * @param string $method
+     * @param array $parameters
+     * @return mixed
+     * @throws ReflectionException
+     */
+    public static function __callStatic($method, $parameters)
     {
         // Check if a macro exists for the method
         if (static::hasMacro($method)) {
@@ -113,7 +120,13 @@ trait Macroable
         throw new BadMethodCallException(sprintf("Method %s::%s does not exist.", static::class, $method));
     }
 
-    public function __call(string $method, array $parameters): mixed
+    /**
+     * @param string $method
+     * @param array $parameters
+     * @return mixed
+     * @throws ReflectionException
+     */
+    public function __call($method, $parameters)
     {
         // Check if a macro exists for the method
         if (static::hasMacro($method)) {
