@@ -60,7 +60,7 @@ trait Macroable
 
         // Defer to the parent class's __callStatic if it exists
         $parentClass = get_parent_class(static::class);
-        if ($parentClass && (new ReflectionClass($parentClass))->hasMethod('__callStatic')) {
+        if ($parentClass && (new ReflectionClass($parentClass))->hasMethod("__callStatic")) {
             return parent::__callStatic($method, $parameters);
         }
 
@@ -87,7 +87,7 @@ trait Macroable
 
         // Defer to the parent class's __call if it exists
         $parentClass = get_parent_class($this);
-        if ($parentClass && (new ReflectionClass($parentClass))->hasMethod('__call')) {
+        if ($parentClass && (new ReflectionClass($parentClass))->hasMethod("__call")) {
             return parent::__call($method, $parameters);
         }
 
@@ -108,9 +108,6 @@ trait Macroable
     /**
      * Defer static method call to the parent class's __callStatic for Eloquent models.
      *
-     * @param string $method
-     * @param array $parameters
-     * @param bool $static
      * @return mixed
      */
     protected static function deferToLaravel(string $method, array $parameters, bool $static = false)
@@ -128,10 +125,6 @@ trait Macroable
 
     /**
      * Defer instance method call to the parent class's __call for Eloquent models.
-     *
-     * @param string $method
-     * @param array $parameters
-     * @return mixed
      */
     protected function deferToEloquentInstance(string $method, array $parameters): mixed
     {
