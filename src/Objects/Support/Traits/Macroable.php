@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2025. Encore Digital Group.
  * All Rights Reserved.
@@ -43,6 +44,46 @@ trait Macroable
     public static function flushMacros(): void
     {
         static::$macros = [];
+    }
+
+    protected static function canDeferToLaravel(): bool
+    {
+        return class_exists(Model::class) &&
+            is_subclass_of(static::class, Model::class);
+    }
+
+    /**
+     * Defer static method call to the parent class's __callStatic for Eloquent models.
+     *
+     * @return mixed
+     */
+    protected static function deferToLaravel(string $method, array $parameters, bool $static = false)
+    {
+        if (static::canDeferToLaravel()) {
+            // Defer to the parent class's __callStatic (e.g., Model::__callStatic)
+            $parentClass = get_parent_class(static::class);
+            if ($parentClass && (new ReflectionClass($parentClass))->hasMethod("__callStatic")) {
+                return parent::__callStatic($method, $parameters);
+            }
+        }
+
+        throw new BadMethodCallException(sprintf("Method %s::%s does not exist.", static::class, $method));
+    }
+
+    /**
+     * Defer instance method call to the parent class's __call for Eloquent models.
+     */
+    protected function deferToEloquentInstance(string $method, array $parameters): mixed
+    {
+        if (static::canDeferToLaravel()) {
+            // Defer to the parent class's __call (e.g., Model::__call)
+            $parentClass = get_parent_class($this);
+            if ($parentClass && (new ReflectionClass($parentClass))->hasMethod("__call")) {
+                return parent::__call($method, $parameters);
+            }
+        }
+
+        throw new BadMethodCallException(sprintf("Method %s::%s does not exist.", static::class, $method));
     }
 
     public static function __callStatic(string $method, array $parameters): mixed
@@ -94,46 +135,6 @@ trait Macroable
         // If the class is an Eloquent model, defer to Laravel's handling
         if (static::canDeferToLaravel()) {
             return $this->deferToEloquentInstance($method, $parameters);
-        }
-
-        throw new BadMethodCallException(sprintf("Method %s::%s does not exist.", static::class, $method));
-    }
-
-    protected static function canDeferToLaravel(): bool
-    {
-        return class_exists(Model::class) &&
-            is_subclass_of(static::class, Model::class);
-    }
-
-    /**
-     * Defer static method call to the parent class's __callStatic for Eloquent models.
-     *
-     * @return mixed
-     */
-    protected static function deferToLaravel(string $method, array $parameters, bool $static = false)
-    {
-        if (static::canDeferToLaravel()) {
-            // Defer to the parent class's __callStatic (e.g., Model::__callStatic)
-            $parentClass = get_parent_class(static::class);
-            if ($parentClass && (new ReflectionClass($parentClass))->hasMethod("__callStatic")) {
-                return parent::__callStatic($method, $parameters);
-            }
-        }
-
-        throw new BadMethodCallException(sprintf("Method %s::%s does not exist.", static::class, $method));
-    }
-
-    /**
-     * Defer instance method call to the parent class's __call for Eloquent models.
-     */
-    protected function deferToEloquentInstance(string $method, array $parameters): mixed
-    {
-        if (static::canDeferToLaravel()) {
-            // Defer to the parent class's __call (e.g., Model::__call)
-            $parentClass = get_parent_class($this);
-            if ($parentClass && (new ReflectionClass($parentClass))->hasMethod("__call")) {
-                return parent::__call($method, $parameters);
-            }
         }
 
         throw new BadMethodCallException(sprintf("Method %s::%s does not exist.", static::class, $method));
