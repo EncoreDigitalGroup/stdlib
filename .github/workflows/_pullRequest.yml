@@ -6,7 +6,7 @@ on:
 
 concurrency:
     group: ${{ github.repository }}-${{ github.event.pull_request.number }}-pullRequest
-    cancel-in-progress: true
+    cancel-in-progress: false
 
 permissions:
     contents: write
@@ -65,6 +65,10 @@ jobs:
             branch: ${{ github.head_ref }}
             enforceCoverage: false
             runParallel: true
+            useCodeCov: true
+            codeCovSlug: 'EncoreDigitalGroup/stdlib'
+        secrets:
+            codeCovToken: ${{ secrets.CODECOV_TOKEN }}
 
     AutoMerge:
         needs: [ StaticAnalysis, Test ]
