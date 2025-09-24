@@ -47,7 +47,10 @@
     "scripts": {
         "post-autoload-dump": [
             "EncoreDigitalGroup\\StdLib\\Support\\Internal\\Composer\\Scripts::postAutoloadDump"
-        ]
+        ],
+        "format": "vendor/bin/rector && vendor/bin/duster fix",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest"
     },
     "minimum-stability": "stable"
 }
