@@ -6,8 +6,8 @@ use BadMethodCallException;
 use EncoreDigitalGroup\StdLib\Objects\Support\Traits\HasEnumValue;
 
 /**
+ * @method static string format(float|int $amount, string $symbol = "$", int $precision = 2, string $decimals = '.', string $thousands = ',')
  * @method string format(float|int $amount, int $precision = 2)
- * @method static string format(float|int $amount, string $symbol, int $precision = 2, string $decimals = '.', string $thousands = ',')
  */
 enum Currency: string
 {
@@ -176,7 +176,7 @@ enum Currency: string
 
     private static function formatGeneric(int $amount, string $symbol = "$", int $precision = 2, string $decimals = ".", string $thousands = ","): string
     {
-        $formattedAmount = number_format($amount, $precision, $decimals, $thousands);
+        $formattedAmount = number_format($amount / 100, $precision, $decimals, $thousands);
 
         return "{$symbol}{$formattedAmount}";
     }
@@ -485,7 +485,7 @@ enum Currency: string
     private function formatCurrency(int $amount, int $precision = 2): string
     {
         $symbol = $this->symbol();
-        $formattedAmount = number_format($amount, $precision);
+        $formattedAmount = number_format($amount / 100, $precision);
 
         return "{$symbol}{$formattedAmount}";
     }

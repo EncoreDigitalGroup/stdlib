@@ -28,60 +28,60 @@ describe("Currency Tests", function (): void {
 
     describe('Currency instance format method', function () {
         test('formats basic amounts with default precision', function () {
-            expect(Currency::UnitedStates->format(1000))->toBe('$1,000.00')
-                ->and(Currency::Eurozone->format(1000))->toBe('€1,000.00')
-                ->and(Currency::Japan->format(1000))->toBe('¥1,000.00')
-                ->and(Currency::UnitedKingdom->format(1000))->toBe('£1,000.00');
+            expect(Currency::UnitedStates->format(1000))->toBe('$10.00')
+                ->and(Currency::Eurozone->format(1000))->toBe('€10.00')
+                ->and(Currency::Japan->format(1000))->toBe('¥10.00')
+                ->and(Currency::UnitedKingdom->format(1000))->toBe('£10.00');
         });
 
         test('formats amounts with custom precision', function () {
-            expect(Currency::UnitedStates->format(1000, 0))->toBe('$1,000')
-                ->and(Currency::UnitedStates->format(1000, 3))->toBe('$1,000.000')
-                ->and(Currency::Japan->format(1000, 0))->toBe('¥1,000');
+            expect(Currency::UnitedStates->format(1000, 0))->toBe('$10')
+                ->and(Currency::UnitedStates->format(1000, 3))->toBe('$10.000')
+                ->and(Currency::Japan->format(1000, 0))->toBe('¥10');
         });
 
         test('formats large amounts correctly', function () {
-            expect(Currency::UnitedStates->format(1234567))->toBe('$1,234,567.00')
-                ->and(Currency::Eurozone->format(1234567))->toBe('€1,234,567.00');
+            expect(Currency::UnitedStates->format(1234567))->toBe('$12,345.67')
+                ->and(Currency::Eurozone->format(1234567))->toBe('€12,345.67');
         });
 
         test('formats small amounts correctly', function () {
-            expect(Currency::UnitedStates->format(1))->toBe('$1.00')
+            expect(Currency::UnitedStates->format(1))->toBe('$0.01')
                 ->and(Currency::UnitedStates->format(0))->toBe('$0.00');
         });
 
         test('handles different currency symbol placements', function () {
-            expect(Currency::UnitedStates->format(100))->toBe('$100.00')
-                ->and(Currency::Eurozone->format(100))->toBe('€100.00');
+            expect(Currency::UnitedStates->format(100))->toBe('$1.00')
+                ->and(Currency::Eurozone->format(100))->toBe('€1.00');
         });
     });
 
     describe('Currency static format method', function () {
         test('formats with custom symbol and default settings', function () {
-            expect(Currency::format(1000, '$'))->toBe('$1,000.00')
-                ->and(Currency::format(1000, '€'))->toBe('€1,000.00')
-                ->and(Currency::format(1000, '£'))->toBe('£1,000.00');
+            expect(Currency::format(1000, '$'))->toBe('$10.00')
+                ->and(Currency::format(1000, '€'))->toBe('€10.00')
+                ->and(Currency::format(1000, '£'))->toBe('£10.00');
         });
 
         test('formats with custom precision', function () {
-            expect(Currency::format(1000, '$', 0))->toBe('$1,000')
-                ->and(Currency::format(1000, '$', 3))->toBe('$1,000.000')
-                ->and(Currency::format(1000, '$', 1))->toBe('$1,000.0');
+            expect(Currency::format(1000, '$', 0))->toBe('$10')
+                ->and(Currency::format(1000, '$', 3))->toBe('$10.000')
+                ->and(Currency::format(1000, '$', 1))->toBe('$10.0');
         });
 
         test('formats with custom decimal separator', function () {
-            expect(Currency::format(1000, '€', 2, ','))->toBe('€1,000,00')
-                ->and(Currency::format(1500, '$', 2, ','))->toBe('$1,500,00');
+            expect(Currency::format(1000, '€', 2, ','))->toBe('€10,00')
+                ->and(Currency::format(1500, '$', 2, ','))->toBe('$15,00');
         });
 
         test('formats with custom thousands separator', function () {
-            expect(Currency::format(1000, '$', 2, '.', ' '))->toBe('$1 000.00')
-                ->and(Currency::format(12345, '€', 2, ',', '.'))->toBe('€12.345,00');
+            expect(Currency::format(1000, '$', 2, '.', ' '))->toBe('$10.00')
+                ->and(Currency::format(12345, '€', 2, ',', '.'))->toBe('€123,45');
         });
 
         test('formats with all custom parameters', function () {
-            expect(Currency::format(12345, 'CHF', 1, ',', '.'))->toBe('CHF12.345,0')
-                ->and(Currency::format(98765, 'kr', 0, '.', ' '))->toBe('kr98 765');
+            expect(Currency::format(12345, 'CHF', 1, ',', '.'))->toBe('CHF123,5')
+                ->and(Currency::format(98765, 'kr', 0, '.', ' '))->toBe('kr988');
         });
 
         test('handles edge cases with zero amounts', function () {
@@ -90,8 +90,8 @@ describe("Currency Tests", function (): void {
         });
 
         test('handles large numbers', function () {
-            expect(Currency::format(1234567890, '$'))->toBe('$1,234,567,890.00')
-                ->and(Currency::format(1000000, '€', 2, ',', '.'))->toBe('€1.000.000,00');
+            expect(Currency::format(1234567890, '$'))->toBe('$12,345,678.90')
+                ->and(Currency::format(1000000, '€', 2, ',', '.'))->toBe('€10.000,00');
         });
     });
 
@@ -109,26 +109,26 @@ describe("Currency Tests", function (): void {
 
     describe('Currency format real-world scenarios', function () {
         test('formats common financial amounts', function () {
-            expect(Currency::UnitedStates->format(99))->toBe('$99.00')
-                ->and(Currency::UnitedStates->format(9999))->toBe('$9,999.00')
-                ->and(Currency::UnitedStates->format(10000))->toBe('$10,000.00')
-                ->and(Currency::UnitedStates->format(1000000))->toBe('$1,000,000.00');
+            expect(Currency::UnitedStates->format(99))->toBe('$0.99')
+                ->and(Currency::UnitedStates->format(9999))->toBe('$99.99')
+                ->and(Currency::UnitedStates->format(10000))->toBe('$100.00')
+                ->and(Currency::UnitedStates->format(1000000))->toBe('$10,000.00');
         });
 
         test('formats different currency styles', function () {
-            expect(Currency::Brazil->format(1000))->toBe('R$1,000.00')
-                ->and(Currency::SouthAfrica->format(1000))->toBe('R1,000.00')
-                ->and(Currency::Poland->format(1000))->toBe('zł1,000.00')
-                ->and(Currency::Thailand->format(1000))->toBe('฿1,000.00');
+            expect(Currency::Brazil->format(1000))->toBe('R$10.00')
+                ->and(Currency::SouthAfrica->format(1000))->toBe('R10.00')
+                ->and(Currency::Poland->format(1000))->toBe('zł10.00')
+                ->and(Currency::Thailand->format(1000))->toBe('฿10.00');
         });
 
         test('supports various precision requirements', function () {
             // No decimals for currencies like Japanese Yen
-            expect(Currency::Japan->format(1000, 0))->toBe('¥1,000')
+            expect(Currency::Japan->format(1000, 0))->toBe('¥10')
                 // Standard 2 decimals for most currencies
-                ->and(Currency::UnitedStates->format(1000, 2))->toBe('$1,000.00')
+                ->and(Currency::UnitedStates->format(1000, 2))->toBe('$10.00')
                 // High precision for specialized use
-                ->and(Currency::UnitedStates->format(1000, 8))->toBe('$1,000.00000000');
+                ->and(Currency::UnitedStates->format(1000, 8))->toBe('$10.00000000');
         });
     });
 });
