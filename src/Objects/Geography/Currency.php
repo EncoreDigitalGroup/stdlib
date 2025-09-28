@@ -174,6 +174,13 @@ enum Currency: string
     case Mali = "malian_franc";
     case Niger = "nigerian_franc";
 
+    private static function formatGeneric(int $amount, string $symbol = "$", int $precision = 2, string $decimals = ".", string $thousands = ","): string
+    {
+        $formattedAmount = number_format($amount, $precision, $decimals, $thousands);
+
+        return "{$symbol}{$formattedAmount}";
+    }
+
     public function code(): string
     {
         return match ($this) {
@@ -475,11 +482,19 @@ enum Currency: string
         };
     }
 
+    private function formatCurrency(int $amount, int $precision = 2): string
+    {
+        $symbol = $this->symbol();
+        $formattedAmount = number_format($amount, $precision);
+
+        return "{$symbol}{$formattedAmount}";
+    }
+
     public function __call(string $name, array $arguments): mixed
     {
         return match ($name) {
             "format" => $this->formatCurrency(...$arguments),
-            default => throw new \BadMethodCallException("Method {$name} does not exist on Currency enum"),
+            default => throw new BadMethodCallException("Method {$name} does not exist on Currency enum"),
         };
     }
 
@@ -489,19 +504,5 @@ enum Currency: string
             "format" => self::formatGeneric(...$arguments),
             default => throw new BadMethodCallException("Static method {$name} does not exist on Currency enum"),
         };
-    }
-
-    private function formatCurrency(int $amount, int $precision = 2): string
-    {
-        $symbol = $this->symbol();
-        $formattedAmount = number_format($amount, $precision);
-
-        return "{$symbol}{$formattedAmount}";
-    }
-
-    private static function formatGeneric(int $amount, string $symbol = "$", int $precision = 2, string $decimals = ".", string $thousands = ","): string
-    {
-        $formattedAmount = number_format($amount, $precision, $decimals, $thousands);
-        return "{$symbol}{$formattedAmount}";
     }
 }
