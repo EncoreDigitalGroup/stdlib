@@ -7,12 +7,16 @@ on:
             - '!v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-    CreatePreRelease:
-        name: CreatePreRelease
-        uses: EncoreDigitalGroup/ci-workflows/.github/workflows/createRelease.yml@v1
-        with:
-            generateReleaseNotes: true
-            isDraft: false
-            preRelease: true
-        secrets:
-            token: ${{ secrets.GITHUB_TOKEN }}
+    CreateRelease:
+        name: Create Pre-Release
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            -   name: Create Pre-Release
+                uses: EncoreDigitalGroup/ci-workflows/actions/github/createRelease@v2
+                with:
+                    generateReleaseNotes: true
+                    isDraft: false
+                    preRelease: true
+                    token: ${{ secrets.GITHUB_TOKEN }}
