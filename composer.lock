@@ -1048,16 +1048,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v12.33.0",
+            "version": "v12.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "21016aede3dbeed1fccd4478dfbd9f10114456ce"
+                "reference": "89291f59ef6c170c00f10a41c566c49ee32ca09a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/21016aede3dbeed1fccd4478dfbd9f10114456ce",
-                "reference": "21016aede3dbeed1fccd4478dfbd9f10114456ce",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/89291f59ef6c170c00f10a41c566c49ee32ca09a",
+                "reference": "89291f59ef6c170c00f10a41c566c49ee32ca09a",
                 "shasum": ""
             },
             "require": {
@@ -1123,7 +1123,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-10-06T14:47:22+00:00"
+            "time": "2025-10-13T21:11:33+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
