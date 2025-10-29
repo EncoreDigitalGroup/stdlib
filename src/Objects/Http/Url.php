@@ -1,9 +1,20 @@
 <?php
+/*
+ * Copyright (c) 2025. Encore Digital Group.
+ * All Rights Reserved.
+ */
 
 namespace EncoreDigitalGroup\StdLib\Objects\Http;
 
+use Illuminate\Support\Uri;
+
 class Url
 {
+    public static function of(string $url = ""): Uri
+    {
+        return Uri::of($url);
+    }
+
     public static function encode(mixed $data): string
     {
         return urlencode($data);
@@ -15,6 +26,6 @@ class Url
             return urldecode($data);
         }
 
-        return $data;
+        return null;
     }
 }
