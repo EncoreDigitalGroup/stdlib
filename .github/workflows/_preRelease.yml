@@ -14,7 +14,7 @@ jobs:
             contents: write
         steps:
             -   name: Create Pre-Release
-                uses: EncoreDigitalGroup/ci-workflows/actions/github/createRelease@v2
+                uses: EncoreDigitalGroup/ci-workflows/actions/github/createRelease@v3
                 with:
                     repository: ${{ github.repository }}
                     tagName: ${{ github.ref_name }}
