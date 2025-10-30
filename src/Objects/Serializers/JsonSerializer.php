@@ -59,16 +59,16 @@ class JsonSerializer extends AbstractSerializer
     {
         $reflection = new ReflectionClass($classOrObject);
 
-        if (!empty($reflection->getAttributes(MapName::class)) ||
-            !empty($reflection->getAttributes(MapInputName::class)) ||
-            !empty($reflection->getAttributes(MapOutputName::class))) {
+        if ($reflection->getAttributes(MapName::class) !== [] ||
+            $reflection->getAttributes(MapInputName::class) !== [] ||
+            $reflection->getAttributes(MapOutputName::class) !== []) {
             return true;
         }
 
-        foreach ($reflection->getProperties() as $property) {
-            if (!empty($property->getAttributes(MapName::class)) ||
-                !empty($property->getAttributes(MapInputName::class)) ||
-                !empty($property->getAttributes(MapOutputName::class))) {
+        foreach ($reflection->getProperties() as $reflectionProperty) {
+            if (!empty($reflectionProperty->getAttributes(MapName::class)) ||
+                !empty($reflectionProperty->getAttributes(MapInputName::class)) ||
+                !empty($reflectionProperty->getAttributes(MapOutputName::class))) {
                 return true;
             }
         }
@@ -81,18 +81,18 @@ class JsonSerializer extends AbstractSerializer
         $reflection = new ReflectionClass($object);
         $data = [];
 
-        foreach ($reflection->getProperties() as $property) {
-            $property->setAccessible(true);
-            $propertyName = $property->getName();
-            $value = $property->getValue($object);
+        foreach ($reflection->getProperties() as $reflectionProperty) {
+            $reflectionProperty->setAccessible(true);
+            $propertyName = $reflectionProperty->getName();
+            $value = $reflectionProperty->getValue($object);
 
-            $mappedName = self::getMappedOutputName($property, $reflection) ?? $propertyName;
+            $mappedName = self::getMappedOutputName($reflectionProperty, $reflection) ?? $propertyName;
             $data[$mappedName] = $value;
         }
 
         $json = json_encode($data);
         if ($json === false) {
-            throw new RuntimeException('Failed to encode JSON');
+            throw new RuntimeException("Failed to encode JSON");
         }
 
         return $json;
@@ -112,8 +112,8 @@ class JsonSerializer extends AbstractSerializer
         }
 
         $args = [];
-        foreach ($constructor->getParameters() as $parameter) {
-            $args[] = self::resolveParameterValue($parameter, $reflection, $data);
+        foreach ($constructor->getParameters() as $reflectionParameter) {
+            $args[] = self::resolveParameterValue($reflectionParameter, $reflection, $data);
         }
 
         return $reflection->newInstanceArgs($args);
@@ -170,12 +170,12 @@ class JsonSerializer extends AbstractSerializer
         $specificAttributeClass = $direction === self::MAPPER_DIRECTION_INPUT ? MapInputName::class : MapOutputName::class;
 
         $specificAttributes = $reflector->getAttributes($specificAttributeClass);
-        if (!empty($specificAttributes)) {
+        if ($specificAttributes !== []) {
             return self::getMapperResult($specificAttributes[0]->newInstance()->mapper, $propertyName);
         }
 
         $mapNameAttributes = $reflector->getAttributes(MapName::class);
-        if (!empty($mapNameAttributes)) {
+        if ($mapNameAttributes !== []) {
             $mapNameInstance = $mapNameAttributes[0]->newInstance();
             $mapper = $direction === self::MAPPER_DIRECTION_OUTPUT
                 ? ($mapNameInstance->output ?? $mapNameInstance->input)
