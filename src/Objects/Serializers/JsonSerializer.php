@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2025. Encore Digital Group.
  * All Rights Reserved.
@@ -12,26 +13,17 @@ use EncoreDigitalGroup\StdLib\Objects\Serializers\Attributes\MapOutputName;
 use EncoreDigitalGroup\StdLib\Objects\Serializers\Mappers\IPropertyMapper;
 use Illuminate\Support\Collection;
 use ReflectionClass;
+use ReflectionParameter;
 use ReflectionProperty;
 use RuntimeException;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 class JsonSerializer extends AbstractSerializer
 {
-    private const string MAPPER_DIRECTION_INPUT = "input";
-    private const string MAPPER_DIRECTION_OUTPUT = "output";
-
     protected static Collection $normalizers;
 
-    protected static function format(): string
-    {
-        return "json";
-    }
-
-    protected static function encoders(): array
-    {
-        return [(new JsonEncoder)];
-    }
+    private const string MAPPER_DIRECTION_INPUT = "input";
+    private const string MAPPER_DIRECTION_OUTPUT = "output";
 
     public static function serialize(object $object): string
     {
@@ -52,23 +44,33 @@ class JsonSerializer extends AbstractSerializer
         return parent::deserialize($class, $data);
     }
 
+    protected static function format(): string
+    {
+        return "json";
+    }
+
+    protected static function encoders(): array
+    {
+        return [(new JsonEncoder)];
+    }
+
     /**
-     * @param class-string|object $classOrObject
+     * @param  class-string|object  $classOrObject
      */
     private static function hasMapNameAttributes(string|object $classOrObject): bool
     {
         $reflection = new ReflectionClass($classOrObject);
 
-        if (!empty($reflection->getAttributes(MapName::class)) ||
-            !empty($reflection->getAttributes(MapInputName::class)) ||
-            !empty($reflection->getAttributes(MapOutputName::class))) {
+        if ($reflection->getAttributes(MapName::class) !== [] ||
+            $reflection->getAttributes(MapInputName::class) !== [] ||
+            $reflection->getAttributes(MapOutputName::class) !== []) {
             return true;
         }
 
-        foreach ($reflection->getProperties() as $property) {
-            if (!empty($property->getAttributes(MapName::class)) ||
-                !empty($property->getAttributes(MapInputName::class)) ||
-                !empty($property->getAttributes(MapOutputName::class))) {
+        foreach ($reflection->getProperties() as $reflectionProperty) {
+            if (!empty($reflectionProperty->getAttributes(MapName::class)) ||
+                !empty($reflectionProperty->getAttributes(MapInputName::class)) ||
+                !empty($reflectionProperty->getAttributes(MapOutputName::class))) {
                 return true;
             }
         }
@@ -81,25 +83,25 @@ class JsonSerializer extends AbstractSerializer
         $reflection = new ReflectionClass($object);
         $data = [];
 
-        foreach ($reflection->getProperties() as $property) {
-            $property->setAccessible(true);
-            $propertyName = $property->getName();
-            $value = $property->getValue($object);
+        foreach ($reflection->getProperties() as $reflectionProperty) {
+            $reflectionProperty->setAccessible(true);
+            $propertyName = $reflectionProperty->getName();
+            $value = $reflectionProperty->getValue($object);
 
-            $mappedName = self::getMappedOutputName($property, $reflection) ?? $propertyName;
+            $mappedName = self::getMappedOutputName($reflectionProperty, $reflection) ?? $propertyName;
             $data[$mappedName] = $value;
         }
 
         $json = json_encode($data);
         if ($json === false) {
-            throw new RuntimeException('Failed to encode JSON');
+            throw new RuntimeException("Failed to encode JSON");
         }
 
         return $json;
     }
 
     /**
-     * @param class-string $class
+     * @param  class-string  $class
      */
     private static function deserializeWithMapName(string $class, string $jsonData): mixed
     {
@@ -112,14 +114,14 @@ class JsonSerializer extends AbstractSerializer
         }
 
         $args = [];
-        foreach ($constructor->getParameters() as $parameter) {
-            $args[] = self::resolveParameterValue($parameter, $reflection, $data);
+        foreach ($constructor->getParameters() as $reflectionParameter) {
+            $args[] = self::resolveParameterValue($reflectionParameter, $reflection, $data);
         }
 
         return $reflection->newInstanceArgs($args);
     }
 
-    private static function resolveParameterValue(\ReflectionParameter $parameter, ReflectionClass $reflection, array $data): mixed
+    private static function resolveParameterValue(ReflectionParameter $parameter, ReflectionClass $reflection, array $data): mixed
     {
         $parameterName = $parameter->getName();
         $property = $reflection->hasProperty($parameterName) ? $reflection->getProperty($parameterName) : null;
@@ -154,11 +156,12 @@ class JsonSerializer extends AbstractSerializer
     {
         if (is_string($mapper)) {
             if (class_exists($mapper)) {
-                $mapperInstance = new $mapper();
+                $mapperInstance = new $mapper;
                 if ($mapperInstance instanceof IPropertyMapper) {
                     return $mapperInstance->map($propertyName);
                 }
             }
+
             return $mapper;
         }
 
@@ -170,12 +173,12 @@ class JsonSerializer extends AbstractSerializer
         $specificAttributeClass = $direction === self::MAPPER_DIRECTION_INPUT ? MapInputName::class : MapOutputName::class;
 
         $specificAttributes = $reflector->getAttributes($specificAttributeClass);
-        if (!empty($specificAttributes)) {
+        if ($specificAttributes !== []) {
             return self::getMapperResult($specificAttributes[0]->newInstance()->mapper, $propertyName);
         }
 
         $mapNameAttributes = $reflector->getAttributes(MapName::class);
-        if (!empty($mapNameAttributes)) {
+        if ($mapNameAttributes !== []) {
             $mapNameInstance = $mapNameAttributes[0]->newInstance();
             $mapper = $direction === self::MAPPER_DIRECTION_OUTPUT
                 ? ($mapNameInstance->output ?? $mapNameInstance->input)
