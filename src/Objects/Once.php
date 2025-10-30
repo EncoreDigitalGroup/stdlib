@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2025. Encore Digital Group.
  * All Rights Reserved.
@@ -12,6 +13,7 @@ use Illuminate\Support\Once as BaseOnce;
 
 /**
  * @codeCoverageIgnore Ignored since this is a wrapper around an Illuminate class
+ *
  * @deprecated use StaticCache instead.
  */
 class Once

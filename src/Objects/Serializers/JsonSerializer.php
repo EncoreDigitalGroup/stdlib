@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2025. Encore Digital Group.
  * All Rights Reserved.
@@ -12,26 +13,17 @@ use EncoreDigitalGroup\StdLib\Objects\Serializers\Attributes\MapOutputName;
 use EncoreDigitalGroup\StdLib\Objects\Serializers\Mappers\IPropertyMapper;
 use Illuminate\Support\Collection;
 use ReflectionClass;
+use ReflectionParameter;
 use ReflectionProperty;
 use RuntimeException;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 class JsonSerializer extends AbstractSerializer
 {
-    private const string MAPPER_DIRECTION_INPUT = "input";
-    private const string MAPPER_DIRECTION_OUTPUT = "output";
-
     protected static Collection $normalizers;
 
-    protected static function format(): string
-    {
-        return "json";
-    }
-
-    protected static function encoders(): array
-    {
-        return [(new JsonEncoder)];
-    }
+    private const string MAPPER_DIRECTION_INPUT = "input";
+    private const string MAPPER_DIRECTION_OUTPUT = "output";
 
     public static function serialize(object $object): string
     {
@@ -52,8 +44,18 @@ class JsonSerializer extends AbstractSerializer
         return parent::deserialize($class, $data);
     }
 
+    protected static function format(): string
+    {
+        return "json";
+    }
+
+    protected static function encoders(): array
+    {
+        return [(new JsonEncoder)];
+    }
+
     /**
-     * @param class-string|object $classOrObject
+     * @param  class-string|object  $classOrObject
      */
     private static function hasMapNameAttributes(string|object $classOrObject): bool
     {
@@ -99,7 +101,7 @@ class JsonSerializer extends AbstractSerializer
     }
 
     /**
-     * @param class-string $class
+     * @param  class-string  $class
      */
     private static function deserializeWithMapName(string $class, string $jsonData): mixed
     {
@@ -119,7 +121,7 @@ class JsonSerializer extends AbstractSerializer
         return $reflection->newInstanceArgs($args);
     }
 
-    private static function resolveParameterValue(\ReflectionParameter $parameter, ReflectionClass $reflection, array $data): mixed
+    private static function resolveParameterValue(ReflectionParameter $parameter, ReflectionClass $reflection, array $data): mixed
     {
         $parameterName = $parameter->getName();
         $property = $reflection->hasProperty($parameterName) ? $reflection->getProperty($parameterName) : null;
@@ -154,11 +156,12 @@ class JsonSerializer extends AbstractSerializer
     {
         if (is_string($mapper)) {
             if (class_exists($mapper)) {
-                $mapperInstance = new $mapper();
+                $mapperInstance = new $mapper;
                 if ($mapperInstance instanceof IPropertyMapper) {
                     return $mapperInstance->map($propertyName);
                 }
             }
+
             return $mapper;
         }
 

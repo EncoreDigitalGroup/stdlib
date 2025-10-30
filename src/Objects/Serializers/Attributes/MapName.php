@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2025. Encore Digital Group.
  * All Rights Reserved.
@@ -17,10 +18,9 @@ use EncoreDigitalGroup\StdLib\Objects\Serializers\Mappers\IPropertyMapper;
 class MapName
 {
     public function __construct(
-        public string|IPropertyMapper      $input,
+        public string|IPropertyMapper $input,
         public string|IPropertyMapper|null $output = null
-    )
-    {
+    ) {
         /** @phpstan-ignore-next-line False positive from doc block */
         if (is_null($this->output)) {
             $this->output = $input;
