@@ -17,11 +17,11 @@ class Assert
     public static function true(mixed $value): void
     {
         if (!is_bool($value)) {
-            throw new AssertionFailedException;
+            throw new AssertionFailedException("Failed to assert true: value is not a boolean.");
         }
 
         if (!$value) {
-            throw new AssertionFailedException("Failed to assert true");
+            throw new AssertionFailedException("Failed to assert true.");
         }
     }
 
@@ -31,11 +31,11 @@ class Assert
     public static function false(mixed $value): void
     {
         if (!is_bool($value)) {
-            throw new AssertionFailedException;
+            throw new AssertionFailedException("Failed to assert false: value is not a boolean.");
         }
 
         if ($value) {
-            throw new AssertionFailedException("Failed to assert false");
+            throw new AssertionFailedException("Failed to assert false.");
         }
     }
 
@@ -45,7 +45,7 @@ class Assert
     public static function notNull(mixed $value): void
     {
         if (is_null($value)) {
-            throw new AssertionFailedException("Failed to assert not null");
+            throw new AssertionFailedException("Failed to assert not null.");
         }
     }
 
@@ -55,7 +55,7 @@ class Assert
     public static function string(mixed $value): void
     {
         if (!is_string($value)) {
-            throw new AssertionFailedException("Failed to assert string");
+            throw new AssertionFailedException("Failed to assert string.");
         }
     }
 }
