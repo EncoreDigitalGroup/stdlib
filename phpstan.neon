@@ -1,6 +1,3 @@
-#includes:
-#    - phpstan-baseline.neon
-
 parameters:
     level: 8
     paths:
@@ -11,6 +8,7 @@ parameters:
     ignoreErrors:
         - identifier: missingType.generics
         - identifier: missingType.iterableValue
+        - identifier: trait.unused
         - '#PHPDoc tag .+ #'
     cognitive_complexity:
             class: 50

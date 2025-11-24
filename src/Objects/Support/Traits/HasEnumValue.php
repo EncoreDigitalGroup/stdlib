@@ -88,6 +88,7 @@ trait HasEnumValue
 
     private static function enforceEnum(): void
     {
+        /** @phpstan-ignore-next-line Runtime safety check */
         if (!method_exists(static::class, "cases")) {
             throw new LogicException(sprintf(
                 "The trait %s can only be used on enum classes",

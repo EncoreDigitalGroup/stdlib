@@ -16,8 +16,6 @@ use Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector;
 use Rector\CodeQuality\Rector\Catch_\ThrowWithPreviousExceptionRector;
 use Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector;
 use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
-use Rector\CodeQuality\Rector\Class_\StaticToSelfStaticMethodCallOnFinalClassRector;
-use Rector\CodeQuality\Rector\ClassConstFetch\ConvertStaticPrivateConstantToSelfRector;
 use Rector\CodeQuality\Rector\ClassMethod\ExplicitReturnNullRector;
 use Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector;
 use Rector\CodeQuality\Rector\ClassMethod\LocallyCalledStaticMethodToNonStaticRector;
@@ -164,11 +162,7 @@ use Rector\Privatization\Rector\ClassMethod\PrivatizeFinalClassMethodRector;
 use Rector\Privatization\Rector\MethodCall\PrivatizeLocalGetterToPropertyRector;
 use Rector\Privatization\Rector\Property\PrivatizeFinalClassPropertyRector;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
-use Rector\Strict\Rector\BooleanNot\BooleanInBooleanNotRuleFixerRector;
 use Rector\Strict\Rector\Empty_\DisallowedEmptyRuleFixerRector;
-use Rector\Strict\Rector\If_\BooleanInIfConditionRuleFixerRector;
-use Rector\Strict\Rector\Ternary\BooleanInTernaryOperatorRuleFixerRector;
-use Rector\Strict\Rector\Ternary\DisallowedShortTernaryRuleFixerRector;
 use Rector\Symfony\CodeQuality\Rector\ClassMethod\ResponseReturnTypeControllerActionRector;
 use Rector\Transform\Rector\FuncCall\FuncCallToConstFetchRector;
 use Rector\TypeDeclaration\Rector\ArrowFunction\AddArrowFunctionReturnTypeRector;
@@ -179,7 +173,6 @@ use Rector\TypeDeclaration\Rector\Class_\MergeDateTimePropertyTypeDeclarationRec
 use Rector\TypeDeclaration\Rector\Class_\PropertyTypeFromStrictSetterGetterRector;
 use Rector\TypeDeclaration\Rector\Class_\ReturnTypeFromStrictTernaryRector;
 use Rector\TypeDeclaration\Rector\Class_\TypedPropertyFromCreateMockAssignRector;
-use Rector\TypeDeclaration\Rector\Class_\TypedPropertyFromJMSSerializerAttributeTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddMethodCallBasedStrictParamTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeBasedOnPHPUnitDataProviderRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeFromPropertyTypeRector;
@@ -237,14 +230,12 @@ class Rector
             ReplaceMultipleBooleanNotRector::class,
             SimplifyDeMorganBinaryRector::class,
             ThrowWithPreviousExceptionRector::class,
-            ConvertStaticPrivateConstantToSelfRector::class,
             ExplicitReturnNullRector::class,
             InlineArrayReturnAssignRector::class,
             LocallyCalledStaticMethodToNonStaticRector::class,
             OptionalParametersAfterRequiredRector::class,
             CompleteDynamicPropertiesRector::class,
             InlineConstructorDefaultToPropertyRector::class,
-            StaticToSelfStaticMethodCallOnFinalClassRector::class,
             JoinStringConcatRector::class,
             SimplifyEmptyCheckOnEmptyArrayRector::class,
             InlineIfToExplicitIfRector::class,
@@ -378,9 +369,6 @@ class Rector
             PrivatizeFinalClassPropertyRector::class,
             RenameFunctionRector::class,
             DisallowedEmptyRuleFixerRector::class,
-            BooleanInIfConditionRuleFixerRector::class,
-            BooleanInTernaryOperatorRuleFixerRector::class,
-            DisallowedShortTernaryRuleFixerRector::class,
             ResponseReturnTypeControllerActionRector::class,
             FuncCallToConstFetchRector::class,
             AddArrowFunctionReturnTypeRector::class,
@@ -420,7 +408,6 @@ class Rector
             PropertyTypeFromStrictSetterGetterRector::class,
             ReturnTypeFromStrictTernaryRector::class,
             TypedPropertyFromCreateMockAssignRector::class,
-            TypedPropertyFromJMSSerializerAttributeTypeRector::class,
             AddClosureNeverReturnTypeRector::class,
             AddClosureVoidReturnTypeWhereNoReturnRector::class,
             ClosureReturnTypeRector::class,
@@ -449,7 +436,6 @@ class Rector
             SeparateMultiUseImportsRector::class,
             RemoveExtraParametersRector::class,
             NewlineAfterStatementRector::class,
-            BooleanInBooleanNotRuleFixerRector::class,
         ], $rules);
     }
 }

@@ -181,11 +181,10 @@ class JsonSerializer extends AbstractSerializer
         if ($mapNameAttributes !== []) {
             $mapNameInstance = $mapNameAttributes[0]->newInstance();
             $mapper = $direction === self::MAPPER_DIRECTION_OUTPUT
-                ? ($mapNameInstance->output ?? $mapNameInstance->input)
+                ? $mapNameInstance->output
                 : $mapNameInstance->input;
-            if ($mapper !== null) {
-                return self::getMapperResult($mapper, $propertyName);
-            }
+
+            return self::getMapperResult($mapper, $propertyName);
         }
 
         return null;
