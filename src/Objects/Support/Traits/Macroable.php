@@ -90,6 +90,7 @@ trait Macroable
     /**
      * @param  string  $method
      * @return mixed
+     *
      * @throws ReflectionException
      */
     public static function __callStatic($method, array $parameters)

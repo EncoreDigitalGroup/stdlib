@@ -183,6 +183,7 @@ class JsonSerializer extends AbstractSerializer
             $mapper = $direction === self::MAPPER_DIRECTION_OUTPUT
                 ? $mapNameInstance->output
                 : $mapNameInstance->input;
+
             return self::getMapperResult($mapper, $propertyName);
         }
 
