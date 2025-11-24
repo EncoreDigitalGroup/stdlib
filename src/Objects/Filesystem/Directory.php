@@ -4,6 +4,7 @@ namespace EncoreDigitalGroup\StdLib\Objects\Filesystem;
 
 use EncoreDigitalGroup\StdLib\Exceptions\FilesystemExceptions\DirectoryNotFoundException;
 use EncoreDigitalGroup\StdLib\Exceptions\ImproperBooleanReturnedException;
+use EncoreDigitalGroup\StdLib\Objects\Support\Assert;
 use EncoreDigitalGroup\StdLib\Objects\Support\Types\Arr;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -18,11 +19,10 @@ class Directory
      */
     public static function current(): string
     {
-        if (!getcwd()) {
-            throw new ImproperBooleanReturnedException;
-        }
+        $cwd = getcwd();
+        Assert::string($cwd);
 
-        return getcwd();
+        return $cwd;
     }
 
     /**
