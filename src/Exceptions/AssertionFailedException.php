@@ -12,7 +12,7 @@ use Throwable;
 
 class AssertionFailedException extends BaseException
 {
-    public function __construct(string $message = "Assertion Failed", int $code = ExitCode::SUCCESS, ?Throwable $previous = null)
+    public function __construct(string $message = "Assertion Failed", int $code = ExitCode::GENERAL_ERROR, ?Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
