@@ -59,6 +59,12 @@ Date and time utilities with type-safe operations:
 - **DayOfWeek** - Type-safe day representation with flexible conversion
 - **Month** - Month enumeration with navigation capabilities
 
+### [Assertions](./assertions.md)
+
+Runtime assertion utilities for verifying programming assumptions:
+
+- **Assert** - Precondition, postcondition, and invariant verification with static analysis integration
+
 ### [Core Objects and Utilities](./core-objects.md)
 
 Foundational classes providing system-wide functionality:
