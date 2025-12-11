@@ -36,5 +36,33 @@ describe("DayOfWeek Tests", function () {
             ->and(DayOfWeek::Friday->toInt(false))->toBe(6)
             ->and(DayOfWeek::Saturday->toInt(false))->toBe(7);
     });
+
+    test("DayOfWeek fromInt returns correct enum for zero-based values", function () {
+        expect(DayOfWeek::fromInt(0))->toBe(DayOfWeek::Sunday)
+            ->and(DayOfWeek::fromInt(1))->toBe(DayOfWeek::Monday)
+            ->and(DayOfWeek::fromInt(2))->toBe(DayOfWeek::Tuesday)
+            ->and(DayOfWeek::fromInt(3))->toBe(DayOfWeek::Wednesday)
+            ->and(DayOfWeek::fromInt(4))->toBe(DayOfWeek::Thursday)
+            ->and(DayOfWeek::fromInt(5))->toBe(DayOfWeek::Friday)
+            ->and(DayOfWeek::fromInt(6))->toBe(DayOfWeek::Saturday);
+    });
+
+    test("DayOfWeek fromInt returns correct enum for one-based values", function () {
+        expect(DayOfWeek::fromInt(1, false))->toBe(DayOfWeek::Sunday)
+            ->and(DayOfWeek::fromInt(2, false))->toBe(DayOfWeek::Monday)
+            ->and(DayOfWeek::fromInt(3, false))->toBe(DayOfWeek::Tuesday)
+            ->and(DayOfWeek::fromInt(4, false))->toBe(DayOfWeek::Wednesday)
+            ->and(DayOfWeek::fromInt(5, false))->toBe(DayOfWeek::Thursday)
+            ->and(DayOfWeek::fromInt(6, false))->toBe(DayOfWeek::Friday)
+            ->and(DayOfWeek::fromInt(7, false))->toBe(DayOfWeek::Saturday);
+    });
+
+    test("DayOfWeek fromInt returns null for invalid values", function () {
+        expect(DayOfWeek::fromInt(-1))->toBeNull()
+            ->and(DayOfWeek::fromInt(7))->toBeNull()
+            ->and(DayOfWeek::fromInt(100))->toBeNull()
+            ->and(DayOfWeek::fromInt(0, false))->toBeNull()
+            ->and(DayOfWeek::fromInt(8, false))->toBeNull();
+    });
 });
 

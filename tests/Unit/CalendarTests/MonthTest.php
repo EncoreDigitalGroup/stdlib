@@ -51,4 +51,26 @@ describe("Month Tests", function () {
             ->and(Month::November->toInt())->toBe(11)
             ->and(Month::December->toInt())->toBe(12);
     });
+
+    test("Month fromInt returns correct enum for valid values", function () {
+        expect(Month::fromInt(1))->toBe(Month::January)
+            ->and(Month::fromInt(2))->toBe(Month::February)
+            ->and(Month::fromInt(3))->toBe(Month::March)
+            ->and(Month::fromInt(4))->toBe(Month::April)
+            ->and(Month::fromInt(5))->toBe(Month::May)
+            ->and(Month::fromInt(6))->toBe(Month::June)
+            ->and(Month::fromInt(7))->toBe(Month::July)
+            ->and(Month::fromInt(8))->toBe(Month::August)
+            ->and(Month::fromInt(9))->toBe(Month::September)
+            ->and(Month::fromInt(10))->toBe(Month::October)
+            ->and(Month::fromInt(11))->toBe(Month::November)
+            ->and(Month::fromInt(12))->toBe(Month::December);
+    });
+
+    test("Month fromInt returns null for invalid values", function () {
+        expect(Month::fromInt(0))->toBeNull()
+            ->and(Month::fromInt(13))->toBeNull()
+            ->and(Month::fromInt(-1))->toBeNull()
+            ->and(Month::fromInt(100))->toBeNull();
+    });
 });
