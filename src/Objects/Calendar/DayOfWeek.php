@@ -21,6 +21,33 @@ enum DayOfWeek: string
     case Friday = "friday";
     case Saturday = "saturday";
 
+    public static function fromInt(int $int, bool $zero = true): ?self
+    {
+        if ($zero) {
+            return match ($int) {
+                0 => self::Sunday,
+                1 => self::Monday,
+                2 => self::Tuesday,
+                3 => self::Wednesday,
+                4 => self::Thursday,
+                5 => self::Friday,
+                6 => self::Saturday,
+                default => null,
+            };
+        }
+
+        return match ($int) {
+            1 => self::Sunday,
+            2 => self::Monday,
+            3 => self::Tuesday,
+            4 => self::Wednesday,
+            5 => self::Thursday,
+            6 => self::Friday,
+            7 => self::Saturday,
+            default => null,
+        };
+    }
+
     public function toInt(bool $zero = true): int
     {
         $int = match ($this->value) {

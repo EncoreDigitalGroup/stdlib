@@ -26,6 +26,25 @@ enum Month: string
     case November = "november";
     case December = "december";
 
+    public static function fromInt(int $int): ?self
+    {
+        return match ($int) {
+            1 => self::January,
+            2 => self::February,
+            3 => self::March,
+            4 => self::April,
+            5 => self::May,
+            6 => self::June,
+            7 => self::July,
+            8 => self::August,
+            9 => self::September,
+            10 => self::October,
+            11 => self::November,
+            12 => self::December,
+            default => null,
+        };
+    }
+
     public function toInt(): int
     {
         return match ($this) {
