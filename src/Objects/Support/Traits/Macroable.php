@@ -88,13 +88,12 @@ trait Macroable
     }
 
     /**
-     * @param string $method
-     * @param array $parameters
+     * @param  string  $method
      * @return mixed
      *
      * @throws ReflectionException
      */
-    public static function __callStatic($method, $parameters)
+    public static function __callStatic($method, array $parameters)
     {
         // Check if a macro exists for the method
         if (static::hasMacro($method)) {
@@ -122,8 +121,8 @@ trait Macroable
     }
 
     /**
-     * @param string $method
-     * @param array $parameters
+     * @param  string  $method
+     * @param  array  $parameters
      * @return mixed
      *
      * @throws ReflectionException
