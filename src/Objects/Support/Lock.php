@@ -8,7 +8,7 @@
 namespace EncoreDigitalGroup\StdLib\Objects\Support;
 
 use Closure;
-use Illuminate\Support\Facades\App;
+use EncoreDigitalGroup\StdLib\Exceptions\LockTimeoutException;
 use Illuminate\Support\Sleep;
 
 class Lock
@@ -43,6 +43,10 @@ class Lock
         while (self::isLocked($name) && $attempts < $timeout) {
             Sleep::for(1)->seconds();
             $attempts++;
+        }
+
+        if (self::isLocked($name)) {
+            throw new LockTimeoutException($name, $timeout);
         }
 
         self::$locks[$name] = true;
