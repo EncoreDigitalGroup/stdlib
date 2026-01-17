@@ -20,9 +20,10 @@ class Lock
      * Execute a callback while holding a named lock
      *
      * @template T
-     * @param string $name The name of the lock to acquire
-     * @param int $timeout Maximum number of seconds to wait for the lock
-     * @param Closure(): T $callback The callback to execute while holding the lock
+     *
+     * @param  string  $name  The name of the lock to acquire
+     * @param  int  $timeout  Maximum number of seconds to wait for the lock
+     * @param  Closure(): T  $callback  The callback to execute while holding the lock
      * @return T
      */
     public static function block(string $name, int $timeout, Closure $callback): mixed
