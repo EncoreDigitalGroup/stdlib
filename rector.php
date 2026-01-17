@@ -13,7 +13,7 @@ use Rector\TypeDeclaration\Rector\ClassMethod\AddMethodCallBasedStrictParamTypeR
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByMethodCallTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByParentCallTypeRector;
 
-function skipTypeHintsForMacroable(): array
+function skipTypeHintsForMagicMethods(): array
 {
     $paramTypeRules = array_filter([
         AddMethodCallBasedStrictParamTypeRector::class,
@@ -22,7 +22,7 @@ function skipTypeHintsForMacroable(): array
     ], "class_exists");
 
     return array_fill_keys($paramTypeRules, [
-        "*Macroable.php::__callStatic",
+        __DIR__ . "/src/Objects/Support/Traits/Macroable.php",
     ]);
 }
 
@@ -31,4 +31,4 @@ return RectorConfig::configure()
         __DIR__ . "/src",
     ])
     ->withRules(Rector::rules())
-    ->withSkip(skipTypeHintsForMacroable());
+    ->withSkip(skipTypeHintsForMagicMethods());
