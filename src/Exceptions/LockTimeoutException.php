@@ -15,7 +15,7 @@ class LockTimeoutException extends BaseException
     public function __construct(string $lockName, int $timeout, ?Throwable $previous = null)
     {
         parent::__construct(
-            "Failed to acquire lock '$lockName' within $timeout second(s)",
+            "Failed to acquire lock '{$lockName}' within {$timeout} second(s)",
             ExitCode::GENERAL_ERROR,
             $previous
         );
