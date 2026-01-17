@@ -88,9 +88,10 @@ trait Macroable
     }
 
     /**
-     * @param string $method
-     * @param array $parameters
+     * @param  string  $method
+     * @param  array  $parameters
      * @return mixed
+     *
      * @throws ReflectionException
      */
     public static function __callStatic($method, $parameters)
@@ -121,8 +122,8 @@ trait Macroable
     }
 
     /**
-     * @param string $method
-     * @param array $parameters
+     * @param  string  $method
+     * @param  array  $parameters
      * @return mixed
      *
      * @throws ReflectionException
