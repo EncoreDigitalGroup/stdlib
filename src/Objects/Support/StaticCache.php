@@ -67,6 +67,11 @@ class StaticCache
         }
     }
 
+    public static function purge(): void
+    {
+        self::$cache[static::class] = [];
+    }
+
     public static function remember(BackedEnum|string $key, Closure $value, BackedEnum|string $partition = "default"): mixed
     {
         if (self::disabled()) {
