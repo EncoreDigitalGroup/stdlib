@@ -1,4 +1,8 @@
 <?php
+/*
+ * Copyright (c) 2026. Encore Digital Group.
+ * All Rights Reserved.
+ */
 
 namespace EncoreDigitalGroup\StdLib\Objects\Support\Traits;
 
@@ -11,10 +15,11 @@ use RuntimeException;
  * Trait for PHP Enums that provides additional functionality.
  * This trait should only be used on Enum classes.
  *
- * @method static static[] cases() Returns all cases of the Enum
+ * @mixin BackedEnum
  */
 trait HasEnumValue
 {
+    /** @deprecated use static::options() instead. */
     public static function values(): array
     {
         static::enforceEnum();
