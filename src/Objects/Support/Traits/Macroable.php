@@ -1,9 +1,5 @@
 <?php
 
-/*
- * Copyright (c) 2025. Encore Digital Group.
- * All Rights Reserved.
- */
 
 namespace EncoreDigitalGroup\StdLib\Objects\Support\Traits;
 
@@ -88,8 +84,8 @@ trait Macroable
     }
 
     /**
-     * @param  string  $method
-     * @param  array  $parameters
+     * @param string $method
+     * @param array $parameters
      * @return mixed
      *
      * @throws ReflectionException
@@ -122,8 +118,8 @@ trait Macroable
     }
 
     /**
-     * @param  string  $method
-     * @param  array  $parameters
+     * @param string $method
+     * @param array $parameters
      * @return mixed
      *
      * @throws ReflectionException

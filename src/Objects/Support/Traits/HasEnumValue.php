@@ -1,8 +1,4 @@
 <?php
-/*
- * Copyright (c) 2026. Encore Digital Group.
- * All Rights Reserved.
- */
 
 namespace EncoreDigitalGroup\StdLib\Objects\Support\Traits;
 

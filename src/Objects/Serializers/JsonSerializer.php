@@ -1,9 +1,5 @@
 <?php
 
-/*
- * Copyright (c) 2025. Encore Digital Group.
- * All Rights Reserved.
- */
 
 namespace EncoreDigitalGroup\StdLib\Objects\Serializers;
 
@@ -55,7 +51,7 @@ class JsonSerializer extends AbstractSerializer
     }
 
     /**
-     * @param  class-string|object  $classOrObject
+     * @param class-string|object $classOrObject
      */
     private static function hasMapNameAttributes(string|object $classOrObject): bool
     {
@@ -101,7 +97,7 @@ class JsonSerializer extends AbstractSerializer
     }
 
     /**
-     * @param  class-string  $class
+     * @param class-string $class
      */
     private static function deserializeWithMapName(string $class, string $jsonData): mixed
     {

@@ -1,9 +1,5 @@
 <?php
 
-/*
- * Copyright (c) 2026. Encore Digital Group.
- * All Rights Reserved.
- */
 
 namespace EncoreDigitalGroup\StdLib\Objects\Support;
 
@@ -21,9 +17,9 @@ class Lock
      *
      * @template T
      *
-     * @param  string  $name  The name of the lock to acquire
-     * @param  int  $timeout  Maximum number of seconds to wait for the lock
-     * @param  Closure(): T  $callback  The callback to execute while holding the lock
+     * @param string $name The name of the lock to acquire
+     * @param int $timeout Maximum number of seconds to wait for the lock
+     * @param Closure(): T $callback The callback to execute while holding the lock
      * @return T
      */
     public static function block(string $name, int $timeout, Closure $callback): mixed

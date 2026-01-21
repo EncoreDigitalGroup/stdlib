@@ -1,10 +1,5 @@
 <?php
 
-/*
- * Copyright (c) 2024. Encore Digital Group.
- * All Right Reserved.
- */
-
 namespace EncoreDigitalGroup\StdLib\Support\Internal;
 
 use EncoreDigitalGroup\StdLib\Objects\Filesystem\File;
