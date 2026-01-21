@@ -1,10 +1,5 @@
 <?php
 
-/*
- * Copyright (c) 2026. Encore Digital Group.
- * All Rights Reserved.
- */
-
 namespace EncoreDigitalGroup\StdLib\Exceptions;
 
 use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;

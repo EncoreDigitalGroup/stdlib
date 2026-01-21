@@ -1,10 +1,5 @@
 <?php
 
-/*
- * Copyright (c) 2025. Encore Digital Group.
- * All Rights Reserved.
- */
-
 namespace EncoreDigitalGroup\StdLib\Objects\Serializers\Mappers;
 
 readonly class ProvidedNameMapper implements IPropertyMapper

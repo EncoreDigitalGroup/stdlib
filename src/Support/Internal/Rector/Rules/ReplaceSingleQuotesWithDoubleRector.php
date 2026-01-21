@@ -1,10 +1,5 @@
 <?php
 
-/*
- * Encore Digital Group - Planning Center PHP SDK
- * Copyright (c) 2024. Encore Digital Group
- */
-
 namespace EncoreDigitalGroup\StdLib\Support\Internal\Rector\Rules;
 
 use PhpParser\Node;

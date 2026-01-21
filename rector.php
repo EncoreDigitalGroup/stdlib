@@ -1,10 +1,5 @@
 <?php
 
-/*
- * Copyright (c) 2025. Encore Digital Group.
- * All Rights Reserved.
- */
-
 declare(strict_types=1);
 
 use EncoreDigitalGroup\StdLib\Support\Internal\Rector\Rector;
