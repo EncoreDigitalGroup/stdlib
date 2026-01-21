@@ -1,6 +1,5 @@
 <?php
 
-
 namespace EncoreDigitalGroup\StdLib\Objects\Calendar;
 
 use EncoreDigitalGroup\StdLib\Objects\Support\Traits\HasEnumValue;

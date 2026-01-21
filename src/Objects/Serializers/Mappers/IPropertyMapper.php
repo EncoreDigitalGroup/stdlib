@@ -1,6 +1,5 @@
 <?php
 
-
 namespace EncoreDigitalGroup\StdLib\Objects\Serializers\Mappers;
 
 interface IPropertyMapper

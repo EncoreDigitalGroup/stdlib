@@ -1,6 +1,5 @@
 <?php
 
-
 namespace EncoreDigitalGroup\StdLib\Objects\Http;
 
 use Illuminate\Support\Uri;

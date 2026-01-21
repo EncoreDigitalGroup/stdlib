@@ -1,6 +1,5 @@
 <?php
 
-
 namespace EncoreDigitalGroup\StdLib\Objects\Serializers\Normalizers;
 
 use Carbon\Carbon;

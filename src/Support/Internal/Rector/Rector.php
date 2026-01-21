@@ -1,6 +1,5 @@
 <?php
 
-
 namespace EncoreDigitalGroup\StdLib\Support\Internal\Rector;
 
 use EncoreDigitalGroup\StdLib\Support\Internal\Rector\Rules\ReplaceSingleQuotesWithDoubleRector;

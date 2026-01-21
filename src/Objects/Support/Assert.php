@@ -1,6 +1,5 @@
 <?php
 
-
 namespace EncoreDigitalGroup\StdLib\Objects\Support;
 
 use EncoreDigitalGroup\StdLib\Exceptions\AssertionFailedException;

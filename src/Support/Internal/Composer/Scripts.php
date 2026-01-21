@@ -1,6 +1,5 @@
 <?php
 
-
 namespace EncoreDigitalGroup\StdLib\Support\Internal\Composer;
 
 use Composer\Script\Event;

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace EncoreDigitalGroup\StdLib\Exceptions;
 
 use EncoreDigitalGroup\StdLib\Objects\Filesystem\ExitCode;

@@ -1,6 +1,5 @@
 <?php
 
-
 if (!function_exists("stdlib_vendor_dir")) {
     /** @codeCoverageIgnore */
     function stdlib_vendor_dir(?string $path = null): string
