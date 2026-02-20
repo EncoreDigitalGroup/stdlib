@@ -21,9 +21,8 @@ function skipTypeHintsForMagicMethods(): array
     ]);
 }
 
-return RectorConfig::configure()
+return Rector::configure()
     ->withPaths([
         __DIR__ . "/src",
     ])
-    ->withRules(Rector::rules())
     ->withSkip(skipTypeHintsForMagicMethods());

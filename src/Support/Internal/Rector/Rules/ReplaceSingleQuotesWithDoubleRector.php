@@ -8,11 +8,6 @@ use Rector\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
-/**
- * @internal
- *
- * @codeCoverageIgnore
- */
 final class ReplaceSingleQuotesWithDoubleRector extends AbstractRector
 {
     private const EXCLUDED_SYMBOLS = ['$', "'", '\\', "\n", "\r", "\t", "\v", "\e", "\f", "\0", "\x"];
@@ -22,9 +17,7 @@ final class ReplaceSingleQuotesWithDoubleRector extends AbstractRector
         return [String_::class];
     }
 
-    /**
-     * @param  String_  $node
-     */
+    /** @param String_ $node */
     public function refactor(Node $node): ?Node
     {
         if ($node->getAttribute("kind") === String_::KIND_SINGLE_QUOTED) {
