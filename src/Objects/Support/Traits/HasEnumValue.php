@@ -26,7 +26,6 @@ trait HasEnumValue
         static::enforceEnum();
 
         $cases = [];
-        /** @var BackedEnum $case */
         foreach (static::cases() as $backedEnum) {
             $cases[] = $backedEnum->value;
         }
@@ -39,7 +38,6 @@ trait HasEnumValue
         static::enforceEnum();
 
         $cases = [];
-        /** @var BackedEnum $case */
         foreach (static::cases() as $backedEnum) {
             if (is_string($backedEnum->value)) {
                 $cases[$backedEnum->value] = Str::formattedTitleCase($backedEnum->value);
