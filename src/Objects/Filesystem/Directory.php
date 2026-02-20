@@ -25,9 +25,7 @@ class Directory
         return $cwd;
     }
 
-    /**
-     * Get the MD5 hash of a directory
-     */
+    /** Get the MD5 hash of a directory */
     public static function hash(string $dir): string
     {
         if (!is_dir($dir)) {
@@ -51,9 +49,7 @@ class Directory
 
     }
 
-    /**
-     * @codeCoverageIgnore
-     */
+    /** @codeCoverageIgnore */
     public static function scan(string $dir, array &$results = []): array
     {
         $files = scandir($dir);

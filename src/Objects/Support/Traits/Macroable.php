@@ -66,9 +66,7 @@ trait Macroable
         throw new BadMethodCallException(sprintf("Method %s::%s does not exist.", static::class, $method));
     }
 
-    /**
-     * Defer instance method call to the parent class's __call for Eloquent models.
-     */
+    /** Defer instance method call to the parent class's __call for Eloquent models. */
     protected function deferToEloquentInstance(string $method, array $parameters): mixed
     {
         if (static::canDeferToLaravel()) {
