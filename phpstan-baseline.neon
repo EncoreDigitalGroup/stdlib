@@ -1,0 +1,55 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to function is_string\(\) with ''friday''\|''monday''\|''saturday''\|''sunday''\|''thursday''\|''tuesday''\|''wednesday'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Objects/Calendar/DayOfWeek.php
+
+		-
+			message: '#^Call to function is_string\(\) with ''april''\|''august''\|''december''\|''february''\|''january''\|''july''\|''june''\|''march''\|''may''\|''november''\|''october''\|''september'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Objects/Calendar/Month.php
+
+		-
+			message: '#^Call to function is_string\(\) with ''afghanistan''\|''albania''\|''algeria''\|''andorra''\|''angola''\|''antigua_and_barbuda''\|''argentina''\|''armenia''\|''australia''\|''austria''\|''azerbaijan''\|''bahamas''\|''bahrain''\|''bangladesh''\|''barbados''\|''belarus''\|''belgium''\|''belize''\|''benin''\|''bhutan''\|''bolivia''\|''bosnia_and…''\|''botswana''\|''brazil''\|''brunei''\|''bulgaria''\|''burkina_faso''\|''burundi''\|''cabo_verde''\|''cambodia''\|''cameroon''\|''canada''\|''central_african…''\|''chad''\|''chile''\|''china''\|''colombia''\|''comoros''\|''congo''\|''costa_rica''\|''croatia''\|''cuba''\|''cyprus''\|''czechia''\|''democratic_republic…''\|''denmark''\|''djibouti''\|''dominica''\|''dominican_republic''\|''ecuador''\|''egypt''\|''el_salvador''\|''equatorial_guinea''\|''eritrea''\|''estonia''\|''eswatini''\|''ethiopia''\|''fiji''\|''finland''\|''france''\|''gabon''\|''gambia''\|''georgia''\|''germany''\|''ghana''\|''greece''\|''grenada''\|''guatemala''\|''guinea''\|''guinea_bissau''\|''guyana''\|''haiti''\|''honduras''\|''hungary''\|''iceland''\|''india''\|''indonesia''\|''iran''\|''iraq''\|''ireland''\|''israel''\|''italy''\|''jamaica''\|''japan''\|''jordan''\|''kazakhstan''\|''kenya''\|''kiribati''\|''kosovo''\|''kuwait''\|''kyrgyzstan''\|''laos''\|''latvia''\|''lebanon''\|''lesotho''\|''liberia''\|''libya''\|''liechtenstein''\|''lithuania''\|''luxembourg''\|''madagascar''\|''malawi''\|''malaysia''\|''maldives''\|''mali''\|''malta''\|''marshall_islands''\|''mauritania''\|''mauritius''\|''mexico''\|''micronesia''\|''moldova''\|''monaco''\|''mongolia''\|''montenegro''\|''morocco''\|''mozambique''\|''myanmar''\|''namibia''\|''nauru''\|''nepal''\|''netherlands''\|''new_zealand''\|''nicaragua''\|''niger''\|''nigeria''\|''north_korea''\|''north_macedonia''\|''norway''\|''oman''\|''pakistan''\|''palau''\|''palestine''\|''panama''\|''papua_new_guinea''\|''paraguay''\|''peru''\|''philippines''\|''poland''\|''portugal''\|''qatar''\|''romania''\|''russia''\|''rwanda''\|''saint_kitts_and…''\|''saint_lucia''\|''saint_vincent_and…''\|''samoa''\|''san_marino''\|''sao_tome_and…''\|''saudi_arabia''\|''senegal''\|''serbia''\|''seychelles''\|''sierra_leone''\|''singapore''\|''slovakia''\|''slovenia''\|''solomon_islands''\|''somalia''\|''south_africa''\|''south_korea''\|''south_sudan''\|''spain''\|''sri_lanka''\|''sudan''\|''suriname''\|''sweden''\|''switzerland''\|''syria''\|''taiwan''\|''tajikistan''\|''tanzania''\|''thailand''\|''timor_leste''\|''togo''\|''tonga''\|''trinidad_and_tobago''\|''tunisia''\|''turkey''\|''turkmenistan''\|''tuvalu''\|''uganda''\|''ukraine''\|''united_arab_emirates''\|''united_kingdom''\|''united_states''\|''uruguay''\|''uzbekistan''\|''vanuatu''\|''vatican_city''\|''venezuela''\|''vietnam''\|''yemen''\|''zambia''\|''zimbabwe'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Objects/Geography/Country.php
+
+		-
+			message: '#^Call to function is_string\(\) with ''alberta''\|''british_columbia''\|''manitoba''\|''new_brunswick''\|''newfoundland_and…''\|''northwest…''\|''nova_scotia''\|''nunavut''\|''ontario''\|''prince_edward_island''\|''quebec''\|''saskatchewan''\|''yukon'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Objects/Geography/Country/Canada.php
+
+		-
+			message: '#^Call to function is_string\(\) with ''alabama''\|''alaska''\|''arizona''\|''arkansas''\|''california''\|''colorado''\|''connecticut''\|''delaware''\|''florida''\|''georgia''\|''hawaii''\|''idaho''\|''illinois''\|''indiana''\|''iowa''\|''kansas''\|''kentucky''\|''louisiana''\|''maine''\|''maryland''\|''massachusetts''\|''michigan''\|''minnesota''\|''mississippi''\|''missouri''\|''montana''\|''nebraska''\|''nevada''\|''new_hampshire''\|''new_jersey''\|''new_mexico''\|''new_york''\|''north_carolina''\|''north_dakota''\|''ohio''\|''oklahoma''\|''oregon''\|''pennsylvania''\|''rhode_island''\|''south_carolina''\|''south_dakota''\|''tennessee''\|''texas''\|''utah''\|''vermont''\|''virginia''\|''washington''\|''west_virginia''\|''wisconsin''\|''wyoming'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Objects/Geography/Country/UnitedStates.php
+
+		-
+			message: '#^Call to function is_string\(\) with ''afghan_afghani''\|''albanian_lek''\|''angolan_kwanza''\|''argentine_peso''\|''armenian_dram''\|''australian_dollar''\|''azerbaijani_manat''\|''bahamian_dollar''\|''bahraini_dinar''\|''bangladeshi_taka''\|''barbadian_dollar''\|''belarusian_ruble''\|''belize_dollar''\|''beninese_franc''\|''bermudian_dollar''\|''bolivian_boliviano''\|''bosnian_convertible…''\|''botswana_pula''\|''brazilian_real''\|''british_pound…''\|''brunei_dollar''\|''bulgarian_lev''\|''burkinabe_franc''\|''burundian_franc''\|''cambodian_riel''\|''canadian_dollar''\|''cape_verdean_escudo''\|''cayman_islands…''\|''central_african_cfa…''\|''cfp_franc''\|''chadian_franc''\|''chilean_peso''\|''chinese_yuan''\|''colombian_peso''\|''comorian_franc''\|''congolese_franc''\|''costa_rican_colon''\|''croatian_kuna''\|''cuban_peso''\|''czech_koruna''\|''danish_krone''\|''djiboutian_franc''\|''dominican_peso''\|''east_caribbean…''\|''ecuadorian_sucre''\|''egyptian_pound''\|''equatorial_guinean…''\|''eritrean_nakfa''\|''estonian_kroon''\|''ethiopian_birr''\|''euro''\|''fijian_dollar''\|''gabonese_franc''\|''gambian_dalasi''\|''georgian_lari''\|''ghanaian_cedi''\|''guatemalan_quetzal''\|''guinean_franc''\|''guyanese_dollar''\|''haitian_gourde''\|''honduran_lempira''\|''hong_kong_dollar''\|''hungarian_forint''\|''icelandic_krona''\|''indian_rupee''\|''indonesian_rupiah''\|''iranian_rial''\|''iraqi_dinar''\|''israeli_new_shekel''\|''ivorian_franc''\|''jamaican_dollar''\|''japanese_yen''\|''jordanian_dinar''\|''kazakhstani_tenge''\|''kenyan_shilling''\|''kuwaiti_dinar''\|''kyrgyzstani_som''\|''laotian_kip''\|''latvian_lats''\|''lebanese_pound''\|''lesotho_loti''\|''liberian_dollar''\|''libyan_dinar''\|''lithuanian_litas''\|''macanese_pataca''\|''macedonian_denar''\|''malagasy_ariary''\|''malawian_kwacha''\|''malaysian_ringgit''\|''maldivian_rufiyaa''\|''malian_franc''\|''mauritanian_ouguiya''\|''mauritian_rupee''\|''mexican_peso''\|''moldovan_leu''\|''mongolian_tugrik''\|''moroccan_dirham''\|''mozambican_metical''\|''myanmar_kyat''\|''namibian_dollar''\|''nepalese_rupee''\|''new_zealand_dollar''\|''nicaraguan_cordoba''\|''nigerian_franc''\|''nigerian_naira''\|''north_korean_won''\|''norwegian_krone''\|''omani_rial''\|''pakistani_rupee''\|''panamanian_balboa''\|''papua_new_guinean…''\|''paraguayan_guarani''\|''peruvian_sol''\|''philippine_peso''\|''polish_zloty''\|''qatari_riyal''\|''romanian_leu''\|''russian_ruble''\|''rwandan_franc''\|''salvadoran_colon''\|''sao_tomean_dobra''\|''saudi_riyal''\|''senegalese_franc''\|''serbian_dinar''\|''seychellois_rupee''\|''sierra_leonean_leone''\|''singapore_dollar''\|''solomon_islands…''\|''somali_shilling''\|''south_african_rand''\|''south_korean_won''\|''sri_lankan_rupee''\|''sudanese_pound''\|''surinamese_dollar''\|''swazi_lilangeni''\|''swedish_krona''\|''swiss_franc''\|''syrian_pound''\|''tajikistani_somoni''\|''tanzanian_shilling''\|''thai_baht''\|''togolese_franc''\|''tongan_paanga''\|''trinidad_and_tobago…''\|''tunisian_dinar''\|''turkish_lira''\|''turkmenistani_manat''\|''ugandan_shilling''\|''ukrainian_hryvnia''\|''united_arab…''\|''united_states_dollar''\|''uruguayan_peso''\|''uzbekistani_som''\|''vanuatu_vatu''\|''venezuelan_bolivar''\|''vietnamese_dong''\|''west_african_cfa…''\|''yemeni_rial''\|''zambian_kwacha''\|''zimbabwean_dollar'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Objects/Geography/Currency.php
+
+		-
+			message: '#^Call to function is_string\(\) with ''province''\|''region''\|''state'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Objects/Geography/DivisionType.php
+
+		-
+			message: '#^Call to function is_string\(\) with ''no''\|''yes'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Objects/Support/Enums/YesNo.php
+
+		-
+			message: '#^Call to function is_string\(\) with string will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Objects/Support/Types/Str.php
