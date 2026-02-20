@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use EncoreDigitalGroup\StdLib\Support\Internal\Rector\Rector;
-use Rector\Config\RectorConfig;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddMethodCallBasedStrictParamTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByMethodCallTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByParentCallTypeRector;

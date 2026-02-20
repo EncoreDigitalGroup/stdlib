@@ -10,7 +10,6 @@ use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\GroupUse;
 use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\Node\Stmt\Use_;
-use PhpParser\Node\Stmt\UseUse;
 use Rector\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
@@ -77,7 +76,7 @@ CODE_SAMPLE
         // Find all @see annotations
         $pattern = '/@see\s+([^\s\*]+)/';
 
-        $result = preg_replace_callback($pattern, fn(array $matches): string => $this->processSeeMatch($matches, $classNode), $docBlock);
+        $result = preg_replace_callback($pattern, fn (array $matches): string => $this->processSeeMatch($matches, $classNode), $docBlock);
 
         return is_string($result) ? $result : $docBlock;
     }
