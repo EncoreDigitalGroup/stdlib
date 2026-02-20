@@ -27,8 +27,8 @@ trait HasEnumValue
 
         $cases = [];
         /** @var BackedEnum $case */
-        foreach (static::cases() as $case) {
-            $cases[] = $case->value;
+        foreach (static::cases() as $backedEnum) {
+            $cases[] = $backedEnum->value;
         }
 
         return $cases;
@@ -40,9 +40,9 @@ trait HasEnumValue
 
         $cases = [];
         /** @var BackedEnum $case */
-        foreach (static::cases() as $case) {
-            if (is_string($case->value)) {
-                $cases[$case->value] = Str::formattedTitleCase($case->value);
+        foreach (static::cases() as $backedEnum) {
+            if (is_string($backedEnum->value)) {
+                $cases[$backedEnum->value] = Str::formattedTitleCase($backedEnum->value);
             }
         }
 
@@ -53,9 +53,9 @@ trait HasEnumValue
     {
         static::enforceEnum();
 
-        foreach (static::cases() as $case) {
-            if ($case->value === $value) {
-                return $case;
+        foreach (static::cases() as $backedEnum) {
+            if ($backedEnum->value === $value) {
+                return $backedEnum;
             }
         }
 
@@ -74,8 +74,8 @@ trait HasEnumValue
 
         $options = [];
 
-        foreach (self::cases() as $case) {
-            $options[$case->value] = self::name($case);
+        foreach (self::cases() as $backedEnum) {
+            $options[$backedEnum->value] = self::name($backedEnum);
         }
 
         return $options;
@@ -107,9 +107,9 @@ trait HasEnumValue
     {
         $options = [];
 
-        foreach (self::cases() as $case) {
-            if (in_array($case, $include)) {
-                $options[$case->value] = self::name($case);
+        foreach (self::cases() as $backedEnum) {
+            if (in_array($backedEnum, $include)) {
+                $options[$backedEnum->value] = self::name($backedEnum);
             }
         }
 
@@ -120,9 +120,9 @@ trait HasEnumValue
     {
         $options = [];
 
-        foreach (self::cases() as $case) {
-            if (!in_array($case, $exclude)) {
-                $options[$case->value] = self::name($case);
+        foreach (self::cases() as $backedEnum) {
+            if (!in_array($backedEnum, $exclude)) {
+                $options[$backedEnum->value] = self::name($backedEnum);
             }
         }
 
