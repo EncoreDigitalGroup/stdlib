@@ -49,9 +49,7 @@ class JsonSerializer extends AbstractSerializer
         return [(new JsonEncoder)];
     }
 
-    /**
-     * @param  class-string|object  $classOrObject
-     */
+    /** @param  class-string|object  $classOrObject */
     private static function hasMapNameAttributes(string|object $classOrObject): bool
     {
         $reflection = new ReflectionClass($classOrObject);
@@ -95,9 +93,7 @@ class JsonSerializer extends AbstractSerializer
         return $json;
     }
 
-    /**
-     * @param  class-string  $class
-     */
+    /** @param  class-string  $class */
     private static function deserializeWithMapName(string $class, string $jsonData): mixed
     {
         $data = json_decode($jsonData, true);

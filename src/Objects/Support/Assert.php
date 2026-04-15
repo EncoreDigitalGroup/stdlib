@@ -6,9 +6,7 @@ use EncoreDigitalGroup\StdLib\Exceptions\AssertionFailedException;
 
 class Assert
 {
-    /**
-     * @phpstan-assert true $value
-     */
+    /** @phpstan-assert true $value */
     public static function true(mixed $value): void
     {
         if (!is_bool($value)) {
@@ -20,9 +18,7 @@ class Assert
         }
     }
 
-    /**
-     * @phpstan-assert false $value
-     */
+    /** @phpstan-assert false $value */
     public static function false(mixed $value): void
     {
         if (!is_bool($value)) {
@@ -34,9 +30,7 @@ class Assert
         }
     }
 
-    /**
-     * @phpstan-assert !null $value
-     */
+    /** @phpstan-assert !null $value */
     public static function notNull(mixed $value): void
     {
         if (is_null($value)) {
@@ -44,9 +38,7 @@ class Assert
         }
     }
 
-    /**
-     * @phpstan-assert string $value
-     */
+    /** @phpstan-assert string $value */
     public static function string(mixed $value): void
     {
         if (!is_string($value)) {

@@ -2,6 +2,8 @@
 
 namespace EncoreDigitalGroup\StdLib\Support\Internal\Rector;
 
+use EncoreDigitalGroup\StdLib\Support\Internal\Rector\Rules\ApplySingleItemDocBlockStyleRector;
+use EncoreDigitalGroup\StdLib\Support\Internal\Rector\Rules\ExpandSeeAnnotationClassNameRector;
 use EncoreDigitalGroup\StdLib\Support\Internal\Rector\Rules\ReplaceSingleQuotesWithDoubleRector;
 use Rector\CodeQuality\Rector\Assign\CombinedAssignRector;
 use Rector\CodeQuality\Rector\BooleanAnd\RemoveUselessIsObjectCheckRector;
@@ -10,6 +12,7 @@ use Rector\CodeQuality\Rector\BooleanNot\ReplaceMultipleBooleanNotRector;
 use Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector;
 use Rector\CodeQuality\Rector\Catch_\ThrowWithPreviousExceptionRector;
 use Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector;
+use Rector\CodeQuality\Rector\Class_\ConvertStaticToSelfRector;
 use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 use Rector\CodeQuality\Rector\ClassMethod\ExplicitReturnNullRector;
 use Rector\CodeQuality\Rector\ClassMethod\InlineArrayReturnAssignRector;
@@ -89,10 +92,11 @@ use Rector\CodingStyle\Rector\If_\NullableCompareToNullRector;
 use Rector\CodingStyle\Rector\Property\SplitGroupedPropertiesRector;
 use Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector;
 use Rector\CodingStyle\Rector\Stmt\RemoveUselessAliasInUseStatementRector;
-use Rector\CodingStyle\Rector\String_\SymplifyQuoteEscapeRector;
 use Rector\CodingStyle\Rector\String_\UseClassKeywordForClassNameResolutionRector;
 use Rector\CodingStyle\Rector\Ternary\TernaryConditionVariableAssignmentRector;
 use Rector\CodingStyle\Rector\Use_\SeparateMultiUseImportsRector;
+use Rector\Config\RectorConfig;
+use Rector\Configuration\RectorConfigBuilder;
 use Rector\DeadCode\Rector\Array_\RemoveDuplicatedArrayKeyRector;
 use Rector\DeadCode\Rector\Assign\RemoveDoubleAssignRector;
 use Rector\DeadCode\Rector\Assign\RemoveUnusedVariableAssignRector;
@@ -157,7 +161,6 @@ use Rector\Privatization\Rector\ClassMethod\PrivatizeFinalClassMethodRector;
 use Rector\Privatization\Rector\MethodCall\PrivatizeLocalGetterToPropertyRector;
 use Rector\Privatization\Rector\Property\PrivatizeFinalClassPropertyRector;
 use Rector\Renaming\Rector\FuncCall\RenameFunctionRector;
-use Rector\Strict\Rector\Empty_\DisallowedEmptyRuleFixerRector;
 use Rector\Symfony\CodeQuality\Rector\ClassMethod\ResponseReturnTypeControllerActionRector;
 use Rector\Transform\Rector\FuncCall\FuncCallToConstFetchRector;
 use Rector\TypeDeclaration\Rector\ArrowFunction\AddArrowFunctionReturnTypeRector;
@@ -211,20 +214,31 @@ use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictSetUpRector;
 use Rector\TypeDeclaration\Rector\While_\WhileNullableToInstanceofRector;
 use Rector\Visibility\Rector\ClassMethod\ExplicitPublicClassMethodRector;
 
-/** @codeCoverageIgnore */
 class Rector
 {
-    public static function rules(array $rules = []): array
+    public static function configure(): RectorConfigBuilder
     {
-        return array_merge([
+        return RectorConfig::configure()
+            ->withRules(Rector::rules())
+            ->withImportNames()
+            ->withParallel(600);
+    }
+
+    public static function rules(array $rules = [], array $except = []): array
+    {
+        $allRules = array_merge([
             AddVoidReturnTypeWhereNoReturnRector::class,
             ReplaceSingleQuotesWithDoubleRector::class,
+            ApplySingleItemDocBlockStyleRector::class,
+            SeparateMultiUseImportsRector::class,
+            ExpandSeeAnnotationClassNameRector::class,
             CombinedAssignRector::class,
             RemoveUselessIsObjectCheckRector::class,
             SimplifyEmptyArrayCheckRector::class,
             ReplaceMultipleBooleanNotRector::class,
             SimplifyDeMorganBinaryRector::class,
             ThrowWithPreviousExceptionRector::class,
+            ConvertStaticToSelfRector::class,
             ExplicitReturnNullRector::class,
             InlineArrayReturnAssignRector::class,
             LocallyCalledStaticMethodToNonStaticRector::class,
@@ -299,7 +313,6 @@ class Rector
             NullableCompareToNullRector::class,
             SplitGroupedPropertiesRector::class,
             RemoveUselessAliasInUseStatementRector::class,
-            SymplifyQuoteEscapeRector::class,
             UseClassKeywordForClassNameResolutionRector::class,
             TernaryConditionVariableAssignmentRector::class,
             RemoveDuplicatedArrayKeyRector::class,
@@ -363,7 +376,6 @@ class Rector
             PrivatizeLocalGetterToPropertyRector::class,
             PrivatizeFinalClassPropertyRector::class,
             RenameFunctionRector::class,
-            DisallowedEmptyRuleFixerRector::class,
             ResponseReturnTypeControllerActionRector::class,
             FuncCallToConstFetchRector::class,
             AddArrowFunctionReturnTypeRector::class,
@@ -416,6 +428,10 @@ class Rector
             WhileNullableToInstanceofRector::class,
             ExplicitPublicClassMethodRector::class,
         ], $rules);
+
+        $filteredRules = array_diff($allRules, $except);
+
+        return array_filter($filteredRules, fn (string $class): bool => class_exists($class));
     }
 
     public static function skip(array $rules = []): array
