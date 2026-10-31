@@ -12,6 +12,13 @@
             "pestphp/pest-plugin": true
         }
     },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "extension.neon"
+            ]
+        }
+    },
     "require": {
         "php": "^8.3",
         "composer/composer": "^2.8",

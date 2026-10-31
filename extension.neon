@@ -1,0 +1,9 @@
+services:
+    -
+        class: EncoreDigitalGroup\StdLib\Support\Internal\PHPStan\AssertTypeSpecifyingExtension
+        tags:
+            - phpstan.typeSpecifier.staticMethodTypeSpecifyingExtension
+    -
+        class: EncoreDigitalGroup\StdLib\Support\Internal\PHPStan\AssertMagicMethodsExtension
+        tags:
+            - phpstan.broker.methodsClassReflectionExtension
