@@ -77,7 +77,6 @@ class JsonSerializer extends AbstractSerializer
         $data = [];
 
         foreach ($reflection->getProperties() as $reflectionProperty) {
-            $reflectionProperty->setAccessible(true);
             $propertyName = $reflectionProperty->getName();
             $value = $reflectionProperty->getValue($object);
 

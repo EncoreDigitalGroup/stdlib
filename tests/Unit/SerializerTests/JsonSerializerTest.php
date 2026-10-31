@@ -1,6 +1,5 @@
 <?php
 
-
 use EncoreDigitalGroup\StdLib\Objects\Serializers\Attributes\MapInputName;
 use EncoreDigitalGroup\StdLib\Objects\Serializers\Attributes\MapName;
 use EncoreDigitalGroup\StdLib\Objects\Serializers\Attributes\MapOutputName;
@@ -27,8 +26,19 @@ class MapNameTestObject
         public string $firstName,
         #[MapName(SnakeCaseMapper::class)]
         public string $lastName,
-        public int    $age
+        public int $age
     ) {}
+}
+
+class PrivateMapNameTestObject
+{
+    #[MapName('private_name')]
+    private string $name;
+
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
 }
 
 class MapInputOutputTestObject
@@ -37,7 +47,7 @@ class MapInputOutputTestObject
         #[MapInputName('first_name')]
         #[MapOutputName('full_name')]
         public string $name,
-        public int    $age
+        public int $age
     ) {}
 }
 
@@ -57,7 +67,7 @@ class MapNameInputOutputTestObject
         public string $name,
         #[MapName(input: SnakeCaseMapper::class)]
         public string $firstName,
-        public int    $age
+        public int $age
     ) {}
 }
 
@@ -67,7 +77,7 @@ class ClassLevelMapNameObject
     public function __construct(
         public string $firstName,
         public string $lastName,
-        public int    $userAge
+        public int $userAge
     ) {}
 }
 
@@ -112,6 +122,15 @@ describe("JsonSerializer Tests", function () {
             ->and($object->firstName)->toBe('John')
             ->and($object->lastName)->toBe('Doe')
             ->and($object->age)->toBe(30);
+    });
+
+    test('JsonSerializer serializes private mapped properties', function () {
+        $json = JsonSerializer::serialize(new PrivateMapNameTestObject('John Doe'));
+
+        expect($json)->toBeJson()
+            ->and(json_decode($json, true))->toMatchArray([
+                'private_name' => 'John Doe',
+            ]);
     });
 
     test('JsonSerializer uses separate MapInputName and MapOutputName attributes', function () {
