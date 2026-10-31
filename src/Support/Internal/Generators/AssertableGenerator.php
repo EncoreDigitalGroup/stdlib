@@ -90,7 +90,7 @@ PHP;
         $default = self::renderDefaultValue($parameter);
 
         return sprintf(
-            '%s%s%s$%s%s',
+            "%s%s%s$%s%s",
             $type === "" ? "" : $type . " ",
             $reference,
             $variadic,
@@ -134,7 +134,7 @@ PHP;
 
     private static function renderArgument(ReflectionParameter $parameter): string
     {
-        return ($parameter->isVariadic() ? "..." : "") . '$' . $parameter->getName();
+        return ($parameter->isVariadic() ? "..." : "") . "$" . $parameter->getName();
     }
 
     private static function renderType(?ReflectionType $type): string
@@ -156,7 +156,15 @@ PHP;
 
         $defaultValue = $parameter->getDefaultValue();
 
-        return " = " . ($defaultValue === null ? "null" : var_export($defaultValue, true));
+        if ($defaultValue === null) {
+            return " = null";
+        }
+
+        if (is_string($defaultValue)) {
+            return sprintf(" = \"%s\"", addcslashes($defaultValue, '\\$"'));
+        }
+
+        return " = " . var_export($defaultValue, true);
     }
 
     private static function indent(string $value): string
