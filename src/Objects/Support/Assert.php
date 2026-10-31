@@ -58,7 +58,7 @@ class Assert
 
     public static function integerish(mixed $value, string $message = ''): void
     {
-        self::check(is_numeric($value) && $value == (int) $value, $message, 'Failed to assert integerish value.');
+        self::check(is_numeric($value) && $value == (int)$value, $message, 'Failed to assert integerish value.');
     }
 
     public static function positiveInteger(mixed $value, string $message = ''): void
@@ -169,7 +169,8 @@ class Assert
             if (is_string($class) && $value instanceof $class) {
                 return;
             }
-        } self::fail($message, 'Failed to assert instance of any class.');
+        }
+        self::fail($message, 'Failed to assert instance of any class.');
     }
 
     public static function isAOf(mixed $value, mixed $class, string $message = ''): void
@@ -192,7 +193,8 @@ class Assert
             if (is_string($class) && is_a($value, $class, is_string($value))) {
                 return;
             }
-        } self::fail($message, 'Failed to assert any class relationship.');
+        }
+        self::fail($message, 'Failed to assert any class relationship.');
     }
 
     public static function uniqueValues(mixed $values, string $message = ''): void
@@ -396,21 +398,21 @@ class Assert
     {
         self::string($value, $message);
         self::integerish($length, $message);
-        self::check(self::stringLength($value) === (int) $length, $message, 'Failed to assert string length.');
+        self::check(self::stringLength($value) === (int)$length, $message, 'Failed to assert string length.');
     }
 
     public static function minLength(mixed $value, mixed $min, string $message = ''): void
     {
         self::string($value, $message);
         self::integerish($min, $message);
-        self::check(self::stringLength($value) >= (int) $min, $message, 'Failed to assert minimum string length.');
+        self::check(self::stringLength($value) >= (int)$min, $message, 'Failed to assert minimum string length.');
     }
 
     public static function maxLength(mixed $value, mixed $max, string $message = ''): void
     {
         self::string($value, $message);
         self::integerish($max, $message);
-        self::check(self::stringLength($value) <= (int) $max, $message, 'Failed to assert maximum string length.');
+        self::check(self::stringLength($value) <= (int)$max, $message, 'Failed to assert maximum string length.');
     }
 
     public static function lengthBetween(mixed $value, mixed $min, mixed $max, string $message = ''): void
@@ -418,7 +420,7 @@ class Assert
         self::string($value, $message);
         self::integerish($min, $message);
         self::integerish($max, $message);
-        self::check(self::stringLength($value) >= (int) $min && self::stringLength($value) <= (int) $max, $message, 'Failed to assert string length range.');
+        self::check(self::stringLength($value) >= (int)$min && self::stringLength($value) <= (int)$max, $message, 'Failed to assert string length range.');
     }
 
     public static function uuid(mixed $value, string $message = ''): void
@@ -559,21 +561,21 @@ class Assert
     {
         self::isCountable($array, $message);
         self::integerish($number, $message);
-        self::check(count($array) === (int) $number, $message, 'Failed to assert count.');
+        self::check(count($array) === (int)$number, $message, 'Failed to assert count.');
     }
 
     public static function minCount(mixed $array, mixed $min, string $message = ''): void
     {
         self::isCountable($array, $message);
         self::integerish($min, $message);
-        self::check(count($array) >= (int) $min, $message, 'Failed to assert minimum count.');
+        self::check(count($array) >= (int)$min, $message, 'Failed to assert minimum count.');
     }
 
     public static function maxCount(mixed $array, mixed $max, string $message = ''): void
     {
         self::isCountable($array, $message);
         self::integerish($max, $message);
-        self::check(count($array) <= (int) $max, $message, 'Failed to assert maximum count.');
+        self::check(count($array) <= (int)$max, $message, 'Failed to assert maximum count.');
     }
 
     public static function countBetween(mixed $array, mixed $min, mixed $max, string $message = ''): void
@@ -581,7 +583,7 @@ class Assert
         self::isCountable($array, $message);
         self::integerish($min, $message);
         self::integerish($max, $message);
-        self::check(count($array) >= (int) $min && count($array) <= (int) $max, $message, 'Failed to assert count range.');
+        self::check(count($array) >= (int)$min && count($array) <= (int)$max, $message, 'Failed to assert count range.');
     }
 
     public static function isList(mixed $array, string $message = ''): void
