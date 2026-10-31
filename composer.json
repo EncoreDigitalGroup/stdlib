@@ -55,6 +55,7 @@
         "post-autoload-dump": [
             "EncoreDigitalGroup\\StdLib\\Support\\Internal\\Composer\\Scripts::postAutoloadDump"
         ],
+        "generate:assertable": "EncoreDigitalGroup\\StdLib\\Support\\Internal\\Composer\\Scripts::generateAssertable",
         "format": "vendor/bin/rector && vendor/bin/duster fix",
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest"
