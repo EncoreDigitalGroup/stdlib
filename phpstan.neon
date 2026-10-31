@@ -1,5 +1,6 @@
 includes:
     - phpstan-baseline.neon
+    - extension.neon
 
 parameters:
     level: 8
@@ -9,11 +10,11 @@ parameters:
     checkDynamicProperties: false
     checkTooWideReturnTypesInProtectedAndPublicMethods: false
     ignoreErrors:
-        - identifier: missingType.generics
-        - identifier: missingType.iterableValue
-        - identifier: trait.unused
-        - identifier: new.static
+        -   identifier: missingType.generics
+        -   identifier: missingType.iterableValue
+        -   identifier: trait.unused
+        -   identifier: new.static
         - '#PHPDoc tag .+ #'
     cognitive_complexity:
-            class: 50
-            function: 10
+        class: 50
+        function: 10

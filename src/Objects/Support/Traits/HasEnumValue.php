@@ -90,17 +90,6 @@ trait HasEnumValue
         return $name;
     }
 
-    private static function enforceEnum(): void
-    {
-        /** @phpstan-ignore-next-line Runtime safety check */
-        if (!method_exists(static::class, "cases")) {
-            throw new LogicException(sprintf(
-                "The trait %s can only be used on enum classes",
-                self::class
-            ));
-        }
-    }
-
     private static function optionsIncluding(array $include): array
     {
         $options = [];
@@ -125,5 +114,20 @@ trait HasEnumValue
         }
 
         return $options;
+    }
+
+    private static function enforceEnum(): void
+    {
+        if (!self::isEnumClass(static::class)) {
+            throw new LogicException(sprintf(
+                "The trait %s can only be used on enum classes",
+                self::class
+            ));
+        }
+    }
+
+    private static function isEnumClass(string $class): bool
+    {
+        return method_exists($class, "cases");
     }
 }

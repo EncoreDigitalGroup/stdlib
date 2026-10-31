@@ -20,6 +20,9 @@ code_style:
     extends: .php:code-style
     interruptible: true
     image: "$PHP_CI_IMAGE"
+    before_script:
+        - cd "$APP_DIR"
+        - composer generate:assertable
 
 static_analysis:
     stage: quality
