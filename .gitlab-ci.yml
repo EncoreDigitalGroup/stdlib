@@ -20,6 +20,9 @@ code_style:
     extends: .php:code-style
     interruptible: true
     image: "$PHP_CI_IMAGE"
+    before_script:
+        - cd "$APP_DIR"
+        - composer generate:assertable
 
 static_analysis:
     stage: quality
@@ -34,16 +37,6 @@ test:
     extends: .php:test
     interruptible: true
     image: "$PHP_CI_IMAGE"
-
-assertable:
-    stage: quality
-    extends: .php:test
-    interruptible: true
-    image: "$PHP_CI_IMAGE"
-    script:
-        - cd "$APP_DIR"
-        - composer install --no-ansi --no-interaction --no-progress --prefer-dist --ignore-platform-reqs
-        - composer generate:assertable -- --check
 
 release:
     extends: .gitlab:create-release

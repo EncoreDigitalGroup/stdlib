@@ -22,7 +22,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/rector/rector" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/clock" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php83" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/tightenco/duster" />
@@ -85,6 +84,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/pestphp/pest-plugin-profanity" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php84" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php85" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/illuminate/reflection" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php86" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-time" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
