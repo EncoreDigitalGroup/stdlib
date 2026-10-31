@@ -4,6 +4,7 @@ namespace EncoreDigitalGroup\StdLib\Support\Internal\PHPStan;
 
 use Countable;
 use EncoreDigitalGroup\StdLib\Objects\Support\Assert;
+use EncoreDigitalGroup\StdLib\Support\Internal\Assertions\AssertTypeMetadata;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Identifier;
@@ -53,28 +54,25 @@ class AssertTypeSpecifyingExtension implements StaticMethodTypeSpecifyingExtensi
 
     private static function typeFor(string $method): ?Type
     {
-        return match ($method) {
-            'string', 'stringNotEmpty', 'contains', 'notContains', 'notWhitespaceOnly', 'startsWith', 'notStartsWith',
-            'startsWithLetter', 'endsWith', 'notEndsWith', 'regex', 'notRegex', 'unicodeLetters', 'alpha', 'digits',
-            'alnum', 'lower', 'upper', 'length', 'minLength', 'maxLength', 'lengthBetween', 'uuid', 'ip', 'ipv4', 'ipv6',
-            'email', 'fileExists', 'file', 'directory', 'readable', 'writable', 'classExists', 'interfaceExists' => new StringType,
-            'integer', 'positiveInteger', 'negativeInteger', 'notNegativeInteger', 'natural' => new IntegerType,
+        return match (AssertTypeMetadata::phpStanAssertion($method)) {
+            'string' => new StringType,
+            'int' => new IntegerType,
             'float' => new FloatType,
-            'boolean' => new BooleanType,
+            'bool' => new BooleanType,
             'true' => new ConstantBooleanType(true),
             'false' => new ConstantBooleanType(false),
             'null' => new NullType,
             'resource' => new ResourceType,
-            'object', 'isInstanceOf', 'isInstanceOfAny' => new ObjectWithoutClassType,
-            'objectish', 'isAOf', 'isAnyOf' => TypeCombinator::union(new ObjectWithoutClassType, new StringType),
-            'isArray', 'isList', 'isNonEmptyList', 'isMap', 'isNonEmptyMap' => new ArrayType(new MixedType, new MixedType),
-            'isIterable' => new IterableType(new MixedType, new MixedType),
-            'isCountable' => TypeCombinator::union(
+            'object' => new ObjectWithoutClassType,
+            'object|string' => TypeCombinator::union(new ObjectWithoutClassType, new StringType),
+            'array' => new ArrayType(new MixedType, new MixedType),
+            'iterable' => new IterableType(new MixedType, new MixedType),
+            'array|Countable' => TypeCombinator::union(
                 new ArrayType(new MixedType, new MixedType),
                 new ObjectType(Countable::class),
             ),
             'scalar' => TypeCombinator::union(new StringType, new IntegerType, new FloatType, new BooleanType),
-            'numeric', 'integerish' => TypeCombinator::union(new StringType, new IntegerType, new FloatType),
+            'int|float|string' => TypeCombinator::union(new StringType, new IntegerType, new FloatType),
             default => null,
         };
     }

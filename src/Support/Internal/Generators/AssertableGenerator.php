@@ -3,6 +3,7 @@
 namespace EncoreDigitalGroup\StdLib\Support\Internal\Generators;
 
 use EncoreDigitalGroup\StdLib\Objects\Support\Assert;
+use EncoreDigitalGroup\StdLib\Support\Internal\Assertions\AssertTypeMetadata;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionParameter;
@@ -61,7 +62,9 @@ PHP;
     private static function renderMethod(ReflectionMethod $method): string
     {
         $docComment = $method->getDocComment();
-        $documentation = $docComment === false ? '' : self::indent($docComment) . "\n";
+        $documentation = $docComment === false
+            ? self::renderAssertionDocumentation($method)
+            : self::indent($docComment) . "\n";
         $parameters = implode(', ', array_map(self::renderParameter(...), $method->getParameters()));
         $arguments = implode(', ', array_map(self::renderArgument(...), $method->getParameters()));
         $returnType = self::renderType($method->getReturnType());
@@ -94,6 +97,39 @@ PHP;
             $parameter->getName(),
             $default,
         );
+    }
+
+    private static function renderAssertionDocumentation(ReflectionMethod $method): string
+    {
+        if ($method->getName() === 'isInstanceOf') {
+            return <<<'PHP'
+    /**
+     * @template T of object
+     *
+     * @param  class-string<T>  $class
+     *
+     * @phpstan-assert T $value
+     */
+
+PHP;
+        }
+
+        if ($method->getName() === 'isInstanceOfAny') {
+            return <<<'PHP'
+    /**
+     * @template T of object
+     *
+     * @param  iterable<class-string<T>>  $classes
+     *
+     * @phpstan-assert T $value
+     */
+
+PHP;
+        }
+
+        $type = AssertTypeMetadata::phpStanAssertion($method->getName());
+
+        return $type === null ? '' : "    /** @phpstan-assert {$type} \$value */\n";
     }
 
     private static function renderArgument(ReflectionParameter $parameter): string
