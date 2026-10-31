@@ -175,7 +175,6 @@ use Rector\TypeDeclaration\Rector\ClassMethod\AddMethodCallBasedStrictParamTypeR
 use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeBasedOnPHPUnitDataProviderRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeFromPropertyTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddReturnTypeDeclarationBasedOnParentClassMethodRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\BoolReturnTypeFromBooleanConstReturnsRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\BoolReturnTypeFromBooleanStrictReturnsRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\NumericReturnTypeFromStrictReturnsRector;
@@ -184,7 +183,6 @@ use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByMethodCallTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByParentCallTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnNeverTypeRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnNullableTypeRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromMockObjectRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnCastRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnDirectArrayRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
@@ -227,7 +225,6 @@ class Rector
     public static function rules(array $rules = [], array $except = []): array
     {
         $allRules = array_merge([
-            AddVoidReturnTypeWhereNoReturnRector::class,
             ReplaceSingleQuotesWithDoubleRector::class,
             ApplySingleItemDocBlockStyleRector::class,
             SeparateMultiUseImportsRector::class,
@@ -392,7 +389,6 @@ class Rector
             ParamTypeByParentCallTypeRector::class,
             ReturnNeverTypeRector::class,
             ReturnNullableTypeRector::class,
-            ReturnTypeFromMockObjectRector::class,
             ReturnTypeFromReturnCastRector::class,
             ReturnTypeFromReturnDirectArrayRector::class,
             ReturnTypeFromReturnNewRector::class,
